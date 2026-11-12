@@ -98,9 +98,9 @@ ${body}
   <nav aria-label="Footer"><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
   <p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p>
  </div>
- <p class="copy">© 2026 House of Tangents. Project status and figures as of ${SITE.asOf}.</p>
+ <p class="copy">© 2026 House of Tangents.</p>
 </div></footer>
-<dialog class="vdialog" id="vdialog" aria-labelledby="vtitle"><div class="vhead"><h2 id="vtitle"></h2><button type="button" class="vclose">Close</button></div><div class="vframe" id="vframe"></div><p id="vsummary" class="vsum"></p><p class="fine">Interim playback from the client’s shared Google Drive folder, loaded only after you press play.</p></dialog>
+<dialog class="vdialog" id="vdialog" aria-labelledby="vtitle"><div class="vhead"><h2 id="vtitle"></h2><button type="button" class="vclose">Close</button></div><div class="vframe" id="vframe"></div><p id="vsummary" class="vsum"></p><p class="fine">Video loads when you press play.</p></dialog>
 <script src="/site.js" defer></script>
 </body></html>`;
 }
@@ -118,7 +118,7 @@ const formHTML=(id)=>`<form class="form" id="${id}" method="post" action="/api/c
  <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
  <button class="btn submit" type="submit">Send enquiry</button>
  <p class="form-status" role="status" aria-live="polite"></p>
- <p class="fine">If sending doesn’t work, email <a href="mailto:${SITE.email}">${SITE.email}</a> or call <a href="${SITE.phoneHref}">${SITE.phone}</a>.</p>
+ <p class="fine">Prefer email or a call? <a href="mailto:${SITE.email}">${SITE.email}</a> · <a href="${SITE.phoneHref}">${SITE.phone}</a></p>
 </form>`;
 
 // ================= HOME =================
@@ -147,14 +147,13 @@ const home=`
 </div></section>
 
 <section class="band" aria-labelledby="proof-h"><div class="wrap results">
- <div class="res-intro"><p class="label">Results</p><h2 id="proof-h">Results, with the context they belong to.</h2><p>Each figure stays with its project, channel and reporting period. Views and followers are not sales.</p></div>
+ <div class="res-intro"><p class="label">Results</p><h2 id="proof-h">The work went out, and people responded.</h2></div>
  <ol class="res-list">
+  <li><span class="fig">2 videos</span><div><p>Above one million views on a personal profile, with no paid promotion.</p><a class="link" href="/work/shambhavi">Shambhavi Shiva</a></div></li>
+  <li><span class="fig">700K–800K</span><div><p>Organic views on selected reels.</p><a class="link" href="/work/majestic-india">Majestic India</a></div></li>
   <li><span class="fig">800%+</span><div><p>Organic account reach growth in the first two months.</p><a class="link" href="/work/capitol-hill">Capitol Hill</a></div></li>
-  <li><span class="fig">700K–800K</span><div><p>Organic views on selected reels. Paid lead campaigns were separate.</p><a class="link" href="/work/majestic-india">Majestic India</a></div></li>
-  <li><span class="fig">2 videos</span><div><p>Above one million views on a personal profile, with no boosted posts or paid ads.</p><a class="link" href="/work/shambhavi">Shambhavi Shiva</a></div></li>
-  <li><span class="fig">832</span><div><p>Followers in 20 days, without paid follower acquisition.</p><a class="link" href="/work/santhal-strikers">JT20 / Santhal Strikers</a></div></li>
  </ol>
- <p class="fine res-note">Figures come from the team’s project records and supplied case studies, as of ${SITE.asOf}. Reporting periods and qualifications are on each case study.</p>
+ <p class="fine res-note">Full context for every figure is on its case study.</p>
 </div></section>
 
 <section class="band white" aria-labelledby="serv-h"><div class="wrap">
@@ -162,9 +161,14 @@ const home=`
  <ol class="svc-list">${SERVICES.map((s,i)=>`<li><span class="svc-no" aria-hidden="true">0${i+1}</span><h3>${s.title}</h3><div><p>${s.short}</p><p class="eg"><span>Examples</span> ${svcExamples(s).slice(0,3).map(p=>`<a class="link" href="/work/${p.slug}">${esc(p.name)}</a>`).join(', ')}</p></div></li>`).join('')}</ol>
 </div></section>
 
+<section class="band" aria-labelledby="tm-h"><div class="wrap two">
+ <div><p class="label">Tangent Media</p><h2 id="tm-h">Where the brief took a turn.</h2></div>
+ <div><p>Tangent Media shows the thinking behind our more unexpected work: the observation behind a concept and how we made it. When an idea is new, we show what it would take to put it into production.</p><p><a class="link" href="/tangent-media">Explore Tangent Media${arrow}</a></p></div>
+</div></section>
+
 <section class="band blue origin" id="origin" aria-labelledby="origin-h"><div class="wrap two">
  <div><p class="label">Why “Tangents”</p><h2 id="origin-h">A line that touches a circle once, then moves on.</h2></div>
- <div class="origin-copy"><p>The name comes from a scene in <i>Gangs of Wasseypur Part II</i>, where Guddu explains the difference between a perpendicular and a tangent. It stayed with us because it made the angle matter. We’ve given that geometry its own nonviolent creative meaning.</p><p class="platform">Tangent thinking. Perpendicular commitment.</p><p><a class="link" href="/about#name">Read the full story${arrow}</a></p></div>
+ <div class="origin-copy"><p>The name comes from a scene in <i>Gangs of Wasseypur Part II</i>, where Guddu explains the difference between a perpendicular and a tangent. It stayed with us because it made the angle matter.</p><p class="platform">Tangent thinking. Perpendicular commitment.</p><p><a class="link" href="/about#name">Read the full story${arrow}</a></p></div>
 </div></section>
 
 <section class="band" aria-labelledby="method-h"><div class="wrap two method">
@@ -181,7 +185,7 @@ const home=`
  <ul class="roster">${TEAM.map(t=>`<li><b>${t.name}</b><span class="role">${t.role}</span><span class="what">${t.short}</span></li>`).join('')}</ul>
 </div></section>
 
-<section class="band peach testimonial" aria-label="Testimonial"><div class="wrap narrow"><figure><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption>Narendra Singh, General Manager, Capitol Hill<span class="fine">An excerpt from the testimonial published on our earlier agency website.</span></figcaption></figure></div></section>
+<section class="band peach testimonial" aria-label="Testimonial"><div class="wrap narrow"><figure><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption>Narendra Singh, General Manager, Capitol Hill</figcaption></figure></div></section>
 
 <section class="band charcoal contact-band" id="contact-home" aria-labelledby="c-h"><div class="wrap contact-grid">
  <div>
@@ -229,7 +233,7 @@ for(const [pi,p] of projects.entries()){
    ${deliver}
    ${vids||gallery?`<section class="blk visuals"><h2 class="label">Project visuals</h2><div class="vgrid">${vids}</div>${gallery}</section>`:''}
    ${resultsHTML}
-   <section class="blk method"><h2 class="label">Methodology and credits</h2><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. Status as of ${SITE.asOf}. <a class="link" href="/credits">Full reporting notes</a>.</p><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></section>`;
+   <section class="blk method"><h2 class="label">Methodology and credits</h2><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. <a class="link" href="/credits">Full reporting notes</a>.</p><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></section>`;
   const body=`${hero}<section class="band tight case-body ${layoutB?'case-b':'case-a'}"><div class="wrap">${layoutB?`<div class="case-grid"><aside class="case-side">${facts}</aside><div class="case-main">${main}</div></div>`:`${facts}<div class="case-main">${main}</div>`}</div></section>
   <section class="band white"><div class="wrap"><h2>Related work</h2><ol class="rows">${rel.map((r,i)=>row(r,i+1)).join('')}</ol></div></section>
   <section class="band charcoal cta-band next"><div class="wrap"><p class="label">Next project</p><a class="next-link" href="/work/${next.slug}">${esc(next.name)}${arrow}</a><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="/work">All work</a></div></div></section>`;
@@ -251,7 +255,7 @@ out('/about',layout({path:'/about',title:'About',desc:'The story behind the name
  `<section class="band blue" id="name"><div class="wrap two"><div><p class="label">Our name</p><h2>Wasseypur made geometry hard to forget.</h2></div><div>
   <blockquote class="hindi" lang="hi">“अगर जान से मरा, तो ब्लेड परपेंडीकुलर गया था…और अगर सिर्फ चमड़ी कटा, तो समझो टेंजेण्ट था.”</blockquote>
   <p class="cite">Guddu, <i>Gangs of Wasseypur Part II</i></p>
-  <p>Guddu’s dialogue made the angle matter. We’ve given that thought a different job at House of Tangents. Our creative platform is “Tangent thinking. Perpendicular commitment.” We look for an approach people haven’t seen coming, then stay with the work it takes to produce it.</p>
+  <p>Guddu’s dialogue made the angle matter. Our creative platform is “Tangent thinking. Perpendicular commitment.” We look for an approach people haven’t seen coming, then stay with the work it takes to produce it.</p>
   <p class="fine">The dialogue is a brief excerpt from the published <i>Gangs of Wasseypur Part II</i> dubbing script, pp. 42–43. Our agency interpretation is our own. This website uses no film footage, stills or other film assets and does not claim or imply any endorsement, affiliation or collaboration with the film or its rights holders.</p></div></div></section>
  <section class="band white"><div class="wrap two"><div><p class="label">Philosophy</p><h2>Two ideas, one discipline.</h2></div><div class="ph"><div><h3>We think in tangents.</h3><p>For Navdurga, we imagined a visitor’s journey before there was a finished business park to film. For Santhal Strikers, a conversation with a player became a film about the dream that brought him to cricket.</p></div><div><h3>We commit to the execution.</h3><p>An idea still needs someone to plan the shoot and write the script. It needs prompt writing, footage selection, editing, design and a publishing plan. We work through those details, including the less visible ones.</p></div></div></div></section>
  <section class="band" id="team"><div class="wrap"><p class="label">The team</p><h2>We share the work across a four-person team.</h2><div class="team-full">${TEAM.map((t,i)=>`<article><span class="svc-no" aria-hidden="true">0${i+1}</span><div><h3>${t.name}</h3><p class="role">${t.role}</p></div><div>${paras(t.bio)}</div></article>`).join('')}</div><p class="fine">Our core team has four people. We work with specialist production collaborators when a project calls for them. The projects here represent collective work, and team members and collaborators contributed according to each engagement’s scope.</p></div></section>
@@ -295,8 +299,8 @@ out('/credits',layout({path:'/credits',title:'Credits and notes',desc:'Source no
   <li>ZOI: the earlier published case-study figures (200K+ reach, 150+ creatives, 4K+ monthly engagement, 60%+ footfall growth) don’t share a single defined reporting window.</li>
   <li>Sanatni: the download figure covers the wider campaign and launch activity, not a single reel.</li>
   <li>Navdurga: the films and stills are AI visualisations of proposed facilities, not footage of completed construction.</li>
-  <li>Saregama Music: unpublished and under management review as of November 2026. The two-day figure describes the initial edit only.</li></ul>
-  <h2>Sources</h2><p>Earlier project records appear on the Brand Thinker website. Capitol Hill material appears in the earlier project portfolio and the digital-presence case study. The earlier Black and ZOI cases provide additional project context. The Capitol Hill testimonial from Narendra Singh, General Manager, is an excerpt from the testimonial published on the earlier agency website.</p>
+  <li>Saregama Music: unpublished and under management review. The two-day figure describes the initial edit only.</li></ul>
+  <h2>Sources</h2><p>Earlier project records appear on the Brand Thinker website. Capitol Hill material appears in the earlier project portfolio and the digital-presence case study. The earlier Black and ZOI cases provide additional project context.</p>
   <h2>Additional engagements</h2><ul class="list"><li><b>Cyclist Café</b>: pet-friendly café script and collaboration planning.</li><li><b>Street Dogs of Ranchi</b>: the FluffyPet adoption-event collaboration.</li><li><b>Shaadi Essentials</b>: gifting communication and a deck, as well as proposal and copy development.</li><li><b>ABS College</b> and <b>Shri Anandam Dham</b>: earlier website work.</li><li><b>Chai Bubble</b>: part of our hospitality engagement history.</li><li><b>Pi Studio</b> and <b>Brand Thinker</b>: earlier agency experiences covering the offer, pitches and client delivery.</li></ul><p class="fine">Scope varies by project.</p>
   <h2>Product communication archive</h2><p>DIM12/DIM-12 and RadiologyGPT appear in earlier product and ecosystem discussions, alongside Pi Social, Pi Learn, Pi Path and Pi Enroll. They belong in the supporting experience inventory rather than separate completed-campaign case studies.</p>
   <h2>Team credit</h2><p>The projects represent collective work. Team members and specialist collaborators contributed according to each engagement’s scope.</p>
