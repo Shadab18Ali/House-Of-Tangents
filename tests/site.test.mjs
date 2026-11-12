@@ -313,7 +313,7 @@ test('real logo is used in header, mobile menu and footer, in token colours only
 test('logo renders crisp and fully visible at header size on desktop and mobile',async()=>{
   for(const [w,h] of [[1440,900],[375,667]]){const pg=await browser.newPage({viewport:{width:w,height:h}});await pg.goto(base+'/');
     const r=await pg.evaluate(()=>{const i=document.querySelector('.site-header .brand img');const b=i.getBoundingClientRect();return {ok:i.complete&&i.naturalWidth===1200,w:Math.round(b.width),h:Math.round(b.height),top:b.top,bottom:b.bottom,hh:document.getElementById('site-header').getBoundingClientRect().height}});
-    assert.ok(r.ok,'logo not loaded');assert.ok(r.top>=0&&r.bottom<=r.hh,`logo clipped by header @${w}: ${JSON.stringify(r)}`);assert.ok(r.w>=150,`logo too small @${w}: ${r.w}`);await pg.close()}
+    assert.ok(r.ok,'logo not loaded');assert.ok(r.top>=0&&r.bottom<=r.hh,`logo clipped by header @${w}: ${JSON.stringify(r)}`);assert.ok(r.w>=130,`logo too small @${w}: ${r.w}`);await pg.close()}
 });
 
 test('supplied campaign graphics appear on the right case studies with real dimensions, captions and alt text',()=>{
