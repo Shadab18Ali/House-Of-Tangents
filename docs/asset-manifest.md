@@ -28,3 +28,7 @@ Capitol Hill, Black Salon, JT20 / Santhal Strikers and Shambhavi Shiva are featu
 ## Still to do for production
 - Host the remaining videos (needs files from the client's Drive, or a Drive API token).
 - Captions/transcripts for speech-led films. Each video currently has a visible title and a source-grounded summary instead.
+
+
+## Brand logo
+`assets/brand/logo-indigo.{png,webp}` and `logo-lavender.{png,webp}` (1200×340, transparent). Extracted from the supplied white-on-black logo and recoloured to the site tokens (deep indigo for light surfaces, lavender for indigo surfaces), because the site has no black. Used in the header, mobile menu, footer and social image. If a vector version (SVG/AI) exists, supply it for sharper rendering at any size; the hairline strokes are the most sensitive to scaling.

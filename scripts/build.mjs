@@ -51,6 +51,7 @@ const videoBlock=v=>{const info=VIDEO_INFO[v.id],loc=LOCAL_VIDEOS[v.id];
  return `<figure class="vfig vdrive"><button class="vbtn" type="button" data-video="${v.id}" data-title="${esc(info.title)}" data-summary="${esc(info.summary)}"><span class="vlabel">Play film</span><span class="vsub">${esc(info.title)}</span></button><figcaption><b>${esc(info.title)}</b>${esc(info.summary)} <a href="https://drive.google.com/file/d/${v.id}/view" target="_blank" rel="noopener">Open original file</a></figcaption></figure>`};
 const cta=(h='Start a project',p='Let’s work out what your brief needs, then get it made.')=>`<section class="band indigo cta-band"><div class="wrap"><h2>${h}</h2><p class="lead">${p}</p><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="mailto:${SITE.email}">${SITE.email}</a></div></div></section>`;
 
+const logo=(tone,eager=false)=>`<picture><source type="image/webp" srcset="/assets/brand/logo-${tone}.webp"><img src="/assets/brand/logo-${tone}.png" alt="House of Tangents" width="1200" height="340" decoding="async"${eager?'':' loading="lazy"'}></picture>`;
 const NAV=[['Work','/work'],['Services','/services'],['About','/about'],['Tangent Media','/tangent-media']];
 function layout({path:p,title,desc,body,jsonld=[],preload=''}){
   const url=SITE.url+(p==='/'?'/':p);
@@ -79,13 +80,13 @@ ${jsonld.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" id="site-header"><div class="bar">
- <a class="brand" href="/" aria-label="House of Tangents, home">House of Tangents</a>
+ <a class="brand" href="/" aria-label="House of Tangents, home">${logo('indigo',true)}</a>
  <nav class="nav" aria-label="Primary">${nav}</nav>
  <a class="btn primary sm head-cta" href="/contact">Start a project</a>
  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
 </div></header>
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
- <div class="mm-top"><span class="brand">House of Tangents</span><button class="menu-close" type="button">Close</button></div>
+ <div class="mm-top"><a class="brand" href="/" aria-label="House of Tangents, home">${logo('lavender',true)}</a><button class="menu-close" type="button">Close</button></div>
  <nav aria-label="Mobile">${NAV.concat([['Contact','/contact']]).map(([l,h])=>`<a href="${h}"${p===h||p.startsWith(h+'/')?' aria-current="page"':''}>${l}</a>`).join('')}</nav>
  <a class="btn peach mm-cta" href="/contact">Start a project</a>
 </div>
@@ -94,7 +95,7 @@ ${body}
 </main>
 <footer class="site-footer"><div class="wrap">
  <div class="foot">
-  <div><p class="foot-brand">House of Tangents</p><p class="foot-line">${SITE.tagline}</p></div>
+  <div><p class="foot-brand">${logo('lavender')}</p><p class="foot-line">${SITE.tagline}</p></div>
   <nav class="foot-col" aria-label="Footer"><p class="foot-h">Explore</p><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
   <div class="foot-col"><p class="foot-h">Contact</p><a href="mailto:${SITE.email}">${SITE.email}</a><a href="${SITE.phoneHref}">${SITE.phone}</a></div>
  </div>

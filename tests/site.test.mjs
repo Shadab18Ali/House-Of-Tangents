@@ -302,3 +302,16 @@ test('header gains its bottom rule only after scrolling (no layout reads)',async
   await pg.evaluate(()=>window.scrollTo({top:400,behavior:'instant'}));await pg.waitForFunction(()=>document.getElementById('site-header').classList.contains('scrolled'));
   await pg.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await pg.waitForFunction(()=>!document.getElementById('site-header').classList.contains('scrolled'));await pg.close();
 });
+
+test('real logo is used in header, mobile menu and footer, in token colours only, with intrinsic size set',()=>{
+  for(const f of ['assets/brand/logo-indigo.png','assets/brand/logo-indigo.webp','assets/brand/logo-lavender.png','assets/brand/logo-lavender.webp'])assert.ok(fs.existsSync(path.join(ROOT,f)),f);
+  for(const f of allPages.filter(f=>f!=='404.html'||true)){const h=read(f);
+    assert.match(h,/<a class="brand" href="\/" aria-label="House of Tangents, home"><picture>[\s\S]*?logo-indigo\.png" alt="House of Tangents" width="1200" height="340"/,f+' header logo');
+    assert.match(h,/class="mm-top"><a class="brand"[\s\S]*?logo-lavender\.png/,f+' menu logo');
+    assert.match(h,/class="foot-brand"><picture>[\s\S]*?logo-lavender/,f+' footer logo')}
+});
+test('logo renders crisp and fully visible at header size on desktop and mobile',async()=>{
+  for(const [w,h] of [[1440,900],[375,667]]){const pg=await browser.newPage({viewport:{width:w,height:h}});await pg.goto(base+'/');
+    const r=await pg.evaluate(()=>{const i=document.querySelector('.site-header .brand img');const b=i.getBoundingClientRect();return {ok:i.complete&&i.naturalWidth===1200,w:Math.round(b.width),h:Math.round(b.height),top:b.top,bottom:b.bottom,hh:document.getElementById('site-header').getBoundingClientRect().height}});
+    assert.ok(r.ok,'logo not loaded');assert.ok(r.top>=0&&r.bottom<=r.hh,`logo clipped by header @${w}: ${JSON.stringify(r)}`);assert.ok(r.w>=150,`logo too small @${w}: ${r.w}`);await pg.close()}
+});

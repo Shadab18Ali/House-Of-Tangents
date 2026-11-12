@@ -52,7 +52,8 @@ h2{font-size:var(--fs-h2)}h3{font-size:var(--fs-h3)}
 .site-header{position:sticky;top:0;z-index:60;background:var(--lav);border-bottom:1px solid transparent;transition:border-color .2s}
 .site-header.scrolled{border-bottom-color:var(--ink)}
 .site-header .bar{max-width:var(--max);margin:0 auto;padding:10px var(--gut);display:flex;align-items:center;gap:28px;min-height:72px}
-.brand{font:500 1.35rem/1 var(--serif);letter-spacing:-.01em;text-decoration:none;margin:0}
+.brand{display:inline-flex;align-items:center;text-decoration:none;margin:0;flex:none}.brand img{height:56px;width:auto}
+@media(max-width:900px){.brand img{height:44px}}
 .nav{margin-left:auto;display:flex;gap:6px}
 .nav a{padding:12px 14px;text-decoration:none;font-weight:500;font-size:.92rem;position:relative}
 .nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:8px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
@@ -243,7 +244,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-width:2px;border-col
 /* footer */
 .site-footer{background:var(--ink);color:var(--lav);padding:var(--sp-5) 0 var(--sp-4);font-size:var(--fs-small)}
 .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--sp-4)}.foot-h{font:600 var(--fs-label)/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 var(--sp-1)}.foot-col{display:flex;flex-direction:column}.foot-col a{display:block;padding:11px 0;min-height:44px}
-.foot-brand{font:500 2rem/1 var(--serif);margin:0 0 14px}.foot-line{font:italic 400 1.15rem var(--serif);margin:0}
+.foot-brand{margin:0 0 var(--sp-2)}.foot-brand img{height:88px;width:auto}.foot-line{font:italic 400 1.15rem var(--serif);margin:0}
 .foot nav{display:flex;flex-direction:column;gap:0}.foot a{display:inline-block;padding:10px 0;text-decoration:none;border-bottom:1px solid transparent}.foot a:hover{border-bottom-color:var(--peach)}
 .copy{margin:56px 0 0;padding-top:20px;border-top:1px solid var(--lav-line);font-size:var(--fs-small);max-width:none}
 @media(max-width:860px){.foot{grid-template-columns:1fr}}
