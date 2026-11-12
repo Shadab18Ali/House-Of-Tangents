@@ -6,7 +6,8 @@ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var saver=(navigator.connection&&navigator.connection.saveData)||false;
 /* ---- header gains blur only after scrolling ---- */
 var hdr=$('#site-header');
-if(hdr){var onS=function(){hdr.classList.toggle('scrolled',window.scrollY>8)};onS();window.addEventListener('scroll',onS,{passive:true})}
+if(hdr&&'IntersectionObserver' in window){var sentinel=document.createElement('div');sentinel.setAttribute('aria-hidden','true');sentinel.style.cssText='position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none';document.body.insertBefore(sentinel,document.body.firstChild);
+ new IntersectionObserver(function(es){hdr.classList.toggle('scrolled',!es[0].isIntersecting)}).observe(sentinel)}
 /* ---- mobile menu ---- */
 var btn=$('.menu-btn'),menu=$('#mobile-menu'),closeBtn=$('.menu-close');
 function trap(e,box){if(e.key!=='Tab')return;var f=$$(FOCUS,box).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];
@@ -49,16 +50,26 @@ $$('form.form').forEach(function(form){
   if(!v)msg='Enter your '+(n==='need'?'brief':n==='contact'?'email or phone':'name')+'.';
   else if(n==='contact'&&!/^\S+@\S+\.\S+$/.test(v)&&!/^[+\d][\d\s()\-]{6,}$/.test(v))msg='Enter a valid email address or phone number.';
   i.setAttribute('aria-invalid',msg?'true':'false');e.textContent=msg;if(msg)errs.push([i,msg])});return errs}
- form.addEventListener('submit',function(ev){ev.preventDefault();status.textContent='';var errs=fieldErr();
+ form.addEventListener('submit',function(ev){ev.preventDefault();if(form.dataset.busy)return;status.textContent='';status.className='form-status';var errs=fieldErr();
   if(errs.length){sum.hidden=false;sum.textContent='';var p=document.createElement('p');p.textContent='Please fix '+errs.length+' field'+(errs.length>1?'s':'')+':';sum.appendChild(p);
    errs.forEach(function(x){var a=document.createElement('a');a.href='#'+x[0].id;a.textContent=x[1];a.style.display='block';a.addEventListener('click',function(e){e.preventDefault();x[0].focus()});sum.appendChild(a)});sum.focus();return}
-  sum.hidden=true;var submit=$('button[type=submit]',form);submit.disabled=true;status.textContent='Sending…';
+  sum.hidden=true;var submit=$('button[type=submit]',form),label=submit.textContent;
+  form.dataset.busy='1';form.setAttribute('aria-busy','true');submit.disabled=true;submit.textContent='Sending…';
+  function done(){delete form.dataset.busy;form.removeAttribute('aria-busy');submit.disabled=false;submit.textContent=label}
+  /* the email/phone fallback is only ever shown when a submission actually fails */
+  function fail(){var em=$('a[href^="mailto:"]',form),ph=$('a[href^="tel:"]',form);status.className='form-status bad';status.textContent='We couldn’t send your enquiry. Please email ';
+   if(em){var a1=document.createElement('a');a1.href=em.getAttribute('href');a1.textContent=em.textContent;status.appendChild(a1)}
+   status.appendChild(document.createTextNode(' or call '));
+   if(ph){var a2=document.createElement('a');a2.href=ph.getAttribute('href');a2.textContent=ph.textContent;status.appendChild(a2)}
+   status.appendChild(document.createTextNode('.'))}
   var data={};new FormData(form).forEach(function(v,k){data[k]=v});
   fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-   .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,j:j}})})
-   .then(function(res){submit.disabled=false;if(res.ok&&res.j.ok){status.textContent='Thank you. Your enquiry has been sent.';form.reset()}
-     else status.textContent=(res.j&&res.j.error)||'We couldn’t send that just now. Please email or call us using the details below.'})
-   .catch(function(){submit.disabled=false;status.textContent='We couldn’t send that just now. Please email or call us using the details below.'})});
+   .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,s:r.status,j:j}})})
+   .then(function(res){done();
+    if(res.ok&&res.j.ok){status.className='form-status ok';status.textContent='Thank you. Your enquiry has been sent. We’ll be in touch soon.';form.reset()}
+    else if(res.s===400||res.s===429){status.className='form-status bad';status.textContent=(res.j&&res.j.error)||'Please check the form and try again.'}
+    else fail()})
+   .catch(function(){done();fail()})});
 });
 /* ---- redirect old single-page anchors ---- */
 if(location.pathname==='/'&&location.hash){var m={'#results':'/work','#media':'/work','#identities':'/work','#tangent':'/tangent-media','#team':'/about#team','#house':'/about','#contact':'/contact','#graphics':'/work'};if(m[location.hash])location.replace(m[location.hash])}

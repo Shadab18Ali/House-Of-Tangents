@@ -40,7 +40,7 @@ test('work page lists all 24 projects, grouped honestly by status',()=>{
   const h=read('work/index.html');assert.equal(projects.length,24);
   const links=new Set([...h.slice(h.indexOf('id="work-grid"')).matchAll(/href="\/work\/([a-z0-9-]+)"/g)].map(m=>m[1]));
   for(const p of projects)assert.ok(links.has(p.slug),'missing '+p.slug);
-  const g=(id)=>{const a=h.indexOf(`data-group="${id}"`);const nxt=h.indexOf('data-group="',a+10);return h.slice(a,nxt>0?nxt:h.indexOf('class="band charcoal'))};
+  const g=(id)=>{const a=h.indexOf(`data-group="${id}"`);const nxt=h.indexOf('data-group="',a+10);return h.slice(a,nxt>0?nxt:h.indexOf('class="band indigo'))};
   for(const p of projects.filter(p=>p.status==='Delivered'))assert.ok(g('Delivered').includes('/work/'+p.slug),p.slug+' not in Delivered');
   for(const p of projects.filter(p=>p.status==='Ongoing'))assert.ok(g('Ongoing').includes('/work/'+p.slug),p.slug+' not in Ongoing');
   for(const p of projects.filter(p=>/confirm|Unpublished/.test(p.status))){assert.ok(g('Confirm').includes('/work/'+p.slug));assert.ok(!g('Delivered').includes('/work/'+p.slug),p.slug+' wrongly under Delivered')}
@@ -74,14 +74,6 @@ test('case studies are not forced into one template: media vs typographic heroes
 });
 
 /* ---------- design-system rules ---------- */
-test('official brand palette is used exactly; old palette and fonts are gone',()=>{
-  const css=read('styles.css');const low=css.toLowerCase();
-  for(const ok of ['#8DB9F0','#E9E8F8','#F5B69E','#191919','#FFFFFF'])assert.ok(low.includes(ok.toLowerCase()),'missing '+ok);
-  for(const bad of ['#3157FF','#C8FF3D','#F7F8FA','#0B0D12','#E9ECF4','#F5F1E6','#E2502F','Bricolage','Manrope','Instrument Serif','Open Sans','gradient'])assert.ok(!low.includes(bad.toLowerCase()),'found '+bad);
-  const hexes=[...new Set((css.match(/#[0-9a-fA-F]{6}\b/g)||[]).map(h=>h.toUpperCase()))];
-  const allowed=new Set(['#8DB9F0','#E9E8F8','#F5B69E','#191919','#FFFFFF','#3D3D3D','#000000']);
-  for(const h of hexes)assert.ok(allowed.has(h),'unexpected colour '+h);
-});
 test('typography: Playfair Display + Inter, self-hosted, no CDN fonts',()=>{
   const css=read('styles.css');assert.match(css,/'Playfair Display'/);assert.match(css,/'Inter'/);
   for(const f of ['PlayfairDisplay-normal','PlayfairDisplay-italic','Inter-normal'])assert.ok(fs.existsSync(path.join(ROOT,`assets/fonts/${f}.woff2`)));
@@ -98,19 +90,11 @@ test('no decorative graphics: no inline SVG, curves, dots, diagrams or gradients
     for(const bad of ['tangent-line','hero-tangent','j-dot','j-line','geo-tile','art-stat','pt"'])assert.ok(!h.includes(bad),`${bad} in ${f}`)}
   const css=read('styles.css');for(const bad of ['gradient','box-shadow','backdrop-filter','text-shadow','filter:blur'])assert.ok(!css.includes(bad),'found '+bad);
 });
-test('WCAG contrast: text is always charcoal/white/lavender on its surface',()=>{
-  const lum=h=>{const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]};
-  const cr=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
-  const pairs=[['#191919','#E9E8F8'],['#3D3D3D','#E9E8F8'],['#191919','#FFFFFF'],['#3D3D3D','#FFFFFF'],['#191919','#8DB9F0'],['#191919','#F5B69E'],['#E9E8F8','#191919'],['#F5B69E','#191919'],['#FFFFFF','#191919']];
-  for(const [a,b] of pairs)assert.ok(cr(a,b)>=4.5,`${a} on ${b} = ${cr(a,b).toFixed(2)}`);
-});
-
-/* ---------- behaviour ---------- */
 test('hero shows real project media with a static fallback; no autoplay attribute, no sound',()=>{
   const h=read('index.html');
-  assert.match(h,/<video class="reel" data-reel muted loop playsinline preload="none" poster="\/assets\/media\/home\/hero-poster\.jpg"/);
+  assert.match(h,/<video class="reel" data-reel muted loop playsinline preload="none" poster="\/assets\/media\/home\/hero-poster\.webp"/);
   assert.ok(!/<video[^>]*\sautoplay/.test(h));
-  for(const f of ['assets/media/home/hero-reel.mp4','assets/media/home/hero-poster.jpg','assets/media/home/hero-poster.webp'])assert.ok(fs.existsSync(path.join(ROOT,f)),f);
+  for(const f of ['assets/media/home/hero-reel.mp4','assets/media/home/hero-poster.webp'])assert.ok(fs.existsSync(path.join(ROOT,f)),f);
 });
 test('self-hosted videos never preload and carry an accessible label',()=>{
   for(const f of ['work/majestic-india/index.html','work/navdurga/index.html','tangent-media/index.html']){
@@ -169,14 +153,6 @@ test('video dialog loads iframe only on intent, Escape closes, focus returns',as
   await pg.keyboard.press('Escape');await pg.waitForFunction(()=>!document.querySelector('iframe'));
   assert.equal(await pg.evaluate(()=>document.activeElement.classList.contains('vbtn')),true);await pg.close();
 });
-test('contact form validates and never fakes success',async()=>{
-  const pg=await browser.newPage();await pg.route('**/api/contact',r=>r.fulfill({status:503,contentType:'application/json',body:JSON.stringify({ok:false,error:'Online enquiries are not switched on yet.'})}));
-  await pg.goto(base+'/contact');await pg.click('#cf button[type=submit]');
-  assert.equal(await pg.locator('#cf .err-summary').isVisible(),true);assert.equal(await pg.getAttribute('#cf-name','aria-invalid'),'true');
-  await pg.fill('#cf-name','A');await pg.fill('#cf-contact','a@b.co');await pg.fill('#cf-need','Hello');await pg.click('#cf button[type=submit]');
-  await pg.waitForFunction(()=>document.querySelector('#cf .form-status').textContent.includes('not switched on'));
-  assert.ok(!/Thank you/.test(await pg.textContent('#cf .form-status')));await pg.close();
-});
 test('contact form posts to the real API route on success',async()=>{
   const pg=await browser.newPage();let body=null;
   await pg.route('**/api/contact',async r=>{body=JSON.parse(r.request().postData());await r.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'})});
@@ -194,4 +170,135 @@ test('no console errors or failed requests on key pages',async()=>{
   pg.on('requestfailed',r=>{if(!/drive\.google|\.mp4/.test(r.url()))errs.push('failed '+r.url())});
   for(const u of ['/','/work','/work/navdurga','/services','/about','/tangent-media','/contact','/credits']){await pg.goto(base+u,{waitUntil:'load'});await pg.waitForTimeout(300)}
   assert.deepEqual(errs,[]);await pg.close();
+});
+
+/* ---------- V4: tokens, no black, contrast ---------- */
+test('official brand palette is intact; deep indigo replaces every dark; colours are defined once as tokens',()=>{
+  const css=read('styles.css');const low=css.toLowerCase();
+  for(const ok of ['#8DB9F0','#E9E8F8','#F5B69E','#FFFFFF','#2A2550'])assert.ok(low.includes(ok.toLowerCase()),'missing '+ok);
+  for(const bad of ['#3157FF','#C8FF3D','#F7F8FA','#0B0D12','#E9ECF4','#F5F1E6','#E2502F','Bricolage','Manrope','Instrument Serif','Open Sans','gradient','box-shadow'])assert.ok(!low.includes(bad.toLowerCase()),'found '+bad);
+  const root=css.slice(css.indexOf(':root{'),css.indexOf('\n}',css.indexOf(':root{')));
+  const outside=css.replace(root,'');
+  assert.deepEqual(outside.match(/#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(/g)||[],[],'hard-coded colour outside the :root tokens');
+  const hexes=[...new Set((root.match(/#[0-9a-fA-F]{6}\b/g)||[]).map(h=>h.toUpperCase()))].sort();
+  assert.deepEqual(hexes,['#2A2550','#3E3968','#8DB9F0','#E9E8F8','#F5B69E','#FFFFFF']);
+});
+test('no black anywhere: no black values in CSS, JS, templates, SVG, or any built page',()=>{
+  const files=['styles.css','site.js','assets/favicon.svg','scripts/build.mjs',...allPages];
+  const bad=[/#000\b/i,/#000000/i,/#0{1,2}[0-9a-f]{4}\b/i,/#1[0-9a-f]1[0-9a-f]1[0-9a-f]\b/i,/#191919/i,/#2[0-9a-f]2[0-9a-f]2[0-9a-f]\b(?!.*2A2550)/i,/rgba?\(\s*0\s*,\s*0\s*,\s*0/i,/rgba?\(\s*(1\d|2[0-9]|3[0-9])\s*,\s*\1\s*,\s*\1/,/hsla?\([^)]*,\s*[0-9.]+%\s*,\s*(0|[1-9])%/i];
+  for(const f of files){let src=read(f);src=src.replace(/Black Salon|Black’s|\/work\/black|black"|Black turns|Black\b/g,'X');
+    for(const re of bad)assert.ok(!re.test(src),`${f} matches ${re}`);
+    if(/\.(css|js|svg)$/.test(f))assert.ok(!/\bblack\b/i.test(src),`${f} uses the keyword black`)}
+});
+test('no rendered element is black or near-black (text, background, border, fill)',async()=>{
+  const pg=await browser.newPage({viewport:{width:1280,height:900}});
+  const near=(c)=>{const m=c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);if(!m)return false;const a=m[4]===undefined?1:+m[4];return a>0&&Math.max(+m[1],+m[2],+m[3])<=60&&!(+m[1]===42&&+m[2]===37&&+m[3]===80)};
+  for(const u of ['/','/work','/work/capitol-hill','/work/majestic-india','/services','/about','/tangent-media','/contact','/credits']){await pg.goto(base+u);
+    const bad=await pg.evaluate((nearSrc)=>{const near=eval(nearSrc);const out=[];for(const e of document.body.querySelectorAll('*')){if(['SOURCE','SCRIPT','STYLE','VIDEO','IMG','PICTURE'].includes(e.tagName))continue;const c=getComputedStyle(e);
+      const keys=['color','backgroundColor','borderTopColor','borderBottomColor','borderLeftColor','borderRightColor','outlineColor'].concat(e instanceof SVGElement?['fill','stroke']:[]);for(const k of keys)if(c[k]&&near(c[k])&&(k!=='borderTopColor'||c.borderTopWidth!=='0px')&&(k!=='borderBottomColor'||c.borderBottomWidth!=='0px')&&(k!=='borderLeftColor'||c.borderLeftWidth!=='0px')&&(k!=='borderRightColor'||c.borderRightWidth!=='0px')&&(k!=='outlineColor'||c.outlineStyle!=='none'))out.push(e.tagName+'.'+e.className+' '+k+' '+c[k])}return out.slice(0,5)},near.toString());
+    assert.deepEqual(bad,[],u+' has black-ish colours')}
+  await pg.close();
+});
+test('WCAG AA: every text/surface pair in use clears 4.5:1',()=>{
+  const lum=h=>{const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+  const cr=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+  const ink='#2A2550',soft='#3E3968';
+  const pairs=[[ink,'#E9E8F8'],[soft,'#E9E8F8'],[ink,'#FFFFFF'],[soft,'#FFFFFF'],[ink,'#8DB9F0'],[soft,'#8DB9F0'],[ink,'#F5B69E'],[soft,'#F5B69E'],['#E9E8F8',ink],['#F5B69E',ink],['#FFFFFF',ink]];
+  for(const [a,b] of pairs)assert.ok(cr(a,b)>=4.5,`${a} on ${b} = ${cr(a,b).toFixed(2)}`);
+});
+
+/* ---------- V4: copy ---------- */
+test('copy: removed wording is gone everywhere; results are ordered and concise',()=>{
+  const gone=[/Interim playback/i,/client’s shared Google Drive/i,/If sending doesn’t work/i,/as of 11 November/i,/nonviolent/i,/earlier agency website/i,/loved the approach/i,/Each figure stays with its project/i,/Results, with the context they belong to/i,/supplied case studies, as of/i,/Views and followers are not sales/i];
+  for(const f of allPages)for(const re of gone)assert.ok(!re.test(read(f)),`${f}: ${re}`);
+  const h=read('index.html');const sec=h.slice(h.indexOf('proof-h'),h.indexOf('aria-labelledby="serv-h"'));
+  assert.ok(sec.includes('The work went out, and people responded.'));
+  const order=['2 videos','700K–800K','800%+'].map(x=>sec.indexOf(x));assert.ok(order.every(i=>i>0)&&order[0]<order[1]&&order[1]<order[2],'results order');
+  assert.ok(!sec.includes('832'));assert.ok(read('work/santhal-strikers/index.html').includes('832'));
+  assert.ok(sec.includes('Full context for every figure is on its case study.'));
+  assert.ok(h.includes('Narendra Singh')&&h.includes('General Manager, Capitol Hill'));
+  assert.ok(read('contact/index.html').includes('Prefer email or a call?'));
+  assert.ok(h.includes('Video loads when you press play.'));
+});
+test('copy: card outcomes, Tangent Media block, and Black Salon name',()=>{
+  const by=Object.fromEntries(projects.map(p=>[p.slug,p]));
+  assert.equal(by.navdurga.outcome,'Two AI films completed and published organically');
+  assert.ok(by.black.outcome.startsWith('4.8/5 Google rating'));assert.ok(by['santhal-strikers'].outcome.includes('116K and 111K views'));
+  const h=read('index.html');assert.ok(h.includes('Tangent Media shows the thinking behind our more unexpected work'));assert.ok(h.includes('href="/tangent-media"'));
+  assert.ok(read('work/black/index.html').includes('Black Salon'));
+});
+
+/* ---------- V4: layout and behaviour ---------- */
+test('selected work: six cards with identical media proportions, desktop and mobile',async()=>{
+  for(const [w,h] of [[1440,900],[1024,768],[375,667]]){const pg=await browser.newPage({viewport:{width:w,height:h}});await pg.goto(base+'/');
+    const r=await pg.evaluate(()=>[...document.querySelectorAll('.sel-media')].map(e=>{const b=e.getBoundingClientRect();return +(b.width/b.height).toFixed(2)}));
+    assert.equal(r.length,6);assert.ok(r.every(x=>Math.abs(x-r[0])<0.02),`ratios differ @${w}: ${r}`);
+    const imgs=await pg.evaluate(()=>[...document.querySelectorAll('.sel-media img')].every(i=>i.width&&i.height&&i.getAttribute('width')&&i.getAttribute('height')));assert.ok(imgs);await pg.close()}
+});
+test('results: three across on desktop, stacked on mobile, 832 not on homepage',async()=>{
+  const pg=await browser.newPage({viewport:{width:1440,height:900}});await pg.goto(base+'/');
+  const d=await pg.evaluate(()=>[...document.querySelectorAll('.res-trio li')].map(e=>Math.round(e.getBoundingClientRect().top)));
+  assert.equal(d.length,3);assert.ok(d.every(x=>x===d[0]),'not in one row: '+d);
+  await pg.setViewportSize({width:375,height:667});
+  const m=await pg.evaluate(()=>[...document.querySelectorAll('.res-trio li')].map(e=>Math.round(e.getBoundingClientRect().top)));
+  assert.ok(m[0]<m[1]&&m[1]<m[2],'not stacked: '+m);await pg.close();
+});
+test('hero headline, subhead and primary button are visible without scrolling (375×667, 768×1024, 1366×768, 1440×900)',async()=>{
+  for(const [w,h] of [[375,667],[768,1024],[1366,768],[1440,900]]){const pg=await browser.newPage({viewport:{width:w,height:h}});await pg.goto(base+'/');
+    const r=await pg.evaluate(()=>{const q=s=>document.querySelector(s).getBoundingClientRect();return {h1:q('.hero h1').bottom,lead:q('.hero .lead').bottom,cta:q('.hero .btn.primary').bottom}});
+    assert.ok(r.h1<=h&&r.lead<=h&&r.cta<=h,`hero overflows ${w}x${h}: ${JSON.stringify(r)}`);await pg.close()}
+});
+test('one primary and one quieter secondary button style; 44px tap targets on mobile',async()=>{
+  const pg=await browser.newPage({viewport:{width:375,height:667}});
+  for(const u of ['/','/work','/contact']){await pg.goto(base+u);
+    const small=await pg.evaluate(()=>[...document.querySelectorAll('a.btn,button.btn,.chip,.menu-btn')].filter(e=>e.offsetParent&&e.getBoundingClientRect().height<44).map(e=>e.className+' '+Math.round(e.getBoundingClientRect().height)));
+    assert.deepEqual(small,[],u+' small targets')}
+  await pg.goto(base+'/');const s=await pg.evaluate(()=>{const a=getComputedStyle(document.querySelector('.hero .btn.primary')),b=getComputedStyle(document.querySelector('.hero .btn.ghost'));return [a.backgroundColor,b.backgroundColor]});
+  assert.notEqual(s[0],s[1]);await pg.close();
+});
+test('mobile menu: current page marked, closes on link click, locks background scroll',async()=>{
+  const pg=await browser.newPage({viewport:{width:375,height:667}});await pg.goto(base+'/work');
+  await pg.click('.menu-btn');assert.equal(await pg.evaluate(()=>getComputedStyle(document.body).overflow),'hidden');
+  assert.equal(await pg.getAttribute('#mobile-menu a[href="/work"]','aria-current'),'page');
+  await pg.click('#mobile-menu a[href="/services"]');await pg.waitForURL('**/services');await pg.close();
+});
+test('contact form: honeypot is unreachable, failure shows fallback only on failure, success state, loading state, no double submit',async()=>{
+  const pg=await browser.newPage();
+  const hp=await pg.goto(base+'/contact').then(()=>pg.evaluate(()=>{const w=document.querySelector('#cf .hp'),i=w.querySelector('input');const r=i.getBoundingClientRect();return {aria:w.getAttribute('aria-hidden'),inert:w.hasAttribute('inert'),tab:i.tabIndex,small:r.width<=1&&r.height<=1||r.left<-100}}));
+  assert.deepEqual(hp,{aria:'true',inert:true,tab:-1,small:true});
+  assert.equal((await pg.textContent('#cf .form-status')).trim(),'');
+  assert.ok(!/If sending/.test(await pg.textContent('#cf')));
+  await pg.click('#cf button[type=submit]');assert.equal(await pg.locator('#cf .err-summary').isVisible(),true);assert.equal(await pg.getAttribute('#cf-name','aria-invalid'),'true');
+  assert.equal(await pg.getAttribute('#cf-name','aria-required'),'true');
+  // failure
+  await pg.route('**/api/contact',r=>r.fulfill({status:503,contentType:'application/json',body:'{"ok":false}'}));
+  await pg.fill('#cf-name','A');await pg.fill('#cf-contact','a@b.co');await pg.fill('#cf-need','Hello');await pg.click('#cf button[type=submit]');
+  await pg.waitForSelector('#cf .form-status.bad');
+  assert.match(await pg.textContent('#cf .form-status'),/couldn’t send your enquiry/);assert.equal(await pg.locator('#cf .form-status a[href^="mailto:"]').count(),1);assert.equal(await pg.locator('#cf .form-status a[href^="tel:"]').count(),1);
+  // loading + no double submit + success
+  await pg.unroute('**/api/contact');let calls=0;
+  await pg.route('**/api/contact',async r=>{calls++;await new Promise(x=>setTimeout(x,500));await r.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'})});
+  await pg.click('#cf button[type=submit]');await pg.click('#cf button[type=submit]',{force:true}).catch(()=>{});
+  assert.equal(await pg.textContent('#cf button[type=submit]'),'Sending…');assert.equal(await pg.isDisabled('#cf button[type=submit]'),true);
+  await pg.waitForSelector('#cf .form-status.ok');assert.match(await pg.textContent('#cf .form-status'),/Thank you/);assert.equal(calls,1);
+  assert.equal(await pg.textContent('#cf button[type=submit]'),'Send enquiry');await pg.close();
+});
+test('footer: grouped links are 44px tall on mobile and the copyright line has no status date',async()=>{
+  const pg=await browser.newPage({viewport:{width:375,height:667}});await pg.goto(base+'/');
+  const small=await pg.evaluate(()=>[...document.querySelectorAll('.site-footer a')].filter(a=>a.getBoundingClientRect().height<44).map(a=>a.textContent));assert.deepEqual(small,[]);
+  const t=await pg.textContent('.site-footer .copy');assert.match(t,/© 2026 House of Tangents\./);assert.ok(!/as of/i.test(t));await pg.close();
+});
+
+test('every internal link and asset reference in every built page resolves to a real file',()=>{
+  const exists=p=>{const f=path.join(ROOT,p.replace(/^\//,''));return fs.existsSync(f)&&fs.statSync(f).isFile()||fs.existsSync(path.join(f,'index.html'))||fs.existsSync(f+'.html')};
+  const missing=[];
+  for(const f of allPages)for(const m of read(f).matchAll(/(?:href|src)="(\/[^"#?]*)(?:#[^"]*)?"/g)){const u=m[1];if(u==='/'||u.startsWith('//'))continue;if(!exists(u))missing.push(`${f} -> ${u}`)}
+  assert.deepEqual(missing,[]);
+  for(const f of allPages)for(const m of read(f).matchAll(/href="(\/[^"#?]*)#([^"]+)"/g)){const target=m[1]==='/'?'index.html':path.join(m[1].slice(1),'index.html');assert.ok(read(target).includes(`id="${m[2]}"`),`${f}: anchor #${m[2]} missing in ${m[1]}`)}
+});
+test('header gains its bottom rule only after scrolling (no layout reads)',async()=>{
+  const pg=await browser.newPage({viewport:{width:1280,height:700}});await pg.goto(base+'/');
+  assert.equal(await pg.evaluate(()=>document.getElementById('site-header').classList.contains('scrolled')),false);
+  await pg.evaluate(()=>window.scrollTo({top:400,behavior:'instant'}));await pg.waitForFunction(()=>document.getElementById('site-header').classList.contains('scrolled'));
+  await pg.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await pg.waitForFunction(()=>!document.getElementById('site-header').classList.contains('scrolled'));await pg.close();
 });

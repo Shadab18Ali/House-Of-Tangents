@@ -13,3 +13,13 @@
 - Layout: asymmetric image-led feature pair, ruled index lists for everything else, a results list instead of stat cards, two case-study hero types (media / typographic) and two body layouts.
 
 **Tests.** `npm test` runs 27 checks. New in V3: exact brand hex values, banned old colours and fonts, zero radius in CSS and in the rendered DOM, no inline SVG or decorative class names, no gradients or shadows, status grouping on `/work`, case-study structure and variation, alt text and local asset existence, no console errors.
+
+
+## V4 refinement (copy + UI)
+**Copy.** Results reworded and reordered (Shambhavi, Majestic India, Capitol Hill), 832 removed from the homepage, card outcomes sharpened (Navdurga, Black Salon, Santhal Strikers), unfinished-looking wording removed (video note, form line, footer date, testimonial provenance, name-story sentence), Tangent Media block added to the homepage.
+
+**No black.** Every dark value now uses one Deep Indigo token. All colours are defined once in `:root`; components reference variables only. The favicon and social image were regenerated; the social image has no near-black pixels.
+
+**UI.** Six equal selected-work cards; three-across results; hero fits at 375×667, 1366×768 and 1440×900; unified type and spacing scales; primary vs quiet secondary buttons with hover, active and focus states; form loading/success/failure states with the contact fallback only on failure; grouped footer.
+
+**Performance.** A synchronous `scrollY` read in the header script forced about 1.8 s of layout on throttled mobile CPUs. It was replaced with an IntersectionObserver, and the hero video now uses the same WebP poster that is preloaded. Lighthouse (mobile): homepage 98 / 100 / 100 / 100, other pages 100 across all four.

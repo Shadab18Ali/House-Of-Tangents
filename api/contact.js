@@ -19,7 +19,7 @@ module.exports=async function handler(req,res){
   if(!(/^\S+@\S+\.\S+$/.test(contact)||/^[+\d][\d\s()\-]{6,}$/.test(contact)))errs.contact='Enter a valid email address or phone number.';
   if(Object.keys(errs).length)return res.status(400).json({ok:false,error:'Please check the form: '+Object.values(errs).join(' '),fields:errs});
   const {RESEND_API_KEY,CONTACT_FROM,CONTACT_TO}=process.env;
-  if(!RESEND_API_KEY||!CONTACT_FROM||!CONTACT_TO)return res.status(503).json({ok:false,error:'Online enquiries are not switched on yet. Please email farhafatima3686@gmail.com or call +91 70911 40333.'});
+  if(!RESEND_API_KEY||!CONTACT_FROM||!CONTACT_TO)return res.status(503).json({ok:false,error:'We couldn’t send your enquiry just now. Please email farhafatima3686@gmail.com or call +91 70911 40333.'});
   const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
   try{
     const r=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+RESEND_API_KEY,'Content-Type':'application/json'},

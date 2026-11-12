@@ -49,7 +49,7 @@ const row=(p,n)=>`<li class="row" data-cats="${p.categories.join(' ')}" data-sta
 const videoBlock=v=>{const info=VIDEO_INFO[v.id],loc=LOCAL_VIDEOS[v.id];
  if(loc){return `<figure class="vfig"><div class="vwrap"><video controls preload="none" playsinline width="${loc.w}" height="${loc.h}" poster="/assets/media/${loc.poster}-720.jpg" aria-label="${esc(info.title)}"><source src="${loc.src}" type="video/mp4"></video></div><figcaption><b>${esc(info.title)}</b>${esc(info.summary)}</figcaption></figure>`}
  return `<figure class="vfig vdrive"><button class="vbtn" type="button" data-video="${v.id}" data-title="${esc(info.title)}" data-summary="${esc(info.summary)}"><span class="vlabel">Play film</span><span class="vsub">${esc(info.title)}</span></button><figcaption><b>${esc(info.title)}</b>${esc(info.summary)} <a href="https://drive.google.com/file/d/${v.id}/view" target="_blank" rel="noopener">Open original file</a></figcaption></figure>`};
-const cta=(h='Start a project',p='Let’s work out what your brief needs, then get it made.')=>`<section class="band charcoal cta-band"><div class="wrap"><h2>${h}</h2><p class="lead">${p}</p><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="mailto:${SITE.email}">${SITE.email}</a></div></div></section>`;
+const cta=(h='Start a project',p='Let’s work out what your brief needs, then get it made.')=>`<section class="band indigo cta-band"><div class="wrap"><h2>${h}</h2><p class="lead">${p}</p><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="mailto:${SITE.email}">${SITE.email}</a></div></div></section>`;
 
 const NAV=[['Work','/work'],['Services','/services'],['About','/about'],['Tangent Media','/tangent-media']];
 function layout({path:p,title,desc,body,jsonld=[],preload=''}){
@@ -86,7 +86,7 @@ ${jsonld.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script
 </div></header>
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
  <div class="mm-top"><span class="brand">House of Tangents</span><button class="menu-close" type="button">Close</button></div>
- <nav aria-label="Mobile">${NAV.map(([l,h])=>`<a href="${h}">${l}</a>`).join('')}<a href="/contact">Contact</a></nav>
+ <nav aria-label="Mobile">${NAV.concat([['Contact','/contact']]).map(([l,h])=>`<a href="${h}"${p===h||p.startsWith(h+'/')?' aria-current="page"':''}>${l}</a>`).join('')}</nav>
  <a class="btn peach mm-cta" href="/contact">Start a project</a>
 </div>
 <main id="main" tabindex="-1">
@@ -95,8 +95,8 @@ ${body}
 <footer class="site-footer"><div class="wrap">
  <div class="foot">
   <div><p class="foot-brand">House of Tangents</p><p class="foot-line">${SITE.tagline}</p></div>
-  <nav aria-label="Footer"><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
-  <p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p>
+  <nav class="foot-col" aria-label="Footer"><p class="foot-h">Explore</p><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
+  <div class="foot-col"><p class="foot-h">Contact</p><a href="mailto:${SITE.email}">${SITE.email}</a><a href="${SITE.phoneHref}">${SITE.phone}</a></div>
  </div>
  <p class="copy">© 2026 House of Tangents.</p>
 </div></footer>
@@ -110,12 +110,12 @@ const out=(p,html)=>{const f=p==='/'?'index.html':path.join(p.slice(1),'index.ht
 const phero=(eyebrow,h1,lead,tone='')=>`<section class="phero ${tone}"><div class="wrap"><p class="label">${eyebrow}</p><h1>${h1}</h1>${lead?`<p class="lead">${lead}</p>`:''}</div></section>`;
 const formHTML=(id)=>`<form class="form" id="${id}" method="post" action="/api/contact" novalidate>
  <div class="err-summary" role="alert" tabindex="-1" hidden></div>
- <div class="field"><label for="${id}-name">Name <span aria-hidden="true">*</span></label><input id="${id}-name" name="name" autocomplete="name" required aria-describedby="${id}-name-e"><span class="err" id="${id}-name-e"></span></div>
+ <div class="field"><label for="${id}-name">Name <span aria-hidden="true">*</span></label><input id="${id}-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="${id}-name-e"><span class="err" id="${id}-name-e"></span></div>
  <div class="field"><label for="${id}-company">Company or brand</label><input id="${id}-company" name="company" autocomplete="organization"></div>
- <div class="field"><label for="${id}-contact">Email or phone <span aria-hidden="true">*</span></label><input id="${id}-contact" name="contact" autocomplete="email" required aria-describedby="${id}-contact-e"><span class="err" id="${id}-contact-e"></span></div>
- <div class="field"><label for="${id}-need">What do you need help with? <span aria-hidden="true">*</span></label><textarea id="${id}-need" name="need" rows="4" required aria-describedby="${id}-need-e"></textarea><span class="err" id="${id}-need-e"></span></div>
+ <div class="field"><label for="${id}-contact">Email or phone <span aria-hidden="true">*</span></label><input id="${id}-contact" name="contact" autocomplete="email" required aria-required="true" aria-describedby="${id}-contact-e"><span class="err" id="${id}-contact-e"></span></div>
+ <div class="field"><label for="${id}-need">What do you need help with? <span aria-hidden="true">*</span></label><textarea id="${id}-need" name="need" rows="4" required aria-required="true" aria-describedby="${id}-need-e"></textarea><span class="err" id="${id}-need-e"></span></div>
  <div class="field"><label for="${id}-budget">Approximate budget (optional)</label><input id="${id}-budget" name="budget"></div>
- <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+ <div class="hp" aria-hidden="true" inert><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
  <button class="btn submit" type="submit">Send enquiry</button>
  <p class="form-status" role="status" aria-live="polite"></p>
  <p class="fine">Prefer email or a call? <a href="mailto:${SITE.email}">${SITE.email}</a> · <a href="${SITE.phoneHref}">${SITE.phone}</a></p>
@@ -123,7 +123,16 @@ const formHTML=(id)=>`<form class="form" id="${id}" method="post" action="/api/c
 
 // ================= HOME =================
 const featured=projects.filter(p=>p.featured).sort((a,b)=>a.featured-b.featured);
-const withMedia=featured.filter(p=>MEDIA[p.slug]),noMedia=featured.filter(p=>!MEDIA[p.slug]);
+const SEL={'majestic-india':{bold:'700K–800K'},'navdurga':{bold:'Two AI films'},
+ 'capitol-hill':{fig:'800%+',cap:'organic reach growth in the first two months',bold:'800%+'},
+ 'black':{fig:'4.8/5',cap:'Google rating by November 2026',bold:'4.8/5 Google rating'},
+ 'santhal-strikers':{fig:'116K',cap:'views on a selected video',bold:'116K and 111K views'},
+ 'shambhavi':{fig:'2 videos',cap:'above one million views, organically',bold:'above one million views'}};
+for(const p of featured)if(!MEDIA[p.slug]&&!(SEL[p.slug]&&SEL[p.slug].fig))throw new Error('featured project without media needs a plate figure: '+p.slug);
+const selCard=(p,i)=>{const m=MEDIA[p.slug],d=SEL[p.slug]||{};
+ const o=oneLine(p.outcome);const out=d.bold&&o.includes(d.bold)?esc(o).replace(esc(d.bold),'<strong>'+esc(d.bold)+'</strong>'):esc(o);
+ const media=m?pic(m.poster,m.alt,{sizes:'(min-width:1000px) 33vw,(min-width:640px) 50vw,100vw',focus:m.focus,eager:i<3}):`<div class="plate ${i%2?'plate-w':''}"><span class="plate-tag">${esc(p.tag)}</span><span><span class="plate-fig">${esc(d.fig)}</span><span class="plate-cap">${esc(d.cap)}</span></span></div>`;
+ return `<li class="sel"><a href="/work/${p.slug}"><div class="sel-media">${media}</div><div class="sel-body"><p class="meta">${esc(p.tag)}<span class="sep" aria-hidden="true">/</span>${status(p.status)}</p><h3>${esc(p.name)}</h3><p class="out">${out}</p><span class="more">View case study${arrow}</span></div></a></li>`};
 const svcExamples=s=>s.proof.map(k=>bySlug[k]);
 const home=`
 <section class="hero"><div class="wrap hero-grid">
@@ -134,7 +143,7 @@ const home=`
   <div class="actions"><a class="btn primary" href="/contact">Start a project</a><a class="btn ghost" href="#work">Explore the work</a></div>
  </div>
  <figure class="hero-media">
-  <div class="reel-frame"><video class="reel" data-reel muted loop playsinline preload="none" poster="/assets/media/home/hero-poster.jpg" aria-label="Looping silent reel of House of Tangents work: the Majestic India logo reveal and the Navdurga Business Park visualisation" width="540" height="960"><source src="/assets/media/home/hero-reel.mp4" type="video/mp4"></video>
+  <div class="reel-frame"><video class="reel" data-reel muted loop playsinline preload="none" poster="/assets/media/home/hero-poster.webp" aria-label="Looping silent reel of House of Tangents work: the Majestic India logo reveal and the Navdurga Business Park visualisation" width="540" height="960"><source src="/assets/media/home/hero-reel.mp4" type="video/mp4"></video>
   <button class="reel-toggle" type="button" data-reel-toggle aria-pressed="false" hidden>Pause reel</button></div>
   <figcaption>Majestic India reveal and Navdurga Business Park visualisation</figcaption>
  </figure>
@@ -142,16 +151,15 @@ const home=`
 
 <section class="band white" id="work" aria-labelledby="feat-h"><div class="wrap">
  <div class="sec-head"><div><p class="label">Selected work</p><h2 id="feat-h">Six projects, six different angles.</h2></div><a class="link" href="/work">Browse all work${arrow}</a></div>
- <div class="feat-pair">${withMedia.map((p,i)=>feat(p,{cls:i===0?'feat-tall':'feat-wide',sizes:'(min-width:900px) 45vw,100vw',eager:true})).join('')}</div>
- <ol class="rows" start="${withMedia.length+1}">${noMedia.map((p,i)=>row(p,withMedia.length+i+1)).join('')}</ol>
+ <ol class="sel-grid">${featured.map(selCard).join('')}</ol>
 </div></section>
 
-<section class="band" aria-labelledby="proof-h"><div class="wrap results">
- <div class="res-intro"><p class="label">Results</p><h2 id="proof-h">The work went out, and people responded.</h2></div>
- <ol class="res-list">
-  <li><span class="fig">2 videos</span><div><p>Above one million views on a personal profile, with no paid promotion.</p><a class="link" href="/work/shambhavi">Shambhavi Shiva</a></div></li>
-  <li><span class="fig">700K–800K</span><div><p>Organic views on selected reels.</p><a class="link" href="/work/majestic-india">Majestic India</a></div></li>
-  <li><span class="fig">800%+</span><div><p>Organic account reach growth in the first two months.</p><a class="link" href="/work/capitol-hill">Capitol Hill</a></div></li>
+<section class="band" aria-labelledby="proof-h"><div class="wrap">
+ <div class="sec-head"><div><p class="label">Results</p><h2 id="proof-h">The work went out, and people responded.</h2></div></div>
+ <ol class="res-trio">
+  <li><span class="fig">2 videos</span><p>Above one million views on a personal profile, with no paid promotion.</p><a class="link" href="/work/shambhavi">Shambhavi Shiva</a></li>
+  <li><span class="fig">700K–800K</span><p>Organic views on selected reels.</p><a class="link" href="/work/majestic-india">Majestic India</a></li>
+  <li><span class="fig">800%+</span><p>Organic account reach growth in the first two months.</p><a class="link" href="/work/capitol-hill">Capitol Hill</a></li>
  </ol>
  <p class="fine res-note">Full context for every figure is on its case study.</p>
 </div></section>
@@ -185,9 +193,9 @@ const home=`
  <ul class="roster">${TEAM.map(t=>`<li><b>${t.name}</b><span class="role">${t.role}</span><span class="what">${t.short}</span></li>`).join('')}</ul>
 </div></section>
 
-<section class="band peach testimonial" aria-label="Testimonial"><div class="wrap narrow"><figure><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption>Narendra Singh, General Manager, Capitol Hill</figcaption></figure></div></section>
+<section class="band peach testimonial" aria-label="Testimonial"><div class="wrap narrow"><figure><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption><b>Narendra Singh</b><span>General Manager, Capitol Hill</span></figcaption></figure></div></section>
 
-<section class="band charcoal contact-band" id="contact-home" aria-labelledby="c-h"><div class="wrap contact-grid">
+<section class="band indigo contact-band" id="contact-home" aria-labelledby="c-h"><div class="wrap contact-grid">
  <div>
   <h2 id="c-h">We can look at your brief from another angle.</h2>
   <p class="lead">Let’s work out what it needs, then get it made.</p>
@@ -236,7 +244,7 @@ for(const [pi,p] of projects.entries()){
    <section class="blk method"><h2 class="label">Methodology and credits</h2><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. <a class="link" href="/credits">Full reporting notes</a>.</p><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></section>`;
   const body=`${hero}<section class="band tight case-body ${layoutB?'case-b':'case-a'}"><div class="wrap">${layoutB?`<div class="case-grid"><aside class="case-side">${facts}</aside><div class="case-main">${main}</div></div>`:`${facts}<div class="case-main">${main}</div>`}</div></section>
   <section class="band white"><div class="wrap"><h2>Related work</h2><ol class="rows">${rel.map((r,i)=>row(r,i+1)).join('')}</ol></div></section>
-  <section class="band charcoal cta-band next"><div class="wrap"><p class="label">Next project</p><a class="next-link" href="/work/${next.slug}">${esc(next.name)}${arrow}</a><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="/work">All work</a></div></div></section>`;
+  <section class="band indigo cta-band next"><div class="wrap"><p class="label">Next project</p><a class="next-link" href="/work/${next.slug}">${esc(next.name)}${arrow}</a><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="/work">All work</a></div></div></section>`;
   out('/work/'+p.slug,layout({path:'/work/'+p.slug,title:p.name+' case study',desc:`${p.name}: ${p.challenge} ${p.outcome}.`.slice(0,300),body,preload:m?`<link rel="preload" as="image" href="/assets/media/${m.poster}-720.webp" type="image/webp" fetchpriority="high">\n`:'',jsonld:[crumbs([['Home','/'],['Work','/work'],[p.name,'/work/'+p.slug]])]}));
 }
 
