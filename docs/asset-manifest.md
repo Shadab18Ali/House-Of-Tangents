@@ -34,9 +34,9 @@ Capitol Hill, Black Salon, JT20 / Santhal Strikers and Shambhavi Shiva are featu
 `assets/brand/logo-indigo.{png,webp}` and `logo-lavender.{png,webp}` (1200×340, transparent). Extracted from the supplied white-on-black logo and recoloured to the site tokens (deep indigo for light surfaces, lavender for indigo surfaces), because the site has no black. Used in the header, mobile menu, footer and social image. If a vector version (SVG/AI) exists, supply it for sharper rendering at any size; the hairline strokes are the most sensitive to scaling.
 
 
-## Graphics folder (supplied as a zip, 10 JPGs)
+## Graphics folder (supplied as a zip, 10 JPGs, all used)
 Mapped by evidence on the images: the golden lotus "Majestic India" logo is printed on the Sita poster and both collages, the sash reads "MISS INDIA", and the same lotus appears on the card in the logo-reveal video. The remaining Sita/Naina photos are the source shoots for those graphics.
-- Majestic India case study, "Social creatives" (6): Sita poster, Sita collage, Naina "Tribal Look" poster, Naina collage, plus two photographs (Sita, Naina).
+- Majestic India case study, "Social creatives" (9): Sita poster, Sita collage, Naina "Tribal Look" poster, Naina collage, plus five photographs (two Sita, three Naina). All 9 Majestic images from the zip are used.
 - Navdurga case study, "Social creatives" (1): the connectivity map creative ("Why settle for an industrial park…"). It carries the client's own contact numbers as printed in their advert.
 Processed to 420/720/1080 px in WebP and JPG with real dimensions. The earlier video-frame gallery on the Majestic page was removed as redundant with the film.
 **Confirm:** photographer/styling credits, and that the Naina and Sita contestants have agreed to public use.

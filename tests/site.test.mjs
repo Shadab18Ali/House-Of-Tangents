@@ -318,7 +318,7 @@ test('logo renders crisp and fully visible at header size on desktop and mobile'
 
 test('supplied campaign graphics appear on the right case studies with real dimensions, captions and alt text',()=>{
   const maj=read('work/majestic-india/index.html'),nav=read('work/navdurga/index.html');
-  assert.equal((maj.match(/assets\/media\/majestic-india\/creative-[a-z-]+-1080\.jpg/g)||[]).length,6);
+  assert.equal((maj.match(/assets\/media\/majestic-india\/creative-[a-z-]+-1080\.jpg/g)||[]).length,9);
   assert.equal((nav.match(/assets\/media\/navdurga\/creative-connectivity-map-1080\.jpg/g)||[]).length,1);
   assert.ok(maj.includes('Social creatives')&&nav.includes('Social creatives'));
   for(const h of [maj,nav])for(const m of h.matchAll(/<img src="\/assets\/media\/[a-z-]+\/creative-[^"]+-1080\.jpg"[^>]*width="1080" height="(\d+)"[^>]*alt="([^"]{30,})"/g))assert.ok(+m[1]>=1400&&+m[1]<=1450);
