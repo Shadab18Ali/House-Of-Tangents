@@ -2,7 +2,9 @@
 
 Sources: the pasted portfolio text (all pages) and PDF pages 1–4 (visually checked). **A full 69-page PDF-vs-text comparison was not performed**, so no PDF/text conflicts were verified or ruled out beyond those pages. Where claims were ambiguous, the more cautious wording was used.
 
-**Open items (V4 additions first)**
+**Open items (V5 additions first)**
+0000a. Supplied Graphics zip is now used on Majestic India and Navdurga. Please confirm model/contestant permissions and photographer credits for the Sita and Naina images.
+
 000a. Capitol Hill 800%+ baseline (from what, to what) is not in the source data.
 000b. Tanushree's surname; client logo files; team photographs; a second client testimonial; images for Capitol Hill, Black Salon, JT20 / Santhal Strikers and Shambhavi Shiva.
 

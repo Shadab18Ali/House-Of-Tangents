@@ -24,6 +24,7 @@ if(projects.filter(p=>p.featured).length>6)throw new Error('more than six featur
 for(const [slug,m] of Object.entries(MEDIA)){
   if(!bySlug[slug])throw new Error('media for unknown project '+slug);
   for(const s of [m.poster,...(m.gallery||[]).map(g=>g.src)])for(const w of [420,720])for(const e of ['jpg','webp'])if(!exists(`assets/media/${s}-${w}.${e}`))throw new Error('missing asset '+s+'-'+w+'.'+e);
+  for(const g of (m.creatives||[])){for(const w of [420,720,1080])for(const e of ['jpg','webp'])if(!exists(`assets/media/${g.src}-${w}.${e}`))throw new Error('missing creative '+g.src+'-'+w+'.'+e);if(!g.alt||!g.caption||!g.w||!g.h)throw new Error('creative needs alt, caption, w, h: '+g.src)}
   if(!m.alt)throw new Error(slug+': media needs alt');
 }
 for(const [id,v] of Object.entries(LOCAL_VIDEOS))if(!exists(v.src.slice(1)))throw new Error('missing local video '+v.src);
@@ -33,8 +34,8 @@ const statusClass=s=>'st-'+s.split(' ')[0].toLowerCase().replace(/[^a-z]/g,'');
 const status=s=>`<span class="status ${statusClass(s)}"><i aria-hidden="true"></i>${esc(s)}</span>`;
 const paras=a=>a.map(t=>`<p>${esc(t)}</p>`).join('');
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
-const pic=(src,alt,{sizes='(min-width:900px) 50vw,100vw',focus='50% 50%',eager=false}={})=>
- `<picture><source type="image/webp" srcset="/assets/media/${src}-420.webp 420w,/assets/media/${src}-720.webp 720w" sizes="${sizes}"><img src="/assets/media/${src}-720.jpg" srcset="/assets/media/${src}-420.jpg 420w,/assets/media/${src}-720.jpg 720w" sizes="${sizes}" width="720" height="1280" alt="${esc(alt)}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" style="object-position:${focus}"></picture>`;
+const pic=(src,alt,{sizes='(min-width:900px) 50vw,100vw',focus='50% 50%',eager=false,w=720,h=1280,widths=[420,720]}={})=>
+ `<picture><source type="image/webp" srcset="${widths.map(x=>`/assets/media/${src}-${x}.webp ${x}w`).join(',')}" sizes="${sizes}"><img src="/assets/media/${src}-${widths.includes(720)?720:widths[widths.length-1]}.jpg" srcset="${widths.map(x=>`/assets/media/${src}-${x}.jpg ${x}w`).join(',')}" sizes="${sizes}" width="${w}" height="${h}" alt="${esc(alt)}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" style="object-position:${focus}"></picture>`;
 const oneLine=s=>s.replace(/\.$/,'');
 const arrow='<span aria-hidden="true"> →</span>';
 
@@ -230,6 +231,7 @@ for(const [pi,p] of projects.entries()){
   const rel=p.related.map(r=>bySlug[r]);
   const next=projects[(pi+1)%projects.length];
   const vids=p.videos.map(videoBlock).join('');
+  const creatives=m&&m.creatives&&m.creatives.length?`<div class="creatives"><h3 class="sub">Social creatives</h3><ul class="cgrid ${m.creatives.length===1?'one':''}">${m.creatives.map(g=>`<li><figure>${pic(g.src,g.alt,{sizes:'(min-width:900px) 28vw,(min-width:560px) 45vw,100vw',w:g.w,h:g.h,widths:[420,720,1080]})}<figcaption>${esc(g.caption)}</figcaption></figure></li>`).join('')}</ul></div>`:'';
   const gallery=m&&m.gallery?`<div class="gal gal-${Math.min(m.gallery.length,4)}">${m.gallery.map(g=>`<figure>${pic(g.src,g.alt,{sizes:'(min-width:900px) 25vw,50vw'})}</figure>`).join('')}</div>`:'';
   const hero=variant==='media'
    ?`<section class="case-hero media"><div class="wrap case-hero-grid"><div><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / <span aria-current="page">${esc(p.name)}</span></nav><p class="label">${esc(p.tag)}</p><h1>${esc(p.name)}</h1><p class="lead">${esc(p.title)}</p></div><figure class="case-hero-fig">${pic(m.poster,m.alt,{sizes:'(min-width:900px) 40vw,100vw',focus:m.focus,eager:true})}</figure></div></section>`
@@ -240,7 +242,7 @@ for(const [pi,p] of projects.entries()){
    <section class="blk angle"><div><h2 class="label">The challenge</h2><p>${esc(p.challenge)}</p></div>${p.tangent?`<div><h2 class="label">The strategy</h2><p>${esc(p.tangent)}</p></div>`:''}</section>
    <section class="blk"><h2 class="label">Creative execution</h2>${prose}</section>
    ${deliver}
-   ${vids||gallery?`<section class="blk visuals"><h2 class="label">Project visuals</h2><div class="vgrid">${vids}</div>${gallery}</section>`:''}
+   ${vids||gallery||creatives?`<section class="blk visuals"><h2 class="label">Project visuals</h2>${vids?`<div class="vgrid">${vids}</div>`:''}${gallery}${creatives}</section>`:''}
    ${resultsHTML}
    <section class="blk method"><h2 class="label">Methodology and credits</h2><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. <a class="link" href="/credits">Full reporting notes</a>.</p><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></section>`;
   const body=`${hero}<section class="band tight case-body ${layoutB?'case-b':'case-a'}"><div class="wrap">${layoutB?`<div class="case-grid"><aside class="case-side">${facts}</aside><div class="case-main">${main}</div></div>`:`${facts}<div class="case-main">${main}</div>`}</div></section>

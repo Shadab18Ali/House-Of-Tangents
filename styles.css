@@ -277,3 +277,15 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-width:2px;border-col
 html{scrollbar-color:var(--ink) var(--lav)}
 input:-webkit-autofill,textarea:-webkit-autofill{-webkit-text-fill-color:var(--ink);caret-color:var(--ink);transition:background-color 600000s 0s}
 .indigo input:-webkit-autofill,.indigo textarea:-webkit-autofill{-webkit-text-fill-color:var(--lav);caret-color:var(--lav)}
+
+/* social creatives (supplied campaign graphics) */
+.visuals .creatives{grid-column:2}
+.creatives .sub{font:600 var(--fs-label)/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 var(--sp-2)}
+.cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+.cgrid.one{grid-template-columns:minmax(0,420px)}
+.cgrid figure{margin:0}.cgrid picture,.cgrid img{width:100%;height:auto;display:block}
+.cgrid figcaption{padding-top:var(--sp-1);font-size:var(--fs-small);color:var(--soft)}
+.cgrid img{transition:opacity .3s}
+@media(max-width:900px){.visuals .creatives{grid-column:auto}}
+@media(max-width:640px){.cgrid{grid-template-columns:repeat(2,1fr);gap:var(--sp-2)}.cgrid.one{grid-template-columns:minmax(0,1fr)}}
+.case-b .visuals .creatives,.case-b .visuals .vgrid,.case-b .visuals .gal{grid-column:auto}

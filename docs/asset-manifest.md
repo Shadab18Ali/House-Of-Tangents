@@ -20,7 +20,7 @@ Over the 10 MB limit, so no verified frames could be extracted: SANTHAL STRIKERS
 ## Needs confirmation (unused)
 - BTS 4 V2.mp4 — withheld: Saregama BTS is unpublished and under management review.
 - DANDIYA 2026_1.mp4, 001.mp4, Video 1.mp4, VOF.mov, SOR_2.mp4, Soon (1).mp4, Birthday ruin house.mp4, vandamaniyaa_1.mp4 — client/project unknown.
-- Graphics/ — 4 JPGs of a tribal-look saree shoot ("Nayna", Padiya saree, Jharkhand). No on-image link to any project, so unused. Confirm the client and credit.
+
 
 ## Projects without approved media (typographic poster)
 Capitol Hill, Black Salon, JT20 / Santhal Strikers and Shambhavi Shiva are featured projects with no obtainable approved frames. Their posters use each project's verified headline figure and its qualifying label. To replace them: drop a poster set at `assets/media/<slug>/` and add the project to `content/media.json`; `scripts/make-media.md` shows the ffmpeg commands.
@@ -32,3 +32,11 @@ Capitol Hill, Black Salon, JT20 / Santhal Strikers and Shambhavi Shiva are featu
 
 ## Brand logo
 `assets/brand/logo-indigo.{png,webp}` and `logo-lavender.{png,webp}` (1200×340, transparent). Extracted from the supplied white-on-black logo and recoloured to the site tokens (deep indigo for light surfaces, lavender for indigo surfaces), because the site has no black. Used in the header, mobile menu, footer and social image. If a vector version (SVG/AI) exists, supply it for sharper rendering at any size; the hairline strokes are the most sensitive to scaling.
+
+
+## Graphics folder (supplied as a zip, 10 JPGs)
+Mapped by evidence on the images: the golden lotus "Majestic India" logo is printed on the Sita poster and both collages, the sash reads "MISS INDIA", and the same lotus appears on the card in the logo-reveal video. The remaining Sita/Naina photos are the source shoots for those graphics.
+- Majestic India case study, "Social creatives" (6): Sita poster, Sita collage, Naina "Tribal Look" poster, Naina collage, plus two photographs (Sita, Naina).
+- Navdurga case study, "Social creatives" (1): the connectivity map creative ("Why settle for an industrial park…"). It carries the client's own contact numbers as printed in their advert.
+Processed to 420/720/1080 px in WebP and JPG with real dimensions. The earlier video-frame gallery on the Majestic page was removed as redundant with the film.
+**Confirm:** photographer/styling credits, and that the Naina and Sita contestants have agreed to public use.
