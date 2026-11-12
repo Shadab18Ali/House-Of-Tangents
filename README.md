@@ -13,3 +13,6 @@ Edit `content/projects.json` and `content/site.mjs`, then rebuild and commit the
 Media: see `docs/asset-manifest.md` and `scripts/make-media.md`.
 
 Contact form: set `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO` in Vercel. See `docs/` for the plan, asset manifest and open questions.
+
+## Deploying
+Vercel only builds a commit if its author email matches a GitHub account. Author commits with the GitHub account email or the account's noreply address (`ID+username@users.noreply.github.com`); otherwise the deployment is marked "Blocked".
