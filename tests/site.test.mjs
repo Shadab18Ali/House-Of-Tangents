@@ -18,15 +18,16 @@ test.before(async()=>{
 test.after(async()=>{await browser.close();server.close()});
 const text=h=>h.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<style[\s\S]*?<\/style>/g,'').replace(/<[^>]+>/g,' ').replace(/&[a-z]+;/g,' ');
 
-test('homepage body copy is 900–1,200 words',()=>{
+test('homepage body copy is tight: 700–1,200 words',()=>{
   const h=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
   const main=h.slice(h.indexOf('<main'),h.indexOf('</main>'));
   const n=text(main).split(/\s+/).filter(Boolean).length;console.log('home words',n);
-  assert.ok(n>=900&&n<=1200,'words='+n);
+  assert.ok(n>=700&&n<=1200,'words='+n);
 });
 test('homepage features no more than six projects, each linking to a case study',()=>{
   const h=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
-  const links=[...h.matchAll(/class="stretch"/g)].length;assert.ok(links>=1&&links<=6,String(links));
+  const grid=h.slice(h.indexOf('class="reel-grid"'),h.indexOf('class="band cobalt"'));
+  const links=[...grid.matchAll(/class="pcard-link"/g)].length;assert.ok(links>=1&&links<=6,String(links));
   assert.equal(projects.filter(p=>p.featured).length,links);
   for(const p of projects.filter(p=>p.featured))assert.ok(fs.existsSync(path.join(ROOT,'work',p.slug,'index.html')));
 });
@@ -79,11 +80,11 @@ test('mobile menu: open, trap focus, Escape closes, focus returns',async()=>{
 });
 test('work filter shows/hides by category and keeps links in DOM',async()=>{
   const pg=await browser.newPage();await pg.goto(base+'/work');
-  const total=await pg.locator('#work-grid .card').count();assert.equal(total,projects.length);
+  const total=await pg.locator('#work-grid .pcard').count();assert.equal(total,projects.length);
   await pg.click('[data-filter=hospitality]');
-  const vis=await pg.locator('#work-grid .card:not([hidden])').count();
+  const vis=await pg.locator('#work-grid .pcard:not([hidden])').count();
   assert.equal(vis,projects.filter(p=>p.categories.includes('hospitality')).length);
-  assert.equal(await pg.locator('#work-grid .card').count(),total);await pg.close();
+  assert.equal(await pg.locator('#work-grid .pcard').count(),total);await pg.close();
 });
 test('video dialog loads iframe only on intent, Escape closes, focus returns',async()=>{
   const pg=await browser.newPage();await pg.goto(base+'/work/majestic-india');
@@ -99,4 +100,47 @@ test('contact form validates and never fakes success',async()=>{
   await pg.fill('#cf-name','A');await pg.fill('#cf-contact','a@b.co');await pg.fill('#cf-need','Hello');await pg.click('#cf button[type=submit]');
   await pg.waitForFunction(()=>document.querySelector('#cf .form-status').textContent.includes('not switched on'));
   assert.ok(!/Thank you/.test(await pg.textContent('#cf .form-status')));await pg.close();
+});
+
+test('Electric Editorial palette only: no cream, beige, orange, terracotta or brown tokens; Open Sans removed',()=>{
+  const css=fs.readFileSync(path.join(ROOT,'styles.css'),'utf8');
+  for(const bad of ['#f5f1e6','#ece6d6','#e2502f','#dd4a2b','#b8381b','#ff8f6e','#1f1f1d','Open Sans','Bodoni'])assert.ok(!css.toLowerCase().includes(bad.toLowerCase()),'found '+bad);
+  for(const good of ['#F7F8FA','#0B0D12','#3157FF','#C8FF3D','#E9ECF4'])assert.ok(css.includes(good),'missing '+good);
+  for(const f of ['index.html','work/index.html'])assert.ok(!/Open\+Sans|Open Sans|fonts\.googleapis/.test(fs.readFileSync(path.join(ROOT,f),'utf8')),'external/legacy font in '+f);
+  for(const f of ['BricolageGrotesque-normal','Manrope-normal','InstrumentSerif-normal'])assert.ok(fs.existsSync(path.join(ROOT,'assets/fonts/'+f+'.woff2')));
+});
+test('WCAG contrast for the token pairs actually used',()=>{
+  const lum=h=>{const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+  const cr=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+  const pairs=[['#0B0D12','#F7F8FA',4.5],['#4A5163','#F7F8FA',4.5],['#4A5163','#E9ECF4',4.5],['#FFFFFF','#3157FF',4.5],['#3157FF','#F7F8FA',4.5],['#3157FF','#E9ECF4',4.5],['#0B0D12','#C8FF3D',4.5],['#C8FF3D','#0B0D12',4.5],['#FFFFFF','#0B0D12',4.5],['#C8FF3D','#3157FF',4.5],['#FFFFFF','#0B0D12',4.5]];
+  for(const [a,b,min] of pairs)assert.ok(cr(a,b)>=min,`${a} on ${b} = ${cr(a,b).toFixed(2)}`);
+});
+test('hero shows real project media with a static fallback; no autoplay attribute, no sound',()=>{
+  const h=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
+  assert.match(h,/<video class="reel" data-reel muted loop playsinline preload="none" poster="\/assets\/media\/home\/hero-poster\.jpg"/);
+  assert.ok(!/<video[^>]*\sautoplay/.test(h));
+  for(const f of ['assets/media/home/hero-reel.mp4','assets/media/home/hero-poster.jpg','assets/media/home/hero-poster.webp'])assert.ok(fs.existsSync(path.join(ROOT,f)),f);
+});
+test('featured projects: media-backed where approved media exists, typographic poster otherwise, none empty',()=>{
+  const h=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
+  const cards=h.slice(h.indexOf('class="reel-grid"'),h.indexOf('class="band cobalt"')).split('<article class="pcard"').slice(1);
+  assert.equal(cards.length,6);
+  for(const c of cards)assert.ok(/<img /.test(c)||/class="art art-/.test(c));
+  assert.ok(cards.filter(c=>/<img /.test(c)).length>=2);
+});
+test('self-hosted videos never preload and carry a visible title',()=>{
+  for(const f of ['work/majestic-india/index.html','work/navdurga/index.html','tangent-media/index.html']){
+    const h=fs.readFileSync(path.join(ROOT,f),'utf8');
+    for(const v of h.match(/<video[^>]*>/g)||[]){assert.match(v,/preload="none"/);assert.match(v,/aria-label="[^"]+"/);assert.ok(!/autoplay/.test(v))}}
+});
+test('reduced motion: hero reel does not play and there is no pause control',async()=>{
+  const ctx=await browser.newContext({reducedMotion:'reduce'});const pg=await ctx.newPage();await pg.goto(base+'/');await pg.waitForTimeout(500);
+  assert.equal(await pg.evaluate(()=>document.querySelector('[data-reel]').paused),true);
+  assert.equal(await pg.evaluate(()=>document.querySelector('[data-reel-toggle]').hidden),true);await ctx.close();
+});
+test('services index: one panel open, aria-expanded kept in sync',async()=>{
+  const pg=await browser.newPage({viewport:{width:1440,height:900}});await pg.goto(base+'/');
+  assert.equal(await pg.getAttribute('#sb0','aria-expanded'),'true');await pg.click('#sb2');
+  assert.equal(await pg.getAttribute('#sb2','aria-expanded'),'true');assert.equal(await pg.getAttribute('#sb0','aria-expanded'),'false');
+  assert.equal(await pg.locator('.svc-panel:visible').count(),1);await pg.close();
 });

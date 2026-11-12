@@ -2,7 +2,11 @@
 
 Sources: the pasted portfolio text (all pages) and PDF pages 1–4 (visually checked). **A full 69-page PDF-vs-text comparison was not performed**, so no PDF/text conflicts were verified or ruled out beyond those pages. Where claims were ambiguous, the more cautious wording was used.
 
-**Open items**
+**Open items (V2 additions first)**
+0a. Media for Capitol Hill, Black Salon, JT20 and Shambhavi: files over 10 MB could not be fetched, so these use typographic posters. See `asset-manifest.md`.
+0b. Navdurga file mapping is now verified from on-screen content; the earlier "film 1 / film 2" labels were replaced.
+0c. Hindi quote falls back to a system Devanagari font (the chosen fonts have no Devanagari). Self-hosting Noto Serif Devanagari would make it consistent.
+
 1. WhatsApp action omitted until the number is confirmed as the right WhatsApp contact.
 2. Delivery status unclear in the source → shown as "Status to confirm": The Pi, Dimechain, QuZones, i-Fit.Me, Unfaked.
 3. Which Navdurga file is which film (see asset manifest).

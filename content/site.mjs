@@ -33,8 +33,15 @@ export const VIDEO_INFO={
  '1mCBaiNOb5DHhRrg9fdJOhkGoj9FB1kx5':{title:'Majestic India coronation ceremony',summary:'Content from the coronation ceremony, part of the coronation communication work.'},
  '1IzD6S150dlt_67egDONjNg_xl_X2vFXA':{title:'Santhal Strikers',summary:'Content from the Santhal Strikers JT20 campaign, June 2026.'},
  '1AyOQKV71B_XW0_66Gw23rU0tnyqK_nO4':{title:'Sundowner at ZOI, final cut',summary:'Final cut of the film for the Sundowner event at ZOI.'},
- '1O8yoclSPpoSUFJ63_Y8RsHPvDSQzXQKQ':{title:'Navdurga AI visualisation, film 1',summary:'An AI-generated visualisation of the planned Navdurga Business Park. The visuals present proposed facilities, not filmed footage of completed construction.'},
- '1bCogJk3ULAUqbocAFMmUHo5CwBDeLa9c':{title:'Navdurga AI visualisation, film 2',summary:'An AI-generated visualisation of the planned Navdurga Business Park. The visuals present proposed facilities, not filmed footage of completed construction.'},
+ '1O8yoclSPpoSUFJ63_Y8RsHPvDSQzXQKQ':{title:'Navdurga: airport-to-site journey',summary:'An AI-generated journey from the airport towards the planned Navdurga Business Park, introducing nearby connections along the way. The visuals present a proposed development, not filmed footage of completed construction.'},
+ '1bCogJk3ULAUqbocAFMmUHo5CwBDeLa9c':{title:'Navdurga: FPV-style facilities walkthrough',summary:'A fully AI-generated FPV drone-style walkthrough of the planned park, showing cranes, roads, weighbridges, warehouses and loading trucks. The visuals present proposed facilities, not filmed footage of completed construction.'},
  '1bAqfGtzcOb1o2VfosDDsd1CPl0Wd-guR':{title:'Zoha Jewellery festive campaign film',summary:'Campaign film for the Dhanteras and Diwali 2026 jewellery campaign.'},
  '1ixHYwLdHRfK_QZlWKXqw_Wl0-nNvo67H':{title:'Dense film',summary:'Video content for Dense, the sandwich brand, from the 19 September edit.'}
+};
+
+// Videos hosted on this site (optimised copies of the client's files). Others still play from Drive on request.
+export const LOCAL_VIDEOS={
+ '1uhfVZn8W7AayoNY6HOi3Amw1ol7GJl_R':{src:'/assets/media/majestic-india/logo-reveal.mp4',poster:'majestic-india/still-red-paper',w:720,h:1280},
+ '1O8yoclSPpoSUFJ63_Y8RsHPvDSQzXQKQ':{src:'/assets/media/navdurga/airport-to-site.mp4',poster:'navdurga/still-gate',w:720,h:1280},
+ '1bCogJk3ULAUqbocAFMmUHo5CwBDeLa9c':{src:'/assets/media/navdurga/fpv-walkthrough.mp4',poster:'navdurga/still-aerial',w:720,h:1280}
 };

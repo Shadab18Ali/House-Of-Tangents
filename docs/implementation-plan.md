@@ -1,14 +1,11 @@
-# Redesign implementation notes
+# Implementation notes (V2: Electric Editorial)
 
-**Baseline.** The previous site was a single static page (`index.html` + JS-rendered case studies), about 6,000 words long, with no build, lint or tests, and Google Drive iframes/thumbnails as its media pipeline. It had no routes, metadata per page, sitemap, form, or accessibility work.
+**Baseline (V1).** Static multi-page site: cream/charcoal/orange palette, Open Sans, text-only cards, no project imagery, Drive iframes. Homepage 7,470 px desktop / 13,047 px mobile. See `docs/screenshots/before-*`.
 
-**Approach.** Still framework-free so it deploys on Vercel with preset "Other" and no build step. Pages are generated from structured content and committed:
+**V2 art direction.** Cool white `#F7F8FA`, ink `#0B0D12`, cobalt `#3157FF`, signal lime `#C8FF3D`, mist `#E9ECF4`. Bricolage Grotesque (display), Manrope (body), Instrument Serif (accent only), all self-hosted as Latin WOFF2 in `assets/fonts/`. Motif: a line touching a circle at one lime point.
 
-- `content/projects.json` — 24 case studies (status, period, categories, services, challenge, tangent, outcome, chapters, metrics, videos, related). Validated on every build: required fields, allowed statuses, no `Proposed` items in the project list, valid related links, max six featured, every video has a description.
-- `content/site.mjs` — verified site facts, team, services, video descriptions.
-- `scripts/build.mjs` — generates `/`, `/work`, `/work/<slug>` (24), `/services`, `/about`, `/tangent-media`, `/contact`, `/credits`, `404.html`, `sitemap.xml`, `robots.txt`.
-- `styles.css`, `site.js` — design tokens, components, menu, video dialog, filters, form.
-- `api/contact.js` — Vercel function for the enquiry form.
-- `tests/site.test.mjs` — 12 tests (`npm test`).
+**What changed.** `styles.css` rewritten from scratch (tokens, components). `scripts/build.mjs` templates rewritten. Homepage order: hero with muted reel, selected work, evidence band, services index, method journey, origin, team and testimonial, contact. `/work` is a mixed-ratio visual wall. Case studies lead with media, then facts, challenge and tangent, evidence modules, media, credits, related work and a next-project CTA.
 
-**Edit workflow.** Change content in `content/`, run `node scripts/build.mjs`, commit the regenerated HTML.
+**Kept.** Routes, content model and validation, evidence qualifications, status labels, form API, skip link, focus handling, metadata and structured data.
+
+**Tests.** `npm test` (19 tests): content rules, metadata, overflow at five viewports, first-viewport CTA, menu focus, filters, dialog, form, palette and font rules, WCAG contrast of the token pairs, hero media, reduced motion, services index.
