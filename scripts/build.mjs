@@ -30,36 +30,28 @@ for(const [id,v] of Object.entries(LOCAL_VIDEOS))if(!exists(v.src.slice(1)))thro
 
 // ---- helpers ----
 const statusClass=s=>'st-'+s.split(' ')[0].toLowerCase().replace(/[^a-z]/g,'');
-const badge=s=>`<span class="status ${statusClass(s)}"><i aria-hidden="true"></i>${esc(s)}</span>`;
+const status=s=>`<span class="status ${statusClass(s)}"><i aria-hidden="true"></i>${esc(s)}</span>`;
 const paras=a=>a.map(t=>`<p>${esc(t)}</p>`).join('');
-const pic=(src,alt,{sizes='(min-width:900px) 50vw,100vw',focus='50% 50%',eager=false,cls=''}={})=>
- `<picture><source type="image/webp" srcset="/assets/media/${src}-420.webp 420w,/assets/media/${src}-720.webp 720w" sizes="${sizes}"><img class="${cls}" src="/assets/media/${src}-720.jpg" srcset="/assets/media/${src}-420.jpg 420w,/assets/media/${src}-720.jpg 720w" sizes="${sizes}" width="720" height="1280" alt="${esc(alt)}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" style="object-position:${focus}"></picture>`;
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
-const GEO=[
- '<circle cx="60" cy="62" r="34" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="6" y1="96" x2="114" y2="96" stroke="currentColor" stroke-width="1.6"/><circle cx="60" cy="96" r="4.5" class="pt"/>',
- '<line x1="12" y1="98" x2="108" y2="98" stroke="currentColor" stroke-width="1.6"/><line x1="60" y1="98" x2="60" y2="20" stroke="currentColor" stroke-width="1.6"/><path d="M60 84h-14v14" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="60" cy="20" r="4.5" class="pt"/>',
- '<circle cx="44" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="74" y1="10" x2="74" y2="110" stroke="currentColor" stroke-width="1.6"/><circle cx="74" cy="60" r="4.5" class="pt"/>',
- '<path d="M10 100 Q60 -14 110 100" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="24" y1="58" x2="96" y2="58" stroke="currentColor" stroke-width="1.6"/><circle cx="60" cy="58" r="4.5" class="pt"/>'];
-// Typographic poster used where no approved media exists. Figures here repeat verified, already-qualified outcomes.
-const ART_STAT={'capitol-hill':['800%+','organic account reach growth in the first two months'],'black':['4.8/5','Google rating by November 2026'],'santhal-strikers':['832','followers in 20 days, no paid follower acquisition'],'shambhavi':['2 × 1M+','two videos above one million views, organic'],'sanatni':['~900','app downloads across campaign and launch work'],'the-pi':['~300','downloads reported from the XISS launch activity'],'dimechain':['584','LinkedIn followers in about three to three and a half months']};
-const art=(p)=>{const h=hash(p.slug);const st=ART_STAT[p.slug];const main=st?`<b class="art-stat">${esc(st[0])}</b><small>${esc(st[1])}</small>`:`<b class="art-name">${esc(p.name)}</b>`;
- return `<div class="art art-${'abc'[h%3]}" role="img" aria-label="${esc(p.name+(st?': '+st[0]+' '+st[1]:' project artwork'))}"><span class="art-tag">${esc(p.tag)}</span><svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">${GEO[(h>>3)%4]}</svg><div class="art-main" aria-hidden="true">${main}</div></div>`};
-const mediaOf=(p,opts)=>{const m=MEDIA[p.slug];return m?pic(m.poster,m.alt,{...opts,focus:m.focus}):art(p)};
+const pic=(src,alt,{sizes='(min-width:900px) 50vw,100vw',focus='50% 50%',eager=false}={})=>
+ `<picture><source type="image/webp" srcset="/assets/media/${src}-420.webp 420w,/assets/media/${src}-720.webp 720w" sizes="${sizes}"><img src="/assets/media/${src}-720.jpg" srcset="/assets/media/${src}-420.jpg 420w,/assets/media/${src}-720.jpg 720w" sizes="${sizes}" width="720" height="1280" alt="${esc(alt)}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async" style="object-position:${focus}"></picture>`;
 const oneLine=s=>s.replace(/\.$/,'');
-const pcard=(p,{span,h,sizes,eager=false}={})=>`<article class="pcard" data-cats="${p.categories.join(' ')}"${span?` style="--s:${span};--h:${h}px"`:''}>
- <a class="pcard-link" href="/work/${p.slug}" aria-label="${esc(p.name)}: view case study">
-  <div class="pcard-media">${mediaOf(p,{sizes:sizes||'(min-width:900px) 50vw,100vw',eager})}<span class="pcard-go" aria-hidden="true">View case study</span></div>
-  <div class="pcard-info"><p class="pcard-meta">${badge(p.status)}<span>${esc(p.tag)}</span></p><h3>${esc(p.name)}</h3><p class="pcard-out">${esc(oneLine(p.outcome))}</p></div>
- </a></article>`;
-const miniCard=p=>`<a class="mini-card" href="/work/${p.slug}"><div class="mini-media">${mediaOf(p,{sizes:'160px'})}</div><span><b>${esc(p.name)}</b><br><small>${esc(oneLine(p.outcome))}</small></span></a>`;
+const arrow='<span aria-hidden="true"> →</span>';
+
+// image-led feature (only for projects with approved media)
+const feat=(p,{sizes,cls='',eager=false}={})=>{const m=MEDIA[p.slug];return `<article class="feat ${cls}" data-cats="${p.categories.join(' ')}" data-status="${esc(p.status)}"><a href="/work/${p.slug}">
+ <div class="feat-img">${pic(m.poster,m.alt,{sizes:sizes||'(min-width:900px) 50vw,100vw',focus:m.focus,eager})}</div>
+ <div class="feat-cap"><p class="meta">${esc(p.tag)}<span class="sep" aria-hidden="true">/</span>${status(p.status)}</p><h3>${esc(p.name)}</h3><p class="out">${esc(oneLine(p.outcome))}</p><span class="more">View case study${arrow}</span></div></a></article>`};
+// ruled index row (works for every project, with or without imagery)
+const row=(p,n)=>`<li class="row" data-cats="${p.categories.join(' ')}" data-status="${esc(p.status)}"><a href="/work/${p.slug}">
+ <span class="r-no" aria-hidden="true">${String(n).padStart(2,'0')}</span><span class="r-tag">${esc(p.tag)}</span><span class="r-name">${esc(p.name)}</span><span class="r-out">${esc(oneLine(p.outcome))}</span><span class="r-status">${status(p.status)}</span></a></li>`;
 
 const videoBlock=v=>{const info=VIDEO_INFO[v.id],loc=LOCAL_VIDEOS[v.id];
- if(loc){const pm=loc.poster;return `<figure class="vfig"><div class="vwrap"><video controls preload="none" playsinline width="${loc.w}" height="${loc.h}" poster="/assets/media/${pm}-720.jpg" aria-label="${esc(info.title)}"><source src="${loc.src}" type="video/mp4"></video></div><figcaption><b>${esc(info.title)}</b>${esc(info.summary)}</figcaption></figure>`}
- return `<figure class="vfig vdrive"><button class="vbtn" type="button" data-video="${v.id}" data-title="${esc(info.title)}" data-summary="${esc(info.summary)}"><span class="vplay" aria-hidden="true"></span><span class="vlabel">Play: ${esc(info.title)}</span></button><figcaption><b>${esc(info.title)}</b>${esc(info.summary)} <a href="https://drive.google.com/file/d/${v.id}/view" target="_blank" rel="noopener">Open original file</a></figcaption></figure>`};
-const cta=(h='Start a project',p='Let’s work out what your brief needs, then get it made.')=>`<section class="band cobalt cta-band"><div class="wrap"><div class="tangent-line" aria-hidden="true"></div><h2>${h}</h2><p class="lead">${p}</p><div class="actions"><a class="btn lime" href="/contact">Start a project</a><a class="btn outline-w" href="mailto:${SITE.email}">${SITE.email}</a></div></div></section>`;
+ if(loc){return `<figure class="vfig"><div class="vwrap"><video controls preload="none" playsinline width="${loc.w}" height="${loc.h}" poster="/assets/media/${loc.poster}-720.jpg" aria-label="${esc(info.title)}"><source src="${loc.src}" type="video/mp4"></video></div><figcaption><b>${esc(info.title)}</b>${esc(info.summary)}</figcaption></figure>`}
+ return `<figure class="vfig vdrive"><button class="vbtn" type="button" data-video="${v.id}" data-title="${esc(info.title)}" data-summary="${esc(info.summary)}"><span class="vlabel">Play film</span><span class="vsub">${esc(info.title)}</span></button><figcaption><b>${esc(info.title)}</b>${esc(info.summary)} <a href="https://drive.google.com/file/d/${v.id}/view" target="_blank" rel="noopener">Open original file</a></figcaption></figure>`};
+const cta=(h='Start a project',p='Let’s work out what your brief needs, then get it made.')=>`<section class="band charcoal cta-band"><div class="wrap"><h2>${h}</h2><p class="lead">${p}</p><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="mailto:${SITE.email}">${SITE.email}</a></div></div></section>`;
 
 const NAV=[['Work','/work'],['Services','/services'],['About','/about'],['Tangent Media','/tangent-media']];
-const MARK='<svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="14" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><line x1="2" y1="26" x2="30" y2="26" stroke="currentColor" stroke-width="2.4"/><circle cx="16" cy="26" r="3.4" class="pt"/></svg>';
 function layout({path:p,title,desc,body,jsonld=[],preload=''}){
   const url=SITE.url+(p==='/'?'/':p);
   const t=title.includes('House of Tangents')?title:`${title} | House of Tangents`;
@@ -76,10 +68,10 @@ function layout({path:p,title,desc,body,jsonld=[],preload=''}){
 <meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}"><meta property="og:image" content="${SITE.url}/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F7F8FA">
+<meta name="theme-color" content="#E9E8F8">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/BricolageGrotesque-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/Manrope-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/PlayfairDisplay-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-normal.woff2" as="font" type="font/woff2" crossorigin>
 ${preload}<link rel="stylesheet" href="/styles.css">
 <script>document.documentElement.classList.add('js')</script>
 ${jsonld.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n')}
@@ -87,23 +79,26 @@ ${jsonld.map(j=>`<script type="application/ld+json">${JSON.stringify(j)}</script
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" id="site-header"><div class="bar">
- <a class="brand" href="/" aria-label="House of Tangents, home">${MARK}<span>House of Tangents</span></a>
+ <a class="brand" href="/" aria-label="House of Tangents, home">House of Tangents</a>
  <nav class="nav" aria-label="Primary">${nav}</nav>
  <a class="btn primary sm head-cta" href="/contact">Start a project</a>
  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
 </div></header>
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
- <div class="mm-top"><span class="brand">${MARK}<span>House of Tangents</span></span><button class="menu-close" type="button">Close</button></div>
+ <div class="mm-top"><span class="brand">House of Tangents</span><button class="menu-close" type="button">Close</button></div>
  <nav aria-label="Mobile">${NAV.map(([l,h])=>`<a href="${h}">${l}</a>`).join('')}<a href="/contact">Contact</a></nav>
- <a class="btn lime mm-cta" href="/contact">Start a project</a>
+ <a class="btn peach mm-cta" href="/contact">Start a project</a>
 </div>
 <main id="main" tabindex="-1">
 ${body}
 </main>
-<footer class="site-footer"><div class="wrap foot">
- <div><p class="brand">${MARK}<span>House of Tangents</span></p><p class="foot-line">${SITE.tagline}</p></div>
- <nav aria-label="Footer"><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
- <p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p>
+<footer class="site-footer"><div class="wrap">
+ <div class="foot">
+  <div><p class="foot-brand">House of Tangents</p><p class="foot-line">${SITE.tagline}</p></div>
+  <nav aria-label="Footer"><a href="/work">Work</a><a href="/services">Services</a><a href="/about">About</a><a href="/tangent-media">Tangent Media</a><a href="/contact">Contact</a><a href="/credits">Credits &amp; notes</a></nav>
+  <p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p>
+ </div>
+ <p class="copy">© 2026 House of Tangents. Project status and figures as of ${SITE.asOf}.</p>
 </div></footer>
 <dialog class="vdialog" id="vdialog" aria-labelledby="vtitle"><div class="vhead"><h2 id="vtitle"></h2><button type="button" class="vclose">Close</button></div><div class="vframe" id="vframe"></div><p id="vsummary" class="vsum"></p><p class="fine">Interim playback from the client’s shared Google Drive folder, loaded only after you press play.</p></dialog>
 <script src="/site.js" defer></script>
@@ -112,8 +107,7 @@ ${body}
 const crumbs=items=>({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:items.map(([n,u],i)=>({'@type':'ListItem',position:i+1,name:n,item:SITE.url+u}))});
 const org={'@context':'https://schema.org','@type':'ProfessionalService',name:SITE.name,url:SITE.url,email:SITE.email,telephone:SITE.phone,description:'Branding, strategy, creative and marketing. Tangent thinking. Perpendicular commitment.',slogan:SITE.tagline};
 const out=(p,html)=>{const f=p==='/'?'index.html':path.join(p.slice(1),'index.html');const fp=path.join(ROOT,f);fs.mkdirSync(path.dirname(fp),{recursive:true});fs.writeFileSync(fp,html)};
-const TL='<svg class="tl" viewBox="0 0 240 90" aria-hidden="true" focusable="false"><path d="M0 70H88L150 20H240" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="120" cy="45" r="0"/><circle cx="88" cy="70" r="7" class="pt"/></svg>';
-const phero=(eyebrow,h1,lead)=>`<section class="phero"><div class="wrap"><p class="eyebrow">${eyebrow}</p><h1>${h1}</h1>${lead?`<p class="lead">${lead}</p>`:''}${TL}</div></section>`;
+const phero=(eyebrow,h1,lead,tone='')=>`<section class="phero ${tone}"><div class="wrap"><p class="label">${eyebrow}</p><h1>${h1}</h1>${lead?`<p class="lead">${lead}</p>`:''}</div></section>`;
 const formHTML=(id)=>`<form class="form" id="${id}" method="post" action="/api/contact" novalidate>
  <div class="err-summary" role="alert" tabindex="-1" hidden></div>
  <div class="field"><label for="${id}-name">Name <span aria-hidden="true">*</span></label><input id="${id}-name" name="name" autocomplete="name" required aria-describedby="${id}-name-e"><span class="err" id="${id}-name-e"></span></div>
@@ -122,91 +116,75 @@ const formHTML=(id)=>`<form class="form" id="${id}" method="post" action="/api/c
  <div class="field"><label for="${id}-need">What do you need help with? <span aria-hidden="true">*</span></label><textarea id="${id}-need" name="need" rows="4" required aria-describedby="${id}-need-e"></textarea><span class="err" id="${id}-need-e"></span></div>
  <div class="field"><label for="${id}-budget">Approximate budget (optional)</label><input id="${id}-budget" name="budget"></div>
  <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
- <button class="btn lime" type="submit">Send enquiry</button>
+ <button class="btn submit" type="submit">Send enquiry</button>
  <p class="form-status" role="status" aria-live="polite"></p>
  <p class="fine">If sending doesn’t work, email <a href="mailto:${SITE.email}">${SITE.email}</a> or call <a href="${SITE.phoneHref}">${SITE.phone}</a>.</p>
 </form>`;
 
 // ================= HOME =================
 const featured=projects.filter(p=>p.featured).sort((a,b)=>a.featured-b.featured);
-const ROWS=[[7,5],[4,4,4],[5,7],[6,6],[4,4,4]],ROWH=[520,400,520,460,400];
-const flat=ROWS.flatMap((r,ri)=>r.map(sp=>({s:sp,h:ROWH[ri]})));
-const lay=i=>flat[i%flat.length];
-const HOMEROWS=[{s:7,h:520},{s:5,h:520},{s:5,h:520},{s:7,h:520},{s:7,h:520},{s:5,h:520}];
-const svcPanel=(s)=>s.proof.filter(k=>MEDIA[k]).concat(s.proof.filter(k=>!MEDIA[k])).slice(0,2).map(k=>miniCard(bySlug[k])).join('');
+const withMedia=featured.filter(p=>MEDIA[p.slug]),noMedia=featured.filter(p=>!MEDIA[p.slug]);
+const svcExamples=s=>s.proof.map(k=>bySlug[k]);
 const home=`
 <section class="hero"><div class="wrap hero-grid">
  <div class="hero-copy">
-  <p class="eyebrow">Branding / Strategy / Creative / Marketing</p>
+  <p class="label">Branding / Strategy / Creative / Marketing</p>
   <h1>Good ideas rarely move in straight lines.</h1>
   <p class="lead">We find a different angle, then do the work to make it happen.</p>
   <div class="actions"><a class="btn primary" href="/contact">Start a project</a><a class="btn ghost" href="#work">Explore the work</a></div>
  </div>
- <div class="hero-media">
+ <figure class="hero-media">
   <div class="reel-frame"><video class="reel" data-reel muted loop playsinline preload="none" poster="/assets/media/home/hero-poster.jpg" aria-label="Looping silent reel of House of Tangents work: the Majestic India logo reveal and the Navdurga Business Park visualisation" width="540" height="960"><source src="/assets/media/home/hero-reel.mp4" type="video/mp4"></video>
-  <svg class="hero-tangent" viewBox="0 0 400 600" aria-hidden="true" focusable="false"><circle cx="330" cy="330" r="96" fill="none" stroke="#fff" stroke-width="2" class="draw"/><line x1="-10" y1="426" x2="410" y2="426" stroke="#3157ff" stroke-width="4" class="draw"/><circle cx="330" cy="426" r="9" fill="#c8ff3d" class="pop"/></svg></div>
-  <button class="reel-toggle" type="button" data-reel-toggle aria-pressed="false" hidden>Pause reel</button>
-  <p class="reel-cap">Majestic India reveal and Navdurga Business Park visualisation</p>
- </div>
+  <button class="reel-toggle" type="button" data-reel-toggle aria-pressed="false" hidden>Pause reel</button></div>
+  <figcaption>Majestic India reveal and Navdurga Business Park visualisation</figcaption>
+ </figure>
 </div></section>
 
-<section class="band" id="work" aria-labelledby="feat-h"><div class="wrap">
- <div class="sec-head"><div><p class="eyebrow">Selected work</p><h2 id="feat-h">Six projects, six different angles.</h2></div><a class="textlink" href="/work">Browse all work <span aria-hidden="true">→</span></a></div>
- <div class="reel-grid">${featured.map((p,i)=>pcard(p,{span:HOMEROWS[i].s,h:HOMEROWS[i].h,eager:i<2})).join('')}</div>
+<section class="band white" id="work" aria-labelledby="feat-h"><div class="wrap">
+ <div class="sec-head"><div><p class="label">Selected work</p><h2 id="feat-h">Six projects, six different angles.</h2></div><a class="link" href="/work">Browse all work${arrow}</a></div>
+ <div class="feat-pair">${withMedia.map((p,i)=>feat(p,{cls:i===0?'feat-tall':'feat-wide',sizes:'(min-width:900px) 45vw,100vw',eager:true})).join('')}</div>
+ <ol class="rows" start="${withMedia.length+1}">${noMedia.map((p,i)=>row(p,withMedia.length+i+1)).join('')}</ol>
 </div></section>
 
-<section class="band cobalt" aria-labelledby="proof-h"><div class="wrap">
- <p class="eyebrow">Evidence</p>
- <h2 id="proof-h">Results, with the context they belong to.</h2>
- <div class="proof">
-  <figure><b>800%+</b><figcaption>organic account reach growth in the first two months.<a href="/work/capitol-hill">Capitol Hill</a></figcaption></figure>
-  <figure><b>700K–800K</b><figcaption>organic views on selected reels. Paid lead campaigns were separate.<a href="/work/majestic-india">Majestic India</a></figcaption></figure>
-  <figure><b>2 videos</b><figcaption>above one million views on a personal profile, with no boosted posts or ads.<a href="/work/shambhavi">Shambhavi Shiva</a></figcaption></figure>
-  <figure><b>832</b><figcaption>followers in 20 days without paid follower acquisition.<a href="/work/santhal-strikers">JT20 / Santhal Strikers</a></figcaption></figure>
- </div>
- <p class="proof-note">Figures come from the team’s project records and supplied case studies. Views and followers are not sales. Reporting periods and qualifications sit on each case study. As of ${SITE.asOf}.</p>
+<section class="band" aria-labelledby="proof-h"><div class="wrap results">
+ <div class="res-intro"><p class="label">Results</p><h2 id="proof-h">Results, with the context they belong to.</h2><p>Each figure stays with its project, channel and reporting period. Views and followers are not sales.</p></div>
+ <ol class="res-list">
+  <li><span class="fig">800%+</span><div><p>Organic account reach growth in the first two months.</p><a class="link" href="/work/capitol-hill">Capitol Hill</a></div></li>
+  <li><span class="fig">700K–800K</span><div><p>Organic views on selected reels. Paid lead campaigns were separate.</p><a class="link" href="/work/majestic-india">Majestic India</a></div></li>
+  <li><span class="fig">2 videos</span><div><p>Above one million views on a personal profile, with no boosted posts or paid ads.</p><a class="link" href="/work/shambhavi">Shambhavi Shiva</a></div></li>
+  <li><span class="fig">832</span><div><p>Followers in 20 days, without paid follower acquisition.</p><a class="link" href="/work/santhal-strikers">JT20 / Santhal Strikers</a></div></li>
+ </ol>
+ <p class="fine res-note">Figures come from the team’s project records and supplied case studies, as of ${SITE.asOf}. Reporting periods and qualifications are on each case study.</p>
 </div></section>
 
-<section class="band" aria-labelledby="serv-h"><div class="wrap">
- <p class="eyebrow">Services</p>
- <h2 id="serv-h">From the first idea to the final file.</h2>
- <div class="svc-index" data-svc>${SERVICES.map((s,i)=>`<div class="svc-item${i===0?' open':''}"><h3><button type="button" class="svc-btn" id="sb${i}" aria-expanded="${i===0}" aria-controls="sp${i}"><span class="num">0${i+1}</span>${s.title}</button></h3><div class="svc-panel" id="sp${i}" role="region" aria-labelledby="sb${i}"><p>${s.short}</p><div class="mini-row">${svcPanel(s)}</div></div></div>`).join('')}</div>
- <p><a class="textlink" href="/services">All services <span aria-hidden="true">→</span></a></p>
+<section class="band white" aria-labelledby="serv-h"><div class="wrap">
+ <div class="sec-head"><div><p class="label">Services</p><h2 id="serv-h">From the first idea to the final file.</h2></div><a class="link" href="/services">All services${arrow}</a></div>
+ <ol class="svc-list">${SERVICES.map((s,i)=>`<li><span class="svc-no" aria-hidden="true">0${i+1}</span><h3>${s.title}</h3><div><p>${s.short}</p><p class="eg"><span>Examples</span> ${svcExamples(s).slice(0,3).map(p=>`<a class="link" href="/work/${p.slug}">${esc(p.name)}</a>`).join(', ')}</p></div></li>`).join('')}</ol>
 </div></section>
 
-<section class="band mist" aria-labelledby="method-h"><div class="wrap">
- <p class="eyebrow">The Tangent Method</p>
- <h2 id="method-h">We look for the angle, then work through the details.</h2>
- <div class="journey">
-  <svg class="j-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 70H167L330 20H500L670 100H833L1000 30" fill="none" stroke="#3157ff" stroke-width="3" vector-effect="non-scaling-stroke" pathLength="1" class="j-path"/></svg>
-  <span class="j-dot" style="left:16.7%;top:70px" aria-hidden="true"></span><span class="j-dot" style="left:50%;top:20px" aria-hidden="true"></span><span class="j-dot" style="left:83.3%;top:100px" aria-hidden="true"></span>
-  <ol class="j-steps">
-   <li><span class="j-n">01</span><h3>Find the angle</h3><p>We look at what the business needs, who it wants to reach and what its audience is used to seeing. Then we look for a useful detail that gives the brief a different way in.</p></li>
-   <li><span class="j-n">02</span><h3>Make the work</h3><p>We plan, write, design, shoot, build, edit and publish, including the less visible details that decide whether an idea makes sense when people meet it.</p></li>
-   <li><span class="j-n">03</span><h3>Review the response</h3><p>We look at the response available to us and let it shape the next version. For FluffyPet, that meant changing the product experience itself.</p></li>
-  </ol>
- </div>
+<section class="band blue origin" id="origin" aria-labelledby="origin-h"><div class="wrap two">
+ <div><p class="label">Why “Tangents”</p><h2 id="origin-h">A line that touches a circle once, then moves on.</h2></div>
+ <div class="origin-copy"><p>The name comes from a scene in <i>Gangs of Wasseypur Part II</i>, where Guddu explains the difference between a perpendicular and a tangent. It stayed with us because it made the angle matter. We’ve given that geometry its own nonviolent creative meaning.</p><p class="platform">Tangent thinking. Perpendicular commitment.</p><p><a class="link" href="/about#name">Read the full story${arrow}</a></p></div>
 </div></section>
 
-<section class="band origin" id="origin" aria-labelledby="origin-h"><div class="wrap narrow">
- <p class="eyebrow">Why “Tangents”</p>
- <h2 id="origin-h">A line that touches a circle once, then moves on.</h2>
- <p>The name comes from a scene in <i>Gangs of Wasseypur Part II</i>, where Guddu explains the difference between a perpendicular and a tangent. It stayed with us because it made the angle matter. We’ve given that geometry its own nonviolent creative meaning.</p>
- <p class="platform">Tangent thinking. Perpendicular commitment.</p>
- <p><a class="textlink" href="/about#name">Read the full story <span aria-hidden="true">→</span></a></p>
+<section class="band" aria-labelledby="method-h"><div class="wrap two method">
+ <div><p class="label">The Tangent Method</p><h2 id="method-h">We look for the angle, then work through the details.</h2></div>
+ <ol class="steps">
+  <li><h3><span>1</span>Find the angle</h3><p>We look at what the business needs, who it wants to reach and what its audience is used to seeing. Then we look for a useful detail that gives the brief a different way in.</p></li>
+  <li><h3><span>2</span>Make the work</h3><p>We plan, write, design, shoot, build, edit and publish, including the less visible details that decide whether an idea makes sense when people meet it.</p></li>
+  <li><h3><span>3</span>Review the response</h3><p>We look at the response available to us and let it shape the next version. For FluffyPet, that meant changing the product experience itself.</p></li>
+ </ol>
 </div></section>
 
-<section class="band" aria-labelledby="team-h"><div class="wrap">
- <p class="eyebrow">The team</p>
- <h2 id="team-h">Four people, sharing the work.</h2>
- <ul class="roster">${TEAM.map(t=>`<li><b>${t.name}</b><span class="role">${t.role}</span><span>${t.short}</span></li>`).join('')}</ul>
- <p><a class="textlink" href="/about#team">Meet the team <span aria-hidden="true">→</span></a></p>
- <figure class="pullquote"><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption>Narendra Singh, General Manager, Capitol Hill<span class="fine">Excerpt from a testimonial published on our earlier agency website.</span></figcaption></figure>
+<section class="band white" aria-labelledby="team-h"><div class="wrap">
+ <div class="sec-head"><div><p class="label">The team</p><h2 id="team-h">Four people, sharing the work.</h2></div><a class="link" href="/about#team">Meet the team${arrow}</a></div>
+ <ul class="roster">${TEAM.map(t=>`<li><b>${t.name}</b><span class="role">${t.role}</span><span class="what">${t.short}</span></li>`).join('')}</ul>
 </div></section>
 
-<section class="band cobalt contact-band" id="contact-home" aria-labelledby="c-h"><div class="wrap contact-grid">
+<section class="band peach testimonial" aria-label="Testimonial"><div class="wrap narrow"><figure><blockquote>“Guests appreciate the work, and many even ask who handles our marketing.”</blockquote><figcaption>Narendra Singh, General Manager, Capitol Hill<span class="fine">An excerpt from the testimonial published on our earlier agency website.</span></figcaption></figure></div></section>
+
+<section class="band charcoal contact-band" id="contact-home" aria-labelledby="c-h"><div class="wrap contact-grid">
  <div>
-  <div class="tangent-line" aria-hidden="true"></div>
   <h2 id="c-h">We can look at your brief from another angle.</h2>
   <p class="lead">Let’s work out what it needs, then get it made.</p>
   <p class="direct"><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p>
@@ -216,76 +194,81 @@ const home=`
 out('/',layout({path:'/',title:'House of Tangents — Branding, Strategy, Creative, Marketing',desc:'Good ideas rarely move in straight lines. House of Tangents finds a different angle, then does the work to make it happen across branding, strategy, creative and marketing.',body:home,jsonld:[org],preload:'<link rel="preload" as="image" href="/assets/media/home/hero-poster.webp" type="image/webp" fetchpriority="high">\n'}));
 
 // ================= WORK INDEX =================
-const wall=projects.map((p,i)=>pcard(p,{span:lay(i).s,h:lay(i).h,sizes:'(min-width:900px) 40vw,100vw'})).join('');
+const GROUPS=[['Delivered','Delivered work',['Delivered']],['Ongoing','Ongoing engagements',['Ongoing']],['Confirm','Awaiting status confirmation or under review',['Status to confirm','Unpublished / under review']]];
+let counter=0;
+const groupHTML=GROUPS.map(([id,title,sts])=>{const list=projects.filter(p=>sts.includes(p.status));const feats=list.filter(p=>MEDIA[p.slug]);const rows=list.filter(p=>!MEDIA[p.slug]);
+ return `<section class="wgroup" data-group="${id}" aria-labelledby="g-${id}"><div class="wg-head"><h2 id="g-${id}">${title}</h2><span class="count">${list.length}</span></div>${feats.length?`<div class="feat-pair">${feats.map((p,i)=>feat(p,{cls:i%2===0?'feat-tall':'feat-wide',sizes:'(min-width:900px) 45vw,100vw'})).join('')}</div>`:''}<ol class="rows">${rows.map(p=>row(p,++counter)).join('')}</ol></section>`}).join('');
 const filterBtns=`<div class="filters" role="group" aria-label="Filter projects by type"><button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>${Object.entries(CATEGORIES).map(([k,v])=>`<button type="button" class="chip" data-filter="${k}" aria-pressed="false">${v}</button>`).join('')}</div>`;
 out('/work',layout({path:'/work',title:'Work',desc:'Selected House of Tangents work across hospitality, personal branding, sport, product launches and brand identities, with results shown alongside their reporting context.',
- body:phero('Work','Work, with the evidence beside it.',`${projects.length} projects from 2023 to 2026. Each case study keeps its numbers next to the project, channel and period they belong to.`)+
- `<section class="band tight"><div class="wrap">${filterBtns}<p class="fine filter-status" role="status" aria-live="polite">Showing ${projects.length} projects</p><div class="wall" id="work-grid">${wall}</div></div></section>`+cta(),
+ body:phero('Work','Work, with the evidence beside it.',`${projects.length} projects from 2023 to 2026, grouped by status. Each case study keeps its numbers next to the project, channel and period they belong to.`)+
+ `<section class="band tight"><div class="wrap">${filterBtns}<p class="fine filter-status" role="status" aria-live="polite">Showing ${projects.length} projects</p><div id="work-grid">${groupHTML}</div></div></section>`+cta(),
  jsonld:[crumbs([['Home','/'],['Work','/work']])]}));
 
 // ================= CASE STUDIES =================
+const TONES=['blue','peach','white'];
 for(const [pi,p] of projects.entries()){
-  const m=MEDIA[p.slug];
-  const metricsHTML=(arr,ctx)=>arr&&arr.length?`<div class="metrics" role="list" aria-label="Results">${arr.map(s=>`<div class="metric" role="listitem"><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`).join('')}</div><p class="metric-ctx">${esc(ctx)}</p>`:'';
+  const m=MEDIA[p.slug];const h=hash(p.slug);const tone=TONES[h%3];const variant=m?'media':'type';const layoutB=h%2===1;
   const ctx=p.name+(p.period?' · '+p.period.split('·')[0].trim():'');
-  const chap=p.chapters.map(ch=>`<section class="chapter"><h3>${esc(ch.h)}</h3><div>${paras(ch.p)}${metricsHTML(ch.stats,ctx)}${ch.note?`<p class="note"><b>Note:</b> ${esc(ch.note)}</p>`:''}</div></section>`).join('');
+  const groups=p.chapters.filter(c=>c.stats&&c.stats.length).map(c=>({h:c.h,stats:c.stats,note:c.note}));
+  if(p.metrics&&p.metrics.length)groups.push({h:'Reported results',stats:p.metrics,note:null});
+  const prose=p.chapters.map(ch=>`<section class="chapter"><h3>${esc(ch.h)}</h3><div>${paras(ch.p)}${(!ch.stats||!ch.stats.length)&&ch.note?`<p class="note"><b>Note:</b> ${esc(ch.note)}</p>`:''}</div></section>`).join('');
+  const resultsHTML=groups.length?`<section class="blk" id="results"><h2 class="label">Results and measurable impact</h2><p class="fine ctx">${esc(ctx)}</p>${groups.map(g=>`<div class="res-group"><h3>${esc(g.h)}</h3><ol class="res-list tight">${g.stats.map(s=>`<li><span class="fig">${esc(s.value)}</span><div><p>${esc(s.label)}</p></div></li>`).join('')}</ol>${g.note?`<p class="note"><b>Note:</b> ${esc(g.note)}</p>`:''}</div>`).join('')}</section>`:'';
   const statusNote={'Unpublished / under review':'This work remained unpublished and under management review in November 2026.','Status to confirm':'The delivery status of this engagement is being confirmed with the client.'}[p.status]||'';
   const rel=p.related.map(r=>bySlug[r]);
   const next=projects[(pi+1)%projects.length];
-  const heroMedia=m?`<div class="case-hero-media">${pic(m.poster,m.alt,{sizes:'(min-width:1200px) 1100px,100vw',focus:m.focus,eager:true})}</div>`:`<div class="case-hero-media">${art(p)}</div>`;
   const vids=p.videos.map(videoBlock).join('');
   const gallery=m&&m.gallery?`<div class="gal gal-${Math.min(m.gallery.length,4)}">${m.gallery.map(g=>`<figure>${pic(g.src,g.alt,{sizes:'(min-width:900px) 25vw,50vw'})}</figure>`).join('')}</div>`:'';
-  const body=`<section class="case-hero"><div class="wrap">
-   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / <span aria-current="page">${esc(p.name)}</span></nav>
-   <h1>${esc(p.name)}</h1><p class="lead">${esc(p.title)}</p>
-   <dl class="facts"><div><dt>Status</dt><dd>${badge(p.status)}${statusNote?`<small>${esc(statusNote)}</small>`:''}</dd></div><div><dt>Timeframe</dt><dd>${esc((p.period||'To confirm').split('·')[0].trim())}</dd></div><div><dt>Sector</dt><dd>${esc(p.tag)}</dd></div><div><dt>Scope</dt><dd>${p.services.map(esc).join(', ')}</dd></div></dl>
-  </div>${heroMedia}</section>
-  <section class="band"><div class="wrap case">
-   <div class="ed"><h2 class="label">Overview</h2><div>${paras(p.overview)}</div></div>
-   <div class="angle"><div><h2 class="label">The challenge</h2><p>${esc(p.challenge)}</p></div>${p.tangent?`<div><h2 class="label">The tangent</h2><p>${esc(p.tangent)}</p></div>`:''}</div>
-   <div class="ed"><h2 class="label">Execution and results</h2><div>${chap}${metricsHTML(p.metrics,ctx)}</div></div>
-   ${vids||gallery?`<div class="media-sec"><h2 class="label">Selected media</h2>${vids}${gallery}</div>`:''}
-   <div class="ed"><h2 class="label">Methodology</h2><div class="method"><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. Status as of ${SITE.asOf}. <a href="/credits">Full reporting notes</a>.</p></div></div>
-   <div class="ed"><h2 class="label">Credits</h2><div><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></div></div>
-  </div></section>
-  <section class="band mist"><div class="wrap"><h2>Related work</h2><div class="rel-grid">${rel.map(r=>pcard(r,{sizes:'(min-width:900px) 30vw,100vw'})).join('')}</div></div></section>
-  <section class="band cobalt cta-band next"><div class="wrap"><p class="eyebrow">Next project</p><a class="next-link" href="/work/${next.slug}">${esc(next.name)} <span aria-hidden="true">→</span></a><div class="actions"><a class="btn lime" href="/contact">Start a project</a><a class="btn outline-w" href="/work">All work</a></div></div></section>`;
+  const hero=variant==='media'
+   ?`<section class="case-hero media"><div class="wrap case-hero-grid"><div><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / <span aria-current="page">${esc(p.name)}</span></nav><p class="label">${esc(p.tag)}</p><h1>${esc(p.name)}</h1><p class="lead">${esc(p.title)}</p></div><figure class="case-hero-fig">${pic(m.poster,m.alt,{sizes:'(min-width:900px) 40vw,100vw',focus:m.focus,eager:true})}</figure></div></section>`
+   :`<section class="case-hero type ${tone}"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / <span aria-current="page">${esc(p.name)}</span></nav><p class="label">${esc(p.tag)}</p><h1>${esc(p.name)}</h1><p class="lead">${esc(p.title)}</p></div></section>`;
+  const facts=`<dl class="facts"><div><dt>Client</dt><dd>${esc(p.name)}</dd></div><div><dt>Industry</dt><dd>${esc(p.tag)}</dd></div><div><dt>Status</dt><dd>${status(p.status)}${statusNote?`<small>${esc(statusNote)}</small>`:''}</dd></div><div><dt>Timeframe</dt><dd>${esc((p.period||'To confirm').split('·')[0].trim())}</dd></div></dl>`;
+  const deliver=`<section class="blk"><h2 class="label">Deliverables</h2><ul class="deliver">${p.services.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></section>`;
+  const main=`<section class="blk intro"><h2 class="label">Introduction</h2><div class="prose-lead">${paras(p.overview)}</div></section>
+   <section class="blk angle"><div><h2 class="label">The challenge</h2><p>${esc(p.challenge)}</p></div>${p.tangent?`<div><h2 class="label">The strategy</h2><p>${esc(p.tangent)}</p></div>`:''}</section>
+   <section class="blk"><h2 class="label">Creative execution</h2>${prose}</section>
+   ${deliver}
+   ${vids||gallery?`<section class="blk visuals"><h2 class="label">Project visuals</h2><div class="vgrid">${vids}</div>${gallery}</section>`:''}
+   ${resultsHTML}
+   <section class="blk method"><h2 class="label">Methodology and credits</h2><p>Figures come from the team’s project records and supplied case studies. Reporting periods are stated where that information is available. Views, followers, enquiries and address taps are not presented as sales or confirmed visits. Status as of ${SITE.asOf}. <a class="link" href="/credits">Full reporting notes</a>.</p><p>Collective work by the House of Tangents team and specialist collaborators, according to the engagement’s scope.</p></section>`;
+  const body=`${hero}<section class="band tight case-body ${layoutB?'case-b':'case-a'}"><div class="wrap">${layoutB?`<div class="case-grid"><aside class="case-side">${facts}</aside><div class="case-main">${main}</div></div>`:`${facts}<div class="case-main">${main}</div>`}</div></section>
+  <section class="band white"><div class="wrap"><h2>Related work</h2><ol class="rows">${rel.map((r,i)=>row(r,i+1)).join('')}</ol></div></section>
+  <section class="band charcoal cta-band next"><div class="wrap"><p class="label">Next project</p><a class="next-link" href="/work/${next.slug}">${esc(next.name)}${arrow}</a><div class="actions"><a class="btn peach" href="/contact">Start a project</a><a class="btn ghost-l" href="/work">All work</a></div></div></section>`;
   out('/work/'+p.slug,layout({path:'/work/'+p.slug,title:p.name+' case study',desc:`${p.name}: ${p.challenge} ${p.outcome}.`.slice(0,300),body,preload:m?`<link rel="preload" as="image" href="/assets/media/${m.poster}-720.webp" type="image/webp" fetchpriority="high">\n`:'',jsonld:[crumbs([['Home','/'],['Work','/work'],[p.name,'/work/'+p.slug]])]}));
 }
 
 // ================= SERVICES =================
+const svcRow=p=>`<li class="svc-ex"><a href="/work/${p.slug}">${MEDIA[p.slug]?`<span class="ex-img">${pic(MEDIA[p.slug].poster,MEDIA[p.slug].alt,{sizes:'160px',focus:MEDIA[p.slug].focus})}</span>`:''}<span class="ex-text"><b>${esc(p.name)}</b><span>${esc(p.tag)} · ${esc(p.services.slice(0,3).join(', '))}</span></span><span class="ex-out">${esc(oneLine(p.outcome))}</span></a></li>`;
+const SVC_LEAD={brand:'Identity systems, logos, guidelines and the applications around them.',content:'Films, photography, scripts, shoots and AI visualisation.',marketing:'Campaigns, launches and everyday publishing, with the results beside them.',digital:'Websites, e-commerce, onboarding, email flows and automation.'};
 out('/services',layout({path:'/services',title:'Services',desc:'Brand strategy and identity, content and production, marketing and campaigns, and websites and digital journeys from House of Tangents.',
  body:phero('Services','We work from the first idea to the final file.','We can start with what your business has today: a new account, an unfinished app, a property still on a plan, or an established business whose online presence needs to catch up.')+
- `<section class="band tight"><div class="wrap">${SERVICES.map((s,i)=>`<article class="svc" id="${s.id}"><div><span class="num">0${i+1}</span><h2>${s.title}</h2></div><div>${paras(s.long)}<div class="mini-row">${s.proof.map(k=>miniCard(bySlug[k])).join('')}</div></div></article>`).join('')}</div></section>
- <section class="band mist"><div class="wrap narrow"><h2>Identity work beyond the logo</h2>${paras(identityWork)}</div></section>`+cta(),
+ `<section class="band tight"><div class="wrap">${SERVICES.map((s,i)=>`<article class="svc-block" id="${s.id}"><header><span class="svc-no" aria-hidden="true">0${i+1}</span><h2>${s.title}</h2><p class="svc-lead">${SVC_LEAD[s.id]}</p></header><div class="svc-body">${paras(s.long)}<h3 class="label">Where we’ve done it</h3><ul class="svc-exs">${svcExamples(s).map(svcRow).join('')}</ul></div></article>`).join('')}</div></section>
+ <section class="band blue"><div class="wrap two"><div><p class="label">Identity work</p><h2>Beyond the logo</h2></div><div>${paras(identityWork)}</div></div></section>`+cta(),
  jsonld:[crumbs([['Home','/'],['Services','/services']])]}));
 
 // ================= ABOUT =================
 out('/about',layout({path:'/about',title:'About',desc:'The story behind the name House of Tangents, the four-person core team, and how we choose an approach by understanding the brief.',
- body:phero('About','Our name has a story behind it.','Tangent thinking. Perpendicular commitment.')+
- `<section class="band tight" id="name"><div class="wrap narrow">
-  <h2>Wasseypur made geometry hard to forget.</h2>
+ body:phero('About','An agency that finds the angle, then does the work.','House of Tangents works across branding, strategy, creative and marketing. Our experience comes from client work and product engagements, as well as earlier agency roles, and we bring what we’ve learned into the House.')+
+ `<section class="band blue" id="name"><div class="wrap two"><div><p class="label">Our name</p><h2>Wasseypur made geometry hard to forget.</h2></div><div>
   <blockquote class="hindi" lang="hi">“अगर जान से मरा, तो ब्लेड परपेंडीकुलर गया था…और अगर सिर्फ चमड़ी कटा, तो समझो टेंजेण्ट था.”</blockquote>
   <p class="cite">Guddu, <i>Gangs of Wasseypur Part II</i></p>
   <p>Guddu’s dialogue made the angle matter. We’ve given that thought a different job at House of Tangents. Our creative platform is “Tangent thinking. Perpendicular commitment.” We look for an approach people haven’t seen coming, then stay with the work it takes to produce it.</p>
-  <p class="fine">The dialogue is a brief excerpt from the published <i>Gangs of Wasseypur Part II</i> dubbing script, pp. 42–43. Our agency interpretation is our own. This website uses no film footage, stills or other film assets and does not claim or imply any endorsement, affiliation or collaboration with the film or its rights holders.</p>
- </div></section>
- <section class="band mist"><div class="wrap two"><div><h2>We think in tangents.</h2><p>For Navdurga, we imagined a visitor’s journey before there was a finished business park to film. For Santhal Strikers, a conversation with a player became a film about the dream that brought him to cricket.</p></div><div><h2>We commit to the execution.</h2><p>An idea still needs someone to plan the shoot and write the script. It needs prompt writing, footage selection, editing, design and a publishing plan. We work through those details, including the less visible ones.</p></div></div></section>
- <section class="band" id="team"><div class="wrap"><p class="eyebrow">The team</p><h2>We share the work across a four-person team.</h2><div class="team-full">${TEAM.map((t,i)=>`<article><span class="num">0${i+1}</span><h3>${t.name}</h3><p class="role">${t.role}</p>${paras(t.bio)}</article>`).join('')}</div><p class="fine">Our core team has four people. We work with specialist production collaborators when a project calls for them. The projects here represent collective work, and team members and collaborators contributed according to each engagement’s scope.</p></div></section>
- <section class="band cobalt"><div class="wrap two"><div><p class="eyebrow">Behind the HOT</p><h2>A few seconds on screen can contain days of work.</h2><p>The script comes after research. A shoot depends on preparation, and a useful edit starts with footage selection. We review the work before it goes out.</p><p>Our team crosses between roles because a brief rarely divides itself neatly into departments. We stay involved in the parts the work needs.</p></div><div><h3 class="alt-h">We choose the approach by understanding the brief.</h3><p>We look at what the business needs and who it wants to reach, then assess the material already available. That helps us decide whether the useful next step is an identity or a story, a digital journey or a more consistent content rhythm.</p><p>We plan production and build the assets, then publish or hand over the work and review the response available to us. Feedback informs the next version.</p></div></div></section>`+cta(),
+  <p class="fine">The dialogue is a brief excerpt from the published <i>Gangs of Wasseypur Part II</i> dubbing script, pp. 42–43. Our agency interpretation is our own. This website uses no film footage, stills or other film assets and does not claim or imply any endorsement, affiliation or collaboration with the film or its rights holders.</p></div></div></section>
+ <section class="band white"><div class="wrap two"><div><p class="label">Philosophy</p><h2>Two ideas, one discipline.</h2></div><div class="ph"><div><h3>We think in tangents.</h3><p>For Navdurga, we imagined a visitor’s journey before there was a finished business park to film. For Santhal Strikers, a conversation with a player became a film about the dream that brought him to cricket.</p></div><div><h3>We commit to the execution.</h3><p>An idea still needs someone to plan the shoot and write the script. It needs prompt writing, footage selection, editing, design and a publishing plan. We work through those details, including the less visible ones.</p></div></div></div></section>
+ <section class="band" id="team"><div class="wrap"><p class="label">The team</p><h2>We share the work across a four-person team.</h2><div class="team-full">${TEAM.map((t,i)=>`<article><span class="svc-no" aria-hidden="true">0${i+1}</span><div><h3>${t.name}</h3><p class="role">${t.role}</p></div><div>${paras(t.bio)}</div></article>`).join('')}</div><p class="fine">Our core team has four people. We work with specialist production collaborators when a project calls for them. The projects here represent collective work, and team members and collaborators contributed according to each engagement’s scope.</p></div></section>
+ <section class="band white"><div class="wrap two"><div><p class="label">How we work</p><h2>A few seconds on screen can contain days of work.</h2></div><div><p>The script comes after research. A shoot depends on preparation, and a useful edit starts with footage selection. We review the work before it goes out.</p><p>We look at what the business needs and who it wants to reach, then assess the material already available. That helps us decide whether the useful next step is an identity or a story, a digital journey or a more consistent content rhythm.</p><p>We plan production and build the assets, then publish or hand over the work and review the response available to us. Feedback informs the next version. Our team crosses between roles because a brief rarely divides itself neatly into departments.</p></div></div></section>`+cta(),
  jsonld:[crumbs([['Home','/'],['About','/about']])]}));
 
 // ================= TANGENT MEDIA =================
 const rv=bySlug['majestic-india'].videos.find(v=>v.id==='1uhfVZn8W7AayoNY6HOi3Amw1ol7GJl_R');
 const nv=bySlug['navdurga'].videos;
-const prop=(t,body)=>`<article class="proposal"><p class="prop-flag"><span class="status st-proposed"><i aria-hidden="true"></i>Proposed</span> Proposal — not yet produced</p><h3>${t}</h3>${body}</article>`;
+const prop=(t,body)=>`<article class="proposal"><p class="prop-flag"><span class="status st-proposed"><i aria-hidden="true"></i>Proposal — not yet produced</span></p><h3>${t}</h3>${body}</article>`;
 out('/tangent-media',layout({path:'/tangent-media',title:'Tangent Media',desc:'Where the brief took a turn: unconventional approaches House of Tangents delivered, and clearly labelled proposals for new formats.',
  body:phero('Tangent Media','Tangent Media shows where the brief took a turn.','We explain the observation behind a concept and how we made it. When an idea is new, we show what it would take to put it into production.')+
- `<section class="band tight"><div class="wrap"><p class="eyebrow">Delivered</p><h2>Concepts we made and published.</h2>
-  <article class="tm"><div><h3>We filmed the reveal before the logo was ready.</h3><p>Majestic India’s logo was still in development, but the shoot couldn’t wait for the final artwork. We filmed the performance and blank-paper interaction first. Once the logo was complete, we used masking to place it in the footage.</p><p>That let production continue while design work was still underway. The reveal campaign was completed and published. <a href="/work/majestic-india">Majestic India case study</a></p></div><div>${videoBlock(rv)}</div></article>
-  <article class="tm"><div><h3>We turned the planned site into a visit people could follow.</h3><p>Navdurga had no completed site to film, so we created an airport-to-location film and a separate AI-generated FPV-style facilities walkthrough. We planned scenes, wrote the prompts, generated the sequences, and added sound and editing.</p><p>Both films were published organically on the page we managed. They are AI visualisations of planned facilities, rather than filmed tours of completed construction. <a href="/work/navdurga">Navdurga case study</a></p></div><div class="tm-pair">${nv.map(videoBlock).join('')}</div></article>
+ `<section class="band tight"><div class="wrap"><div class="wg-head"><h2>Delivered</h2><span class="count">2</span></div>
+  <article class="tm"><div><h3>We filmed the reveal before the logo was ready.</h3><p>Majestic India’s logo was still in development, but the shoot couldn’t wait for the final artwork. We filmed the performance and blank-paper interaction first. Once the logo was complete, we used masking to place it in the footage.</p><p>That let production continue while design work was still underway. The reveal campaign was completed and published. <a class="link" href="/work/majestic-india">Majestic India case study</a></p></div><div>${videoBlock(rv)}</div></article>
+  <article class="tm"><div><h3>We turned the planned site into a visit people could follow.</h3><p>Navdurga had no completed site to film, so we created an airport-to-location film and a separate AI-generated FPV-style facilities walkthrough. We planned scenes, wrote the prompts, generated the sequences, and added sound and editing.</p><p>Both films were published organically on the page we managed. They are AI visualisations of planned facilities, rather than filmed tours of completed construction. <a class="link" href="/work/navdurga">Navdurga case study</a></p></div><div class="tm-pair">${nv.map(videoBlock).join('')}</div></article>
  </div></section>
- <section class="band mist"><div class="wrap"><p class="eyebrow">Proposals</p><h2>New ideas, clearly labelled.</h2><p class="lead">Nothing below has been produced or published. These are proposed formats based on decisions from our delivered work.</p>
+ <section class="band peach"><div class="wrap"><div class="wg-head"><h2>Proposals</h2><span class="count">3</span></div><p class="lead">Nothing below has been produced or published. These are proposed formats based on decisions from our delivered work.</p>
   <div class="prop-grid">
   ${prop('A proposed HOT agency film',`<p>The film opens on a screen that says, “Show the business park.” The camera reaches an empty site. A cursor changes the question to, “What would the first visit feel like?” An imagined journey opens up.</p><p>A blank sheet then waits for a logo. A cricket scorecard opens into a player’s childhood dream, and a salon chair turns towards a finished haircut. The close returns to the team at the desk: “The angle is the beginning. We stay for the work.”</p><p class="fine">Production would use team footage, original graphics, approved work samples and labelled AI sequences.</p>`)}
   ${prop('The Brief Took a Turn',`<p>A proposed short-form series showing the original brief and the assumption that limited it, followed by the alternative question and finished work.</p><p>The first episode could use Navdurga. Later episodes could cover Majestic’s reveal or Pratyush’s story. Black’s decision to keep the approach simple would be another useful episode.</p>`)}
@@ -295,7 +278,7 @@ out('/tangent-media',layout({path:'/tangent-media',title:'Tangent Media',desc:'W
 
 // ================= CONTACT =================
 out('/contact',layout({path:'/contact',title:'Contact',desc:'Start a project with House of Tangents. Email farhafatima3686@gmail.com or call +91 70911 40333.',
- body:`<section class="band cobalt contact-page"><div class="wrap contact-grid"><div><div class="tangent-line" aria-hidden="true"></div><p class="eyebrow">Contact</p><h1>We can look at your brief from another angle.</h1><p class="lead">Let’s work out what it needs, then get it made.</p><p class="direct"><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p><p>Farha Fatima, Founder, Brand &amp; Creative Director.</p><p class="fine">Tell us about the brief, the business and what you have today. We’ll come back with how we’d approach it.</p></div>${formHTML('cf')}</div></section>`,
+ body:`<section class="band contact-page"><div class="wrap contact-grid"><div><p class="label">Contact</p><h1>We can look at your brief from another angle.</h1><p class="lead">Let’s work out what it needs, then get it made.</p><p class="direct"><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.phoneHref}">${SITE.phone}</a></p><p>Farha Fatima, Founder, Brand &amp; Creative Director.</p><p class="fine">Tell us about the brief, the business and what you have today. We’ll come back with how we’d approach it.</p></div><div class="form-panel">${formHTML('cf')}</div></div></section>`,
  jsonld:[org,crumbs([['Home','/'],['Contact','/contact']])]}));
 
 // ================= CREDITS =================
@@ -321,7 +304,7 @@ out('/credits',layout({path:'/credits',title:'Credits and notes',desc:'Source no
  jsonld:[crumbs([['Home','/'],['Credits','/credits']])]}));
 
 // ================= 404 =================
-fs.writeFileSync(path.join(ROOT,'404.html'),layout({path:'/404',title:'Page not found',desc:'This page could not be found.',body:phero('404','This line went off at an angle.','The page you wanted isn’t here.')+`<section class="band tight"><div class="wrap"><p><a class="btn primary" href="/">Back to the homepage</a> <a class="btn ghost" href="/work">Browse work</a></p></div></section>`}));
+fs.writeFileSync(path.join(ROOT,'404.html'),layout({path:'/404',title:'Page not found',desc:'This page could not be found.',body:phero('404','This page isn’t here.','Try the homepage or browse the work.')+`<section class="band tight"><div class="wrap actions"><a class="btn primary" href="/">Back to the homepage</a><a class="btn ghost" href="/work">Browse work</a></div></section>`}));
 
 // ================= sitemap / robots =================
 const urls=['/','/work','/services','/about','/tangent-media','/contact','/credits',...projects.map(p=>'/work/'+p.slug)];

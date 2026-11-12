@@ -1,6 +1,40 @@
 {
- "majestic-india":{"poster":"majestic-india/still-red-paper","alt":"A woman in sunglasses looking up through an opening in red paper, from the Majestic India logo reveal film.","focus":"60% 45%",
-  "gallery":[{"src":"majestic-india/still-walk","alt":"Close-up of a brown belted outfit and a bag, mid-stride, from the Majestic India reveal film."},{"src":"majestic-india/still-portrait","alt":"A woman in a brown sleeveless outfit lowering her sunglasses, from the Majestic India reveal film."}]},
- "navdurga":{"poster":"navdurga/still-gate","alt":"The Nav Durga Business Park entrance gate and a white truck at sunset, in an AI-generated visualisation of the planned park.","focus":"50% 30%",
-  "gallery":[{"src":"navdurga/still-crane","alt":"A tower crane beside a warehouse at golden hour, in an AI-generated visualisation of the planned park."},{"src":"navdurga/still-aerial","alt":"An aerial view of warehouses and landscaped roads at sunset, in an AI-generated visualisation."},{"src":"navdurga/still-truck","alt":"A loaded truck passing the Nav Durga Business Park gate at sunset, in an AI-generated visualisation."},{"src":"navdurga/still-river-road","alt":"An aerial view of a highway with trucks across green fields, in an AI-generated visualisation."}]}
+ "majestic-india": {
+  "poster": "majestic-india/still-reveal",
+  "alt": "Hands holding a blank card through an opening in red paper, with a woman in sunglasses looking on, from the Majestic India logo reveal film.",
+  "focus": "50% 45%",
+  "gallery": [
+   {
+    "src": "majestic-india/still-hand",
+    "alt": "A hand reaching through an opening in red paper towards a woman in sunglasses, from the Majestic India logo reveal film."
+   },
+   {
+    "src": "majestic-india/still-card",
+    "alt": "A woman in sunglasses holding a small yellow card through the red paper opening, from the Majestic India logo reveal film."
+   }
+  ]
+ },
+ "navdurga": {
+  "poster": "navdurga/still-gate",
+  "alt": "The Nav Durga Business Park entrance gate and a white truck at sunset, in an AI-generated visualisation of the planned park.",
+  "focus": "50% 30%",
+  "gallery": [
+   {
+    "src": "navdurga/still-crane",
+    "alt": "A tower crane beside a warehouse at golden hour, in an AI-generated visualisation of the planned park."
+   },
+   {
+    "src": "navdurga/still-aerial",
+    "alt": "An aerial view of warehouses and landscaped roads at sunset, in an AI-generated visualisation."
+   },
+   {
+    "src": "navdurga/still-truck",
+    "alt": "A loaded truck passing the Nav Durga Business Park gate at sunset, in an AI-generated visualisation."
+   },
+   {
+    "src": "navdurga/still-river-road",
+    "alt": "An aerial view of a highway with trucks across green fields, in an AI-generated visualisation."
+   }
+  ]
+ }
 }

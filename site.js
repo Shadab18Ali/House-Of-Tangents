@@ -35,23 +35,12 @@ if(reel&&tog&&!reduce&&!saver){
  tog.addEventListener('click',function(){if(reel.paused){reel.play();tog.textContent='Pause reel';tog.setAttribute('aria-pressed','false')}else{reel.pause();tog.textContent='Play reel';tog.setAttribute('aria-pressed','true')}});
  document.addEventListener('visibilitychange',function(){if(document.hidden)reel.pause();else if(tog.getAttribute('aria-pressed')!=='true')reel.play()});
 }
-/* ---- services index ---- */
-var svc=$('[data-svc]');
-if(svc){var items=$$('.svc-item',svc);
- items.forEach(function(it){var b=$('.svc-btn',it);b.addEventListener('click',function(){
-  var open=it.classList.contains('open'),wide=window.matchMedia('(min-width:900px)').matches;
-  items.forEach(function(o){o.classList.toggle('open',false);$('.svc-btn',o).setAttribute('aria-expanded','false')});
-  if(!open||wide){it.classList.add('open');b.setAttribute('aria-expanded','true')}})});
-}
-/* ---- journey reveal ---- */
-var jr=$('.journey');
-if(jr){if(reduce||!('IntersectionObserver' in window))jr.classList.add('in');else{var jo=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){jr.classList.add('in');jo.disconnect()}})},{threshold:.35});jo.observe(jr)}}
-/* ---- work filters: all cards remain in the DOM; spans re-flow for the visible set ---- */
-var PATTERN=[[7,520],[5,520],[4,400],[4,400],[4,400],[5,520],[7,520],[6,460],[6,460],[4,400],[4,400],[4,400]];
+/* ---- work filters: every project stays in the DOM; empty status groups are hidden ---- */
 var chips=$$('.chip[data-filter]');
 if(chips.length){chips.forEach(function(c){c.addEventListener('click',function(){
  chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});var f=c.dataset.filter,n=0;
- $$('#work-grid .pcard').forEach(function(card){var show=f==='all'||card.dataset.cats.split(' ').indexOf(f)>-1;card.hidden=!show;if(show){var pt=PATTERN[n%PATTERN.length];card.style.setProperty('--s',pt[0]);card.style.setProperty('--h',pt[1]+'px');n++}});
+ $$('#work-grid .feat,#work-grid .row').forEach(function(el){var show=f==='all'||el.dataset.cats.split(' ').indexOf(f)>-1;el.hidden=!show;if(show)n++});
+ $$('#work-grid .wgroup').forEach(function(g){var vis=$$('.feat:not([hidden]),.row:not([hidden])',g).length;g.hidden=!vis;var ct=$('.count',g);if(ct)ct.textContent=vis});
  $('.filter-status').textContent='Showing '+n+' project'+(n===1?'':'s')})})}
 /* ---- enquiry form: honest states, server-validated ---- */
 $$('form.form').forEach(function(form){

@@ -41,7 +41,7 @@ export const VIDEO_INFO={
 
 // Videos hosted on this site (optimised copies of the client's files). Others still play from Drive on request.
 export const LOCAL_VIDEOS={
- '1uhfVZn8W7AayoNY6HOi3Amw1ol7GJl_R':{src:'/assets/media/majestic-india/logo-reveal.mp4',poster:'majestic-india/still-red-paper',w:720,h:1280},
+ '1uhfVZn8W7AayoNY6HOi3Amw1ol7GJl_R':{src:'/assets/media/majestic-india/logo-reveal.mp4',poster:'majestic-india/still-reveal',w:720,h:1280},
  '1O8yoclSPpoSUFJ63_Y8RsHPvDSQzXQKQ':{src:'/assets/media/navdurga/airport-to-site.mp4',poster:'navdurga/still-gate',w:720,h:1280},
  '1bCogJk3ULAUqbocAFMmUHo5CwBDeLa9c':{src:'/assets/media/navdurga/fpv-walkthrough.mp4',poster:'navdurga/still-aerial',w:720,h:1280}
 };

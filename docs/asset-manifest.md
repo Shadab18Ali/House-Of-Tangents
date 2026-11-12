@@ -5,7 +5,7 @@
 ## Used (self-hosted, optimised)
 | Source file | Verified as | Hosted as | Used on |
 |---|---|---|---|
-| Majestic India logo reveal .mp4 | Majestic India reveal: performance with red paper, matches the project brief | `assets/media/majestic-india/logo-reveal.mp4` + 3 stills (WebP/JPG, 420/720w) | Majestic India (hero + gallery), Tangent Media, homepage card, hero reel |
+| Majestic India logo reveal .mp4 | Majestic India reveal: performance with red paper, matches the project brief | `assets/media/majestic-india/logo-reveal.mp4` + 3 stills (WebP/JPG, 420/720w) | Majestic India (hero uses the portrait still; red-paper and walking stills in the gallery), Tangent Media, homepage card, hero reel |
 | Nav durga.mp4 | Navdurga airport-to-site journey: on-screen captions "Air freight, within reach", "Haldia Port", Nav Durga gate | `assets/media/navdurga/airport-to-site.mp4` | Navdurga, Tangent Media, hero reel |
 | navdurga2.mp4 | Navdurga FPV-style facilities walkthrough: cranes, aerial, roads, trucks, no captions | `assets/media/navdurga/fpv-walkthrough.mp4` + stills | Navdurga (hero + gallery), Tangent Media, hero reel |
 

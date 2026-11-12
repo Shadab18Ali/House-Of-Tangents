@@ -2,7 +2,11 @@
 
 Sources: the pasted portfolio text (all pages) and PDF pages 1–4 (visually checked). **A full 69-page PDF-vs-text comparison was not performed**, so no PDF/text conflicts were verified or ruled out beyond those pages. Where claims were ambiguous, the more cautious wording was used.
 
-**Open items (V2 additions first)**
+**Open items (V3 additions first)**
+00a. No team photographs, campaign creatives, website screenshots or identity boards were available in the supplied folder, so About and most case studies are typographic. Nothing was invented; add files to `assets/media/<slug>/` and register them in `content/media.json`.
+00b. Social links: none exist in the supplied material, so none are shown.
+00c. Only two projects (Majestic India, Navdurga) have approved visuals; the other 22 use ruled typographic listings and typographic case-study heroes.
+
 0a. Media for Capitol Hill, Black Salon, JT20 and Shambhavi: files over 10 MB could not be fetched, so these use typographic posters. See `asset-manifest.md`.
 0b. Navdurga file mapping is now verified from on-screen content; the earlier "film 1 / film 2" labels were replaced.
 0c. Hindi quote falls back to a system Devanagari font (the chosen fonts have no Devanagari). Self-hosting Noto Serif Devanagari would make it consistent.
