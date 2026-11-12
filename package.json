@@ -1,0 +1,9 @@
+{
+  "name": "house-of-tangents",
+  "private": true,
+  "description": "House of Tangents website. Static pages generated from content/ by scripts/build.mjs.",
+  "scripts": {
+    "generate": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test tests/*.test.mjs"
+  }
+}

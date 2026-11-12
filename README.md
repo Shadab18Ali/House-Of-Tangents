@@ -1,10 +1,13 @@
-# House of Tangents — Portfolio Website
+# House of Tangents website
 
-Static site (no build step). Open `index.html` or run `python3 -m http.server`.
+Static site generated from structured content. Deploys on Vercel (preset "Other", no build command).
 
-- `index.html` — page structure and static copy
-- `data.js` — case studies (HOT Results, HOT Media, Brand Identities, Tangent Media) and Drive media IDs
-- `script.js` — renders case studies, lazy-loads Google Drive video embeds
-- `styles.css` — design (charcoal / cream / vermilion, Open Sans + Bodoni Moda)
+```bash
+node scripts/build.mjs        # regenerate all pages from content/
+node --test tests/*.test.mjs  # tests (need Playwright available)
+```
 
-Drive videos and graphics load from Google Drive; files must be shared as "Anyone with the link" to play on the live site.
+Routes: `/`, `/work`, `/work/<slug>`, `/services`, `/about`, `/tangent-media`, `/contact`, `/credits`.
+Edit `content/projects.json` and `content/site.mjs`, then rebuild and commit the generated HTML.
+
+Contact form: set `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO` in Vercel. See `docs/` for the plan, asset manifest and open questions.
