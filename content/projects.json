@@ -3,12 +3,48 @@
   "slug": "capitol-hill",
   "name": "Capitol Hill",
   "tag": "Hospitality",
+  "sector": "hospitality",
+  "chapters": [
+   "results"
+  ],
+  "lead": true,
   "status": "Delivered",
-  "period": "November 2025 to July 2026 · Hospitality strategy, content, creative and campaigns",
-  "categories": [
-   "hospitality",
-   "campaigns",
-   "film"
+  "statusShort": "",
+  "statusText": "",
+  "dates": "November 2025 to July 2026",
+  "partOf": "",
+  "title": "We helped a 22-year-old hotel show its experience online.",
+  "overview": [
+   "Capitol Hill already had regular guests and local trust when we began working together. The hotel had built that reputation over 22 years, but its digital presence didn’t reflect enough of what people experienced there.",
+   "We worked across the hotel and its outlets, including Yellow Sapphire and Floats. Aura and banquet communication also formed part of the brief. Our content gave people a clearer view of the food, ambience, service and reasons to visit."
+  ],
+  "challenge": "A 22-year-old hotel with regular guests and local trust, but a digital presence that didn’t reflect enough of what people experienced there.",
+  "approach": "Show the food, ambience, service and events people were already experiencing, and give each outlet and the new Aura rooftop a clearer place online.",
+  "story": [
+   {
+    "h": "We made the property’s offerings easier to discover.",
+    "p": [
+     "We brought more consistency to social communication and Google Business Profile. The content helped people remember the property and explore what it offered, while regular updates made the information easier to check.",
+     "The hotel’s dining and rooftop offerings needed to feel connected to its established reputation. Event communication mattered too. We used content planning, visual storytelling, timely updates and campaign creative to give those experiences a clearer place online."
+    ]
+   },
+   {
+    "h": "More people saw the hotel and looked for its location.",
+    "p": [
+     "Organic account reach grew by more than 800% within the first two months. After about 2.5 months, taps on the business address increased by up to 400%.",
+     "Google Business Profile recorded 2,873 interactions in one reporting period, a 54.2% increase against the previous month. A different period recorded 5,363 interactions, up 25% against its comparison period.",
+     "Those actions showed people checking the property and looking for its location."
+    ]
+   }
+  ],
+  "partsTitle": "Within the engagement",
+  "parts": [
+   {
+    "id": "aura",
+    "name": "Aura",
+    "kind": "Rooftop identity",
+    "text": "For Aura, we developed the rooftop’s logo and launch communication, giving the new experience its own introduction within the group."
+   }
   ],
   "services": [
    "Hospitality strategy",
@@ -17,74 +53,105 @@
    "Campaigns",
    "Google Business Profile"
   ],
-  "challenge": "A 22-year-old hotel with regular guests and local trust, but a digital presence that didn’t reflect enough of what people experienced there.",
-  "tangent": "Show the food, ambience, service and events people were already experiencing, and give each outlet and the new Aura rooftop a clearer place online.",
-  "outcome": "800%+ organic account reach growth in the first two months",
-  "featured": 1,
+  "deliverables": [
+   "Hospitality strategy",
+   "Content and creative",
+   "Campaigns",
+   "Google Business Profile",
+   "Communication for the hotel, Yellow Sapphire, Floats, Aura and banquets",
+   "Aura: original identity and launch communication"
+  ],
+  "results": [
+   {
+    "value": "800%+",
+    "metric": "organic account reach growth",
+    "period": "Within the first two months",
+    "basis": "Organic",
+    "source": "Supplied case study"
+   },
+   {
+    "value": "Up to 400%",
+    "metric": "increase in taps on the business address",
+    "period": "After approximately 2.5 months",
+    "basis": "",
+    "source": "Supplied case study"
+   },
+   {
+    "value": "2,873",
+    "metric": "Google Business Profile interactions, up 54.2% against the previous month",
+    "period": "One reporting period",
+    "basis": "",
+    "source": "Supplied case study"
+   },
+   {
+    "value": "5,363",
+    "metric": "Google Business Profile interactions, up 25% against a separate comparison period",
+    "period": "A different reporting period",
+    "basis": "",
+    "source": "Supplied case study"
+   }
+  ],
+  "qualitative": [],
+  "context": [
+   "The two Google Business Profile figures come from different reporting periods.",
+   "Address taps and profile interactions are not confirmed visits or bookings."
+  ],
+  "testimonial": {
+   "quote": "Guests appreciate the work, and many even ask who handles our marketing.",
+   "name": "Narendra Singh",
+   "role": "General Manager, Capitol Hill"
+  },
+  "credits": [],
+  "videos": [],
   "related": [
    "black",
    "zoi",
    "avn-grand"
   ],
-  "title": "We helped a 22-year-old hotel show its experience online.",
-  "overview": [
-   "Capitol Hill already had regular guests and local trust when we began working together. The hotel had built that reputation over 22 years, but its digital presence didn’t reflect enough of what people experienced there.",
-   "We worked across the hotel and its outlets, including Yellow Sapphire and Floats. Aura and banquet communication also formed part of the brief. Our content gave people a clearer view of the food, ambience, service and reasons to visit.",
-   "For Aura, we developed the rooftop’s logo and launch communication, giving the new experience its own introduction within the group."
-  ],
-  "chapters": [
-   {
-    "h": "We made the property’s offerings easier to discover.",
-    "p": [
-     "We brought more consistency to social communication and Google Business Profile. The content helped people remember the property and explore what it offered, while regular updates made the information easier to check.",
-     "The hotel’s dining and rooftop offerings needed to feel connected to its established reputation. Event communication mattered too. We used content planning, visual storytelling, timely updates and campaign creative to give those experiences a clearer place online."
-    ],
-    "note": null,
-    "stats": []
-   },
-   {
-    "h": "More people saw the hotel and looked for its location.",
-    "p": [
-     "Organic account reach grew by more than 800% within the first two months. After about 2.5 months, taps on the business address increased by up to 400%.",
-     "Google Business Profile recorded 2,873 interactions in one reporting period, a 54.2% increase against the previous month. A different period recorded 5,363 interactions, up 25% against its comparison period.",
-     "Those actions showed people checking the property and looking for its location."
-    ],
-    "note": "We report them as address taps and profile interactions, rather than counting them as confirmed visits or bookings. The Google Business Profile figures cover different reporting periods.",
-    "stats": [
-     {
-      "value": "800%+",
-      "label": "organic account reach growth, first two months"
-     },
-     {
-      "value": "Up to 400%",
-      "label": "growth in taps on business address, after ~2.5 months"
-     },
-     {
-      "value": "2,873",
-      "label": "Google Business Profile interactions (+54.2% vs previous month)"
-     },
-     {
-      "value": "5,363",
-      "label": "interactions in a different period (+25% vs comparison)"
-     }
-    ]
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "800%+ organic account reach growth in the first two months"
  },
  {
   "slug": "black",
   "name": "Black Salon",
-  "tag": "Beauty & Wellness",
-  "status": "Ongoing",
-  "period": "Began May 2025 · Ongoing · Strategy, content, production, design, website, Google presence and campaigns",
-  "categories": [
-   "campaigns",
-   "film",
-   "digital"
+  "tag": "Beauty & wellness",
+  "sector": "beauty",
+  "chapters": [
+   "results"
   ],
+  "lead": true,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Began May 2025",
+  "partOf": "",
+  "title": "We helped people see what Black could do.",
+  "overview": [
+   "Choosing a salon means trusting someone with how you’ll look when you leave. For Black, we made the quality of the work easier to judge before someone booked.",
+   "We posted hair transformations and client testimonials every day, sometimes twice a day. Stories showed work happening in the salon. The website and regularly updated Google Business Profile helped people discover Black beyond Instagram.",
+   "As the salon introduced Korean head spa and facials, we worked on the service introductions and offers. We also supported its pedicure expansion and helped plan the launch communication."
+  ],
+  "challenge": "Choosing a salon means trusting someone with how you’ll look when you leave.",
+  "approach": "Make the quality of the work easier to judge before someone books, through daily transformations, client testimonials and stories from inside the salon.",
+  "story": [
+   {
+    "h": "Black turned two, and bookings kept coming.",
+    "p": [
+     "For “Black turns 2,” we planned two to three weeks of communication around the anniversary and a 20% service offer. That campaign ran without spending on Google or Meta ads.",
+     "The client reported about five to ten bookings a day and a sustained busy period around the campaign.",
+     "The first-anniversary giveaway the previous year offered two free haircuts. People entered by tagging friends, and the post received around 100 comments."
+    ]
+   },
+   {
+    "h": "Regular proof helped Black build an organic following.",
+    "p": [
+     "When we started, Black had roughly 700 to 800 followers. By November 2026, the account had around 1,500 organic followers and the salon’s Google rating stood at 4.8/5. We continued posting on Google every day alongside the social content.",
+     "The team reported more than ten enquiries on a typical day, including enquiries that became appointments. Client videos and Google reviews gave people direct feedback from others who’d used the services.",
+     "The approach worked because people could keep seeing the quality for themselves. Consistency gave that proof time to build trust."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Strategy",
    "Content",
@@ -94,85 +161,119 @@
    "Google presence",
    "Campaigns"
   ],
-  "challenge": "Choosing a salon means trusting someone with how you’ll look when you leave.",
-  "tangent": "Make the quality of the work easier to judge before someone books, through daily transformations, client testimonials and stories from inside the salon.",
-  "outcome": "4.8/5 Google rating and around 1,500 organic followers by November 2026",
-  "featured": 2,
+  "deliverables": [
+   "Strategy",
+   "Daily transformation content",
+   "Client testimonials",
+   "Shoots and editing",
+   "Design",
+   "Website",
+   "Daily Google posts",
+   "Campaigns",
+   "Launch and offer communication for Korean head spa, facials and pedicures"
+  ],
+  "results": [
+   {
+    "value": "~1,500",
+    "metric": "organic followers, up from approximately 700 to 800",
+    "period": "May 2025 to the November 2026 snapshot",
+    "basis": "Organic",
+    "source": "Team record"
+   },
+   {
+    "value": "4.8/5",
+    "metric": "Google rating",
+    "period": "November 2026 snapshot",
+    "basis": "",
+    "source": "Team record"
+   },
+   {
+    "value": "10+",
+    "metric": "enquiries on a typical day",
+    "period": "",
+    "basis": "",
+    "source": "Team-reported"
+   },
+   {
+    "value": "5 to 10",
+    "metric": "bookings a day around “Black turns 2”",
+    "period": "Two to three weeks around the second anniversary",
+    "basis": "No Google or Meta ad spend",
+    "source": "Client-reported"
+   },
+   {
+    "value": "~100",
+    "metric": "comments on the first-anniversary giveaway",
+    "period": "First anniversary",
+    "basis": "",
+    "source": "Team record"
+   }
+  ],
+  "qualitative": [],
+  "context": [
+   "“Black turns 2” ran without Google or Meta ad spend. Other campaigns in the wider engagement used paid ads, so the zero-spend note applies to the anniversary campaign only.",
+   "The first-anniversary giveaway offered two free haircuts."
+  ],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "zoi",
    "capitol-hill",
    "moksh"
   ],
-  "title": "We helped people see what Black could do.",
-  "overview": [
-   "Choosing a salon means trusting someone with how you’ll look when you leave. For Black, we made the quality of the work easier to judge before someone booked.",
-   "We posted hair transformations and client testimonials every day, sometimes twice a day. Stories showed work happening in the salon. The website and regularly updated Google Business Profile helped people discover Black beyond Instagram.",
-   "As the salon introduced Korean head spa and facials, we worked on the service introductions and offers. We also supported its pedicure expansion and helped plan the launch communication."
-  ],
-  "chapters": [
-   {
-    "h": "Black turned two, and bookings kept coming.",
-    "p": [
-     "For “Black turns 2,” we planned two to three weeks of communication around the anniversary and a 20% service offer. That campaign ran without spending on Google or Meta ads.",
-     "The client reported about five to ten bookings a day and a sustained busy period around the campaign.",
-     "The first-anniversary giveaway the previous year offered two haircuts. People entered by tagging friends, and the post received around 100 comments."
-    ],
-    "note": "We’d run separate paid campaigns at other points in the engagement, so the zero-spend result belongs specifically to the second-anniversary activity.",
-    "stats": [
-     {
-      "value": "5–10",
-      "label": "bookings a day reported by the client around the campaign"
-     },
-     {
-      "value": "No ads",
-      "label": "Google or Meta ad spend for “Black turns 2”"
-     },
-     {
-      "value": "~100",
-      "label": "comments on the first-anniversary giveaway"
-     }
-    ]
-   },
-   {
-    "h": "Regular proof helped Black build an organic following.",
-    "p": [
-     "When we started, Black had roughly 700 to 800 followers. By November 2026, the account had around 1,500 organic followers and the salon’s Google rating stood at 4.8/5. We continued posting on Google every day alongside the social content.",
-     "The team reported more than ten enquiries on a typical day, including enquiries that became appointments. Client videos and Google reviews gave people direct feedback from others who’d used the services.",
-     "The approach worked because people could keep seeing the quality for themselves. Consistency gave that proof time to build trust."
-    ],
-    "note": null,
-    "stats": [
-     {
-      "value": "~1,500",
-      "label": "organic followers by Nov 2026 (from 700–800)"
-     },
-     {
-      "value": "4.8/5",
-      "label": "Google rating"
-     },
-     {
-      "value": "10+",
-      "label": "enquiries on a typical day"
-     }
-    ]
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "4.8/5 Google rating and around 1,500 organic followers by November 2026"
  },
  {
   "slug": "majestic-india",
   "name": "Majestic India",
-  "tag": "Pageant Platform",
-  "status": "Delivered",
-  "period": "Late October 2025 to August 2026 · Identity, launch, social media, website and wider marketing delivery",
-  "categories": [
-   "branding",
-   "film",
-   "campaigns",
-   "digital"
+  "tag": "Pageant platform",
+  "sector": "personal",
+  "chapters": [
+   "results",
+   "media",
+   "identities"
   ],
+  "lead": true,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Late October 2025 to August 2026",
+  "partOf": "",
+  "title": "We built Majestic India from its first public identity.",
+  "overview": [
+   "Majestic India came to us with a founding team and the ambition to build a pageant platform. We created the logo and guidelines, built the website and set up Instagram and Facebook. The business setup and advertising accounts also started with us.",
+   "We explored approximately ten logo routes and discussed how the identity would work in actual use. Once the direction was clear, we developed the reveal and launch communication.",
+   "Fresh footage was limited in the early months. We worked with unfinished existing material and turned it into a consistent content presence while the platform took shape."
+  ],
+  "challenge": "A founding team with the ambition to build a pageant platform, a limited amount of fresh footage, and no public identity yet.",
+  "approach": "Start with the identity and the accounts, keep publishing from the footage that existed, and plan around what wasn’t ready yet. The logo reveal was filmed with blank paper before the final logo existed.",
+  "story": [
+   {
+    "h": "We made room for different chapters in a woman’s life.",
+    "p": [
+     "Majestic India’s audience included married and separated women, as well as divorced and widowed women. We developed communication that made participation feel possible across those life stages.",
+     "A published Women’s Day shoot explored that idea. We also created an AI transformation film that used face morphing to move between women at different stages of life.",
+     "The logo reveal needed another kind of solution. The shoot had to happen before the final logo was ready, so we filmed with blank paper and added the completed identity through masking in post-production."
+    ]
+   },
+   {
+    "h": "The work carried through to the coronation.",
+    "p": [
+     "We handled scripting, shoots, editing and publishing. We also ran contestant lead campaigns and created interactive polls and quizzes. The website and sponsorship decks formed part of the wider communication work.",
+     "Our work included coronation communication and press releases, alongside digital/event assets and sponsor videos. The founder secured the sponsors. We created their communication, including material for Ramada by Wyndham, and content for six candidates preparing to represent India internationally."
+    ]
+   },
+   {
+    "h": "The new platform began reaching interested contestants.",
+    "p": [
+     "Contestant lead campaigns ran for around three to five months. Registrations included candidates who later represented India internationally.",
+     "We also worked on the quality of the audience. We reviewed the follower base and removed inactive accounts where possible, while making the content more relevant to the people Majestic India wanted to reach."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Identity",
    "Website",
@@ -181,65 +282,52 @@
    "Lead campaigns",
    "Event communication"
   ],
-  "challenge": "A founding team with the ambition to build a pageant platform, a limited amount of fresh footage, and no public identity yet.",
-  "tangent": "Film the logo reveal with blank paper before the final logo existed, then add the completed identity through masking in post-production.",
-  "outcome": "700K–800K organic views on selected reels",
-  "featured": 3,
-  "related": [
-   "santhal-strikers",
-   "shambhavi",
-   "navdurga"
+  "deliverables": [
+   "Original identity and guidelines",
+   "Website",
+   "Instagram, Facebook, business and ad accounts",
+   "Launch communication",
+   "Scripting, shoots, editing and publishing",
+   "Contestant lead campaigns",
+   "Polls and quizzes",
+   "Sponsorship decks and press releases",
+   "Coronation communication",
+   "Digital and event assets",
+   "Sponsor content, including Ramada by Wyndham material",
+   "Personal-profile content for six candidates"
   ],
-  "title": "We built Majestic India from its first public identity.",
-  "overview": [
-   "Majestic India came to us with a founding team and the ambition to build a pageant platform. We created the logo and guidelines, built the website and set up Instagram and Facebook. The business setup and advertising accounts also started with us.",
-   "We explored multiple logo routes and discussed how the identity would work in actual use. Once the direction was clear, we developed the reveal and launch communication.",
-   "Fresh footage was limited in the early months. We worked with unfinished existing material and turned it into a consistent content presence while the platform took shape."
-  ],
-  "chapters": [
+  "results": [
    {
-    "h": "We made room for different chapters in a woman’s life.",
-    "p": [
-     "Majestic India’s audience included married and separated women, as well as divorced and widowed women. We developed communication that made participation feel possible across those life stages.",
-     "A published Women’s Day shoot explored that idea. We also created an AI transformation film that used face morphing to move between women at different stages of life.",
-     "The logo reveal needed another kind of solution. The shoot had to happen before the final logo was ready, so we filmed with blank paper and added the completed identity through masking in post-production."
-    ],
-    "note": "The campaign and reveal work were completed. The transformation sequence used AI-generated imagery.",
-    "stats": []
+    "value": "~300",
+    "metric": "qualified enquiries from contestant lead campaigns",
+    "period": "Over roughly three to five months",
+    "basis": "Paid lead campaigns",
+    "source": "Team record"
    },
    {
-    "h": "The work carried through to the coronation.",
-    "p": [
-     "We handled scripting, shoots, editing and publishing. We also ran contestant lead campaigns and created interactive polls and quizzes. The website and sponsorship decks formed part of the wider communication work.",
-     "Our work included coronation communication and press releases, alongside digital/event assets and sponsor videos. The founder secured the sponsors. We created their communication, including material for Ramada by Wyndham, and content for six candidates preparing to represent India internationally."
-    ],
-    "note": null,
-    "stats": []
+    "value": "700K–800K",
+    "metric": "views on selected reels",
+    "period": "",
+    "basis": "Organic. Some reels were collaborations and others were independent.",
+    "source": "Team record"
    },
    {
-    "h": "The new platform began reaching interested contestants.",
-    "p": [
-     "Contestant lead campaigns ran for around three to five months. Registrations included candidates who later represented India internationally.",
-     "We also worked on the quality of the audience. We reviewed the follower base and removed inactive accounts where possible, while making the content more relevant to the people Majestic India wanted to reach."
-    ],
-    "note": "The reel results were organic. Paid contestant lead-generation campaigns were separate.",
-    "stats": [
-     {
-      "value": "~300",
-      "label": "qualified enquiries from lead campaigns (team records)"
-     },
-     {
-      "value": "700K–800K",
-      "label": "organic views on selected reels"
-     },
-     {
-      "value": "~1,400–1,500",
-      "label": "followers"
-     }
-    ]
+    "value": "~1,400 to 1,500",
+    "metric": "page followers",
+    "period": "",
+    "basis": "",
+    "source": "Team record"
    }
   ],
-  "metrics": [],
+  "qualitative": [],
+  "context": [
+   "Paid lead generation and organic reel views are separate results.",
+   "The life-stages transformation film used AI-generated imagery."
+  ],
+  "testimonial": null,
+  "credits": [
+   "The founder secured the sponsors. Our team made their communication."
+  ],
   "videos": [
    {
     "id": "1uhfVZn8W7AayoNY6HOi3Amw1ol7GJl_R",
@@ -250,18 +338,55 @@
     "title": "Coronation ceremony"
    }
   ],
-  "notes": []
+  "related": [
+   "santhal-strikers",
+   "shambhavi",
+   "navdurga"
+  ],
+  "outcome": "700K–800K organic views on selected reels"
  },
  {
   "slug": "santhal-strikers",
   "name": "JT20 / Santhal Strikers",
   "tag": "Sports",
-  "status": "Delivered",
-  "period": "June 2026, followed by about a month of post-event communication",
-  "categories": [
-   "campaigns",
-   "film"
+  "sector": "sports",
+  "chapters": [
+   "results",
+   "media"
   ],
+  "lead": true,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "June 2026 tournament (9 to 23 June), then about a month of post-event communication",
+  "partOf": "",
+  "title": "The tournament was starting, and we had an account to build.",
+  "overview": [
+   "Santhal Strikers needed a new identity and social presence for JT20. An older verified account with the same name was still online, so we also had to establish which page represented the current team.",
+   "We had roughly two days before play began. We created the accounts and branding, including the line “Santhal ka dum. Jeetenge hum.”",
+   "During matchdays, we worked from the stadium and lounge to create player content and timely updates. The communication continued for about a month after the tournament ended."
+  ],
+  "challenge": "A new identity and social presence were needed within roughly two days, while an older verified account with the same name was still online.",
+  "approach": "Turn a conversation with cricketer Pratyush Kumar into a film about the dream that brought him to the game.",
+  "story": [
+   {
+    "h": "Pratyush Kumar’s story gave people someone to follow.",
+    "p": [
+     "A conversation with Pratyush Kumar gave us the basis for a player film. He was a young cricketer from a village, carrying a dream that many children recognise. We wanted the audience to understand the person behind the name.",
+     "The film opened with the familiar question about what a child wants to become. It followed that thought from a small ground and a tennis ball to the ambition of playing cricket.",
+     "Other player introductions and personal stories appeared alongside humour and audience games. “This or that” exchanges and emoji-based player guessing gave the team more ways to connect."
+    ]
+   },
+   {
+    "h": "The new page found an audience during the tournament.",
+    "p": [
+     "Our scope covered strategy and account management, player shoots, match coverage, editing, sponsor communication, advertising support, print/stadium assets and X/Twitter updates. Live match statistics and strategic-timeout content needed the same attention as the larger films.",
+     "We stayed involved after the final match and continued the team’s post-tournament communication."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Strategy",
    "Account management",
@@ -271,75 +396,103 @@
    "Sponsor communication",
    "Print / stadium assets"
   ],
-  "challenge": "A new identity and social presence were needed within roughly two days, while an older verified account with the same name was still online.",
-  "tangent": "Turn a conversation with cricketer Pratyush Kumar into a film about the dream that brought him to the game.",
-  "outcome": "Selected videos reached 116K and 111K views",
-  "featured": 4,
-  "related": [
-   "shambhavi",
-   "majestic-india",
-   "navdurga"
+  "deliverables": [
+   "Team branding and new accounts",
+   "Strategy",
+   "Player shoots",
+   "On-site match coverage",
+   "Live updates and statistics",
+   "Strategic-timeout content",
+   "Editing",
+   "Sponsor communication",
+   "Advertising support",
+   "Print and stadium assets",
+   "X/Twitter updates"
   ],
-  "title": "The tournament was starting, and we had an account to build.",
-  "overview": [
-   "Santhal Strikers needed a new identity and social presence for JT20. An older verified account with the same name was still online, so we also had to establish which page represented the current team.",
-   "We had roughly two days before play began. We created the accounts and branding, including the line “Santhal ka dum. Jeetenge hum.”",
-   "During matchdays, we worked from the stadium and lounge to create player content and timely updates. The communication continued for about a month after the tournament ended."
-  ],
-  "chapters": [
+  "results": [
    {
-    "h": "Pratyush Kumar’s story gave people someone to follow.",
-    "p": [
-     "A conversation with Pratyush Kumar gave us the basis for a player film. He was a young cricketer from a village, carrying a dream that many children recognise. We wanted the audience to understand the person behind the name.",
-     "The film opened with the familiar question about what a child wants to become. It followed that thought from a small ground and a tennis ball to the ambition of playing cricket.",
-     "Other player introductions and personal stories appeared alongside humour and audience games. “This or that” exchanges and emoji-based player guessing gave the team more ways to connect."
-    ],
-    "note": null,
-    "stats": []
+    "value": "832",
+    "metric": "followers on the new account",
+    "period": "In 20 days",
+    "basis": "No paid follower acquisition",
+    "source": "Team record"
    },
    {
-    "h": "The new page found an audience during the tournament.",
-    "p": [
-     "Our scope covered strategy and account management, player shoots, match coverage, editing, sponsor communication, advertising support, print/stadium assets and X/Twitter updates. Live match statistics and strategic-timeout content needed the same attention as the larger films.",
-     "We stayed involved after the final match and continued the team’s post-tournament communication."
-    ],
-    "note": null,
-    "stats": [
-     {
-      "value": "832",
-      "label": "followers in 20 days, no paid follower acquisition"
-     },
-     {
-      "value": "58.2K",
-      "label": "views on the full-squad introduction"
-     },
-     {
-      "value": "116K / 111K",
-      "label": "views on selected videos"
-     }
-    ]
+    "value": "58.2K",
+    "metric": "views on the squad film",
+    "period": "",
+    "basis": "",
+    "source": "Team record"
+   },
+   {
+    "value": "116K and 111K",
+    "metric": "views on selected videos",
+    "period": "",
+    "basis": "",
+    "source": "Team record"
    }
   ],
-  "metrics": [],
+  "qualitative": [],
+  "context": [
+   "This work was for the Santhal Strikers team, not the league as a whole.",
+   "Advertising support was part of the scope. The follower figure excludes paid follower acquisition."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [
    {
     "id": "1IzD6S150dlt_67egDONjNg_xl_X2vFXA",
     "title": "Santhal Strikers"
    }
   ],
-  "notes": []
+  "related": [
+   "shambhavi",
+   "majestic-india",
+   "navdurga"
+  ],
+  "outcome": "Selected videos reached 116K and 111K views"
  },
  {
   "slug": "shambhavi",
   "name": "Shambhavi Shiva",
-  "tag": "Personal Branding",
-  "status": "Delivered",
-  "period": "October 2025 to August 2026 · No posts boosted, no ads on the personal profile",
-  "categories": [
-   "branding",
-   "film",
-   "campaigns"
+  "tag": "Personal branding",
+  "sector": "personal",
+  "chapters": [
+   "results"
   ],
+  "lead": true,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "October 2025 to August 2026",
+  "partOf": "",
+  "title": "Shambhavi’s content needed to sound and feel like her.",
+  "overview": [
+   "Shambhavi Shiva already had a large following, but the content didn’t have a clear direction. We developed content pillars around her Bihari humour and spontaneous personality, while making room for her spiritual interests.",
+   "Bihari aunty and mother-in-law characters gave the comedy familiar situations to work with. We developed a series around the twelve Jyotirlingas for her spiritual journey. Her experience of life after divorce informed relevant stories without becoming the account’s only subject.",
+   "We handled strategy, scripts, shoots, editing, publishing and collaborations. Speaking material and presentations supported her public appearances too."
+  ],
+  "challenge": "A large following, but content without a clear direction.",
+  "approach": "Build content pillars around her Bihari humour, recurring characters and spontaneous personality, with room for her spiritual interests.",
+  "story": [
+   {
+    "h": "We developed original shows around her ability to host.",
+    "p": [
+     "JT20 Baithki with Shambhavi began as a conversation format featuring players and business personalities. We developed the concept and name. Guests across the episodes included Saurabh Tiwary, Nadeem and the JSCA president.",
+     "For Pitchside with Shambhavi, we developed a shorter interview format and created its show identity, logo animation, intros and covers. We published both formats in collaboration with JT20.",
+     "We also prepared speaking scripts for public appearances and BNI communication, with presentations when required."
+    ]
+   },
+   {
+    "h": "The character-led approach helped more people find her.",
+    "p": [
+     "Early posts struggled to attract a few hundred views. With a clearer direction around characters and personality, selected videos reached 11K and 15K views. Others reached 20K, and two videos exceeded one million views.",
+     "The wider personal-branding work also gave her opportunities beyond the grid, including interview formats, guest conversations, speaking material and partnerships."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Strategy",
    "Scripts",
@@ -349,71 +502,90 @@
    "Collaborations",
    "Show identity"
   ],
-  "challenge": "A large following, but content without a clear direction.",
-  "tangent": "Build content pillars around her Bihari humour, recurring characters and spontaneous personality, with room for her spiritual interests.",
-  "outcome": "Two videos above one million views, organically",
-  "featured": 5,
+  "deliverables": [
+   "Strategy",
+   "Scripts",
+   "Shoots",
+   "Editing",
+   "Publishing",
+   "Collaborations",
+   "Public-speaking material",
+   "BNI scripts and presentations",
+   "Show concepts, naming, logos, intros, animation and covers"
+  ],
+  "results": [
+   {
+    "value": "2 videos",
+    "metric": "above one million views each",
+    "period": "",
+    "basis": "Organic. No boosted posts and no profile ads.",
+    "source": "Team record"
+   },
+   {
+    "value": "11K, 15K and 20K",
+    "metric": "views on selected videos",
+    "period": "",
+    "basis": "Organic",
+    "source": "Team record"
+   }
+  ],
+  "qualitative": [],
+  "context": [
+   "No posts or videos on her profile were boosted and no profile ads ran.",
+   "“JT20 Baithki with Shambhavi” and “Pitchside with Shambhavi” were published in collaboration with the JT20 profile and relevant guests and teams. The guests appeared across different episodes."
+  ],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "santhal-strikers",
    "majestic-india",
    "black"
   ],
-  "title": "Shambhavi’s content needed to sound and feel like her.",
-  "overview": [
-   "Shambhavi Shiva already had a large following, but the content didn’t have a clear direction. We developed content pillars around her Bihari humour and spontaneous personality, while making room for her spiritual interests.",
-   "Bihari aunty and mother-in-law characters gave the comedy familiar situations to work with. We developed a series around the twelve Jyotirlingas for her spiritual journey. Her experience of life after divorce informed relevant stories without becoming the account’s only subject.",
-   "We handled strategy, scripts, shoots, editing, publishing and collaborations. Speaking material and presentations supported her public appearances too."
-  ],
-  "chapters": [
-   {
-    "h": "We developed original shows around her ability to host.",
-    "p": [
-     "JT20 Baithki with Shambhavi began as a conversation format featuring players and business personalities. We developed the concept and name. Guests included Saurabh Tiwary and Nadeem sir. The JSCA president also featured.",
-     "For Pitchside with Shambhavi, we developed a shorter interview format and created its show identity, logo animation, intros and covers. We published both formats in collaboration with JT20.",
-     "We also prepared speaking scripts for public appearances and BNI communication, with presentations when required."
-    ],
-    "note": null,
-    "stats": []
-   },
-   {
-    "h": "The character-led approach helped more people find her.",
-    "p": [
-     "Early posts struggled to attract a few hundred views. With a clearer direction around characters and personality, selected videos reached 11K and 15K views. Others reached 20K, and two videos exceeded one million views.",
-     "The wider personal-branding work also gave her opportunities beyond the grid, including interview formats, guest conversations, speaking material and partnerships."
-    ],
-    "note": "All of these personal-profile results were organic. Relevant collaborations helped distribute the content where appropriate.",
-    "stats": [
-     {
-      "value": "2",
-      "label": "videos above 1 million views"
-     },
-     {
-      "value": "11K · 15K · 20K",
-      "label": "views on selected videos"
-     },
-     {
-      "value": "0",
-      "label": "boosted posts or paid ads"
-     }
-    ]
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Two videos above one million views, organically"
  },
  {
   "slug": "zoi",
   "name": "Life at ZOI",
-  "tag": "Restaurant & Lounge",
-  "status": "Delivered",
-  "period": "May to September 2025 · Restaurant/lounge marketing and guest communication",
-  "categories": [
-   "hospitality",
-   "campaigns",
-   "film",
-   "digital"
+  "tag": "Restaurant & lounge",
+  "sector": "hospitality",
+  "chapters": [
+   "results",
+   "media"
   ],
+  "lead": false,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "May to September 2025",
+  "partOf": "",
+  "title": "We gave guests more reasons to choose ZOI.",
+  "overview": [
+   "ZOI was already operating when we joined in May 2025. The brief was to support revenue and attract stronger guest interest, while giving people reasons to return. We connected the venue’s boho atmosphere with food and events, backed by offers and useful content.",
+   "We handled brand communication, social pages, shoots, scripts, editing, website, menus, monthly food highlights, enquiries and paid campaigns. Seasonal promotions, including a sushi festival, brought fresh reasons to visit.",
+   "Approvals involved several management stakeholders. We helped the team work through designated points of contact so decisions could move more consistently."
+  ],
+  "challenge": "ZOI was already operating, and the brief was to support revenue, attract stronger guest interest and give people reasons to return.",
+  "approach": "Connect the venue’s boho atmosphere with food and events, then use guest data to keep the conversation going after a visit.",
+  "story": [
+   {
+    "h": "Events gave the venue reasons to keep talking.",
+    "p": [
+     "We named and promoted The Gin Affair, including offer communication and venue material, with standees and table applications.",
+     "For Sundowner, we developed promotion from the teaser and trailer through coverage and an aftermovie. Ads and booking support formed part of that event work. Wednesday karaoke gave guests a regular reason to visit.",
+     "ZOI Care had a different purpose. We helped communicate access to pads and tampons in the washrooms, and created an awareness video with Dr Ashutosh, an orthopaedic surgeon."
+    ]
+   },
+   {
+    "h": "We helped the guest conversation continue after a visit.",
+    "p": [
+     "Using Reelo, we helped connect venue visits with guest details and follow-up communication. Birthday wishes and relevant offers gave later messages a reason to arrive.",
+     "The team reported around five to ten enquiries a day and an increase in footfall."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Brand communication",
    "Social pages",
@@ -423,80 +595,112 @@
    "Paid campaigns",
    "Guest follow-up"
   ],
-  "challenge": "ZOI was already operating, and the brief was to support revenue, attract stronger guest interest and give people reasons to return.",
-  "tangent": "Connect the venue’s boho atmosphere with food and events, then use guest data to keep the conversation going after a visit.",
-  "outcome": "Events, offers and guest follow-up built around the venue’s atmosphere",
-  "featured": null,
-  "related": [
-   "capitol-hill",
-   "black",
-   "kalinga"
+  "deliverables": [
+   "Branding and social communication",
+   "Shoots, scripts and editing",
+   "Website",
+   "Menus",
+   "Food-festival communication",
+   "The Gin Affair: naming and promotion",
+   "Sundowner: concept, teasers, trailer, coverage, aftermovie, ads and bookings",
+   "Wednesday karaoke communication",
+   "ZOI Care communication",
+   "Guest follow-up with Reelo"
   ],
-  "title": "We gave guests more reasons to choose ZOI.",
-  "overview": [
-   "ZOI was already operating when we joined in May 2025. The brief was to support revenue and attract stronger guest interest, while giving people reasons to return. We connected the venue’s boho atmosphere with food and events, backed by offers and useful content.",
-   "We handled brand communication, social pages, shoots, scripts, editing, website, menus, monthly food highlights, enquiries and paid campaigns. Seasonal promotions, including a sushi festival, brought fresh reasons to visit.",
-   "Approvals involved several management stakeholders. We helped the team work through designated points of contact so decisions could move more consistently."
-  ],
-  "chapters": [
+  "results": [
    {
-    "h": "Events gave the venue reasons to keep talking.",
-    "p": [
-     "We named and promoted The Gin Affair, including offer communication and venue material, with standees and table applications.",
-     "For Sundowner, we developed promotion from the teaser and trailer through coverage and an aftermovie. Ads and booking support formed part of that event work. Wednesday karaoke gave guests a regular reason to visit.",
-     "ZOI Care had a different purpose. We helped communicate access to pads and tampons in the washrooms, and created an awareness video with Dr Ashutosh, an orthopaedic surgeon."
-    ],
-    "note": "ZOI Care was a separate care initiative.",
-    "stats": []
+    "value": "~5 to 10",
+    "metric": "enquiries a day",
+    "period": "",
+    "basis": "",
+    "source": "Team-reported"
    },
    {
-    "h": "We helped the guest conversation continue after a visit.",
-    "p": [
-     "Using Reelo, we helped connect venue visits with guest details and follow-up communication. Birthday wishes and relevant offers gave later messages a reason to arrive.",
-     "The team reported around five to ten enquiries a day and an increase in footfall."
-    ],
-    "note": "These published figures don’t share a single defined reporting window.",
-    "stats": [
-     {
-      "value": "200K+",
-      "label": "reach (earlier published case study)"
-     },
-     {
-      "value": "150+",
-      "label": "creatives"
-     },
-     {
-      "value": "4K+",
-      "label": "monthly engagement"
-     },
-     {
-      "value": "60%+",
-      "label": "footfall growth"
-     }
-    ]
+    "value": "200K+",
+    "metric": "reach",
+    "period": "Reporting window not supplied",
+    "basis": "",
+    "source": "Earlier case study"
+   },
+   {
+    "value": "150+",
+    "metric": "creatives",
+    "period": "Reporting window not supplied",
+    "basis": "",
+    "source": "Earlier case study"
+   },
+   {
+    "value": "4K+",
+    "metric": "monthly engagement",
+    "period": "Reporting window not supplied",
+    "basis": "",
+    "source": "Earlier case study"
+   },
+   {
+    "value": "60%+",
+    "metric": "footfall growth",
+    "period": "Reporting window not supplied",
+    "basis": "",
+    "source": "Earlier case study"
    }
   ],
-  "metrics": [],
+  "qualitative": [
+   "The team reported increased footfall."
+  ],
+  "context": [
+   "The earlier case-study figures were supplied without reporting windows. They are not one month’s results, and the attribution has not been independently verified.",
+   "ZOI Care was a separate care initiative. The health-awareness video with Dr Ashutosh, an orthopaedic surgeon, was a separate piece."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [
    {
     "id": "1AyOQKV71B_XW0_66Gw23rU0tnyqK_nO4",
     "title": "Sundowner final cut"
    }
   ],
-  "notes": []
+  "related": [
+   "capitol-hill",
+   "black",
+   "kalinga"
+  ],
+  "outcome": "Events, offers and guest follow-up built around the venue’s atmosphere"
  },
  {
   "slug": "sanatni",
   "name": "Sanatni",
-  "tag": "Spiritual Platform",
-  "status": "Delivered",
-  "period": "Approximately January 2024 to April 2026",
-  "categories": [
-   "branding",
-   "product",
-   "campaigns",
-   "digital"
+  "tag": "Spiritual platform",
+  "sector": "technology",
+  "chapters": [
+   "results",
+   "identities"
   ],
+  "lead": false,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Approximately January 2024 to April 2026",
+  "partOf": "",
+  "title": "We helped give Sanatni its identity and public introduction.",
+  "overview": [
+   "The work began with the earlier Blissful Life project. We helped develop Sanatni’s name and logo, along with its visual language, guidelines and messaging.",
+   "Bhakti was central to the platform. The communication also made room for inner peace and spiritual connection.",
+   "The product brief included a conversational AI experience connected with Shri Sadguru Riteshwarji Maharaj. We worked alongside developers on the website and app journeys, with communication and onboarding forming part of our scope.",
+   "We also handled social strategy, scripts, shoots, editing, advertising, launch assets and merchandise."
+  ],
+  "challenge": "Introduce a spiritual platform built around bhakti, inner peace and a conversational AI experience.",
+  "approach": "Carry one consistent identity into a large public launch in Ayodhya and into direct conversations with the people attending.",
+  "story": [
+   {
+    "h": "The Sanatni launch brought us to Ayodhya.",
+    "p": [
+     "For the January 2025 launch in Ayodhya, we worked on promotional assets and posters, signage communication, content capture, audience interaction and onboarding. Awareness advertising supported the platform’s introduction at the large public gathering.",
+     "The work brought the product into a spiritual setting and into direct conversations with the people attending. We kept the identity consistent across those encounters."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Naming",
    "Identity",
@@ -505,57 +709,77 @@
    "Onboarding",
    "Merchandise"
   ],
-  "challenge": "Introduce a spiritual platform built around bhakti, inner peace and a conversational AI experience.",
-  "tangent": "Carry one consistent identity into a large public launch in Ayodhya and into direct conversations with the people attending.",
-  "outcome": "Approximately 900 app downloads across campaign and launch work",
-  "featured": null,
+  "deliverables": [
+   "Naming",
+   "Logo and guidelines",
+   "Visual language and messaging",
+   "Website",
+   "App and user journeys, alongside the developers",
+   "Social strategy",
+   "Scripts, shoots and editing",
+   "Ads",
+   "Onboarding",
+   "Event communication",
+   "Merchandise design"
+  ],
+  "results": [
+   {
+    "value": "~900",
+    "metric": "app downloads across campaign and launch work",
+    "period": "Campaign work and the January 2025 Ayodhya launch",
+    "basis": "Awareness ads supported the launch",
+    "source": "Team record"
+   },
+   {
+    "value": "1M+",
+    "metric": "views on a separate reel",
+    "period": "",
+    "basis": "Organic",
+    "source": "Team record"
+   }
+  ],
+  "qualitative": [],
+  "context": [
+   "The downloads cover the wider campaign and launch activity. They are not attributed to the reel."
+  ],
+  "testimonial": null,
+  "credits": [
+   "We worked alongside the developers. App engineering was not our scope."
+  ],
+  "videos": [],
   "related": [
    "the-pi",
    "fluffypet",
    "bioecko"
   ],
-  "title": "We helped give Sanatni its identity and public introduction.",
-  "overview": [
-   "The work began with the earlier Blissful Life project. We helped develop Sanatni’s name and logo, along with its visual language, guidelines and messaging.",
-   "Bhakti was central to the platform. The communication also made room for inner peace and spiritual connection.",
-   "The product brief included a conversational AI experience connected with Shri Sadguru Riteshwarji Maharaj. We worked alongside developers on the website and app journeys, with communication and onboarding forming part of our scope.",
-   "We also handled social strategy, scripts, shoots, editing, advertising, launch assets and merchandise."
-  ],
-  "chapters": [
-   {
-    "h": "The Sanatni launch brought us to Ayodhya.",
-    "p": [
-     "For the January 2025 launch in Ayodhya, we worked on promotional assets and posters, signage communication, content capture, audience interaction and onboarding. Awareness advertising supported the platform’s introduction at the large public gathering.",
-     "The work brought the product into a spiritual setting and into direct conversations with the people attending. We kept the identity consistent across those encounters."
-    ],
-    "note": "The download result covers the wider activity rather than that single reel.",
-    "stats": [
-     {
-      "value": "~900",
-      "label": "app downloads across the campaign and launch work"
-     },
-     {
-      "value": "1M+",
-      "label": "views on one reel, organically"
-     }
-    ]
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Approximately 900 app downloads across campaign and launch work"
  },
  {
   "slug": "the-pi",
   "name": "The Pi",
-  "tag": "App Launch",
-  "status": "Status to confirm",
-  "period": "",
-  "categories": [
-   "branding",
-   "product",
-   "digital"
+  "tag": "App launch",
+  "sector": "technology",
+  "chapters": [
+   "results",
+   "identities"
   ],
+  "lead": false,
+  "status": "Not recorded",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "",
+  "partOf": "",
+  "title": "We took The Pi from an identity to a campus launch.",
+  "overview": [
+   "The Pi needed a brand people could recognise before they opened the app. We developed the original logo and identity. We also built the website and created its social presence, then carried that work into launch material and giveaways.",
+   "At XISS, the team supported the product introduction and demonstrations.",
+   "We also designed cups and desk accessories, including mouse-pad designs, diaries, shirts, T-shirts and giveaway packaging. The identity needed to hold together whether people met it on a screen or took it back to their desk."
+  ],
+  "challenge": "The Pi needed a brand people could recognise before they opened the app.",
+  "approach": "Build the identity first, then carry it into a campus launch and the things people take back to their desk.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Logo and identity",
    "Website",
@@ -563,130 +787,202 @@
    "Launch material",
    "Merchandise"
   ],
-  "challenge": "The Pi needed a brand people could recognise before they opened the app.",
-  "tangent": null,
-  "outcome": "Approximately 300 downloads reported from the XISS launch activity",
-  "featured": null,
+  "deliverables": [
+   "Original logo and identity",
+   "Website",
+   "Social presence",
+   "Launch communication",
+   "Giveaways",
+   "Designs for cups, mouse pads and desk accessories, diaries, shirts, T-shirts and giveaway packaging"
+  ],
+  "results": [
+   {
+    "value": "~300",
+    "metric": "app downloads",
+    "period": "Campus activation at XISS",
+    "basis": "",
+    "source": "Team record"
+   }
+  ],
+  "qualitative": [],
+  "context": [
+   "The download figure covers the XISS campus activation only."
+  ],
+  "testimonial": null,
+  "credits": [
+   "The merchandise credit is for design. Manufacturing and native app development were not our scope."
+  ],
+  "videos": [],
   "related": [
    "sanatni",
    "fluffypet",
    "dimechain"
   ],
-  "title": "We took The Pi from an identity to a campus launch.",
-  "overview": [
-   "The Pi needed a brand people could recognise before they opened the app. We developed the original logo and identity. We also built the website and created its social presence, then carried that work into launch material and giveaways.",
-   "At XISS, the team supported the product introduction and demonstrations.",
-   "We also designed cups and desk accessories, including mouse-pad designs, diaries, shirts, T-shirts and giveaway packaging. The identity needed to hold together whether people met it on a screen or took it back to their desk."
-  ],
-  "chapters": [],
-  "metrics": [
-   {
-    "value": "~300",
-    "label": "downloads reported from the XISS launch activity"
-   }
-  ],
-  "videos": [],
-  "notes": []
+  "outcome": "Approximately 300 downloads reported from the XISS launch activity"
  },
  {
   "slug": "dimechain",
   "name": "Dimechain",
   "tag": "Technology",
-  "status": "Status to confirm",
-  "period": "Marketing project began December 2024",
-  "categories": [
-   "branding",
-   "product",
-   "digital"
+  "sector": "technology",
+  "chapters": [
+   "results",
+   "identities"
   ],
-  "services": [
-   "Identity and guidelines",
-   "Product narratives",
-   "Use-case communication",
-   "LinkedIn"
-  ],
-  "challenge": "Complex technology needed to be connected with the business problem someone wanted to solve.",
-  "tangent": null,
-  "outcome": "LinkedIn page from zero to 584 followers in about three to three and a half months",
-  "featured": null,
-  "related": [
-   "quzones",
-   "unfaked",
-   "bioecko"
-  ],
+  "lead": false,
+  "status": "Not recorded",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Marketing engagement began December 2024",
+  "partOf": "",
   "title": "We made Dimechain’s technology easier to introduce.",
   "overview": [
    "Dimechain works with complex technology. Our communication task was to connect what it could do with the business problem someone wanted to solve.",
    "We worked on identity and guidelines, alongside product narratives, use-case communication and presentation material. We created and managed the LinkedIn page.",
    "Farha’s wider consulting and sales experience informed client discovery and proposals. Her marketing background also helped connect customer conversations with technical teams."
   ],
-  "chapters": [],
-  "metrics": [
+  "challenge": "Complex technology needed to be connected with the business problem someone wanted to solve.",
+  "approach": "Start from the business problem, then explain the technology through its use cases.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
+  "services": [
+   "Identity and guidelines",
+   "Product narratives",
+   "Use-case communication",
+   "LinkedIn"
+  ],
+  "deliverables": [
+   "Identity and guidelines",
+   "Technology and product narratives",
+   "Use-case communication",
+   "Presentations",
+   "LinkedIn page creation and management"
+  ],
+  "results": [
    {
-    "value": "0 → 584",
-    "label": "LinkedIn followers in ~3 to 3.5 months"
+    "value": "0 to 584",
+    "metric": "LinkedIn followers",
+    "period": "In approximately three to three-and-a-half months",
+    "basis": "Paid or organic basis not recorded",
+    "source": "Team record"
    }
   ],
+  "qualitative": [],
+  "context": [
+   "The record doesn’t state whether this growth was paid or organic."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [],
-  "notes": []
+  "related": [
+   "quzones",
+   "unfaked",
+   "bioecko"
+  ],
+  "outcome": "LinkedIn page from zero to 584 followers in about three to three and a half months"
  },
  {
   "slug": "grenx",
   "name": "GRENX",
   "tag": "E-commerce",
+  "sector": "consumer",
+  "chapters": [
+   "results",
+   "media"
+  ],
+  "lead": false,
   "status": "Ongoing",
-  "period": "",
-  "categories": [
-   "digital",
-   "campaigns",
-   "product"
-  ],
-  "services": [
-   "Shopify website",
-   "QR creative",
-   "Segmented forms",
-   "Email automation"
-  ],
-  "challenge": "Connect an exhibition giveaway with a useful next step for each kind of visitor.",
-  "tangent": "Use segmented forms to tell existing owners from people with a vehicle on order, with a separate route for the wider audience.",
-  "outcome": "Client-reported good entries and leads; the engagement has continued into automation work",
-  "featured": null,
-  "related": [
-   "the-pi",
-   "dimechain",
-   "quzones"
-  ],
+  "statusShort": "",
+  "statusText": "Work continued into further automation and data workflows",
+  "dates": "",
+  "partOf": "",
   "title": "We connected the exhibition with the next conversation.",
   "overview": [
    "GRENX sells parts and accessories for Grenadier owners. We created its Shopify website and supported an exhibition giveaway with a connected follow-up journey.",
    "We developed QR posters, standees, design elements, segmented forms, giveaway messages, email communication and automation flows. That gave an exhibition visitor somewhere useful to go after scanning, and gave the business a way to continue the conversation.",
    "The client reported good entries and leads. The direct engagement has since continued into further automation and data-workflow projects."
   ],
-  "chapters": [
+  "challenge": "Connect an exhibition giveaway with a useful next step for each kind of visitor.",
+  "approach": "Use segmented forms to tell existing owners from people with a vehicle on order, with a separate route for the wider audience.",
+  "story": [
    {
     "h": "We planned different follow-ups for different visitors.",
     "p": [
      "QR-led creative introduced the giveaway and helped people enter. The forms could distinguish existing owners from people with a vehicle on order, with a separate route for the wider interested audience.",
      "Email sequences and automation carried the communication beyond the exhibition. Workflow development included Resend and an OpenAI-powered agent. We connected the forms with the messages and automation flow, while further systems work continued."
-    ],
-    "note": null,
-    "stats": []
+    ]
    }
   ],
-  "metrics": [],
+  "partsTitle": "",
+  "parts": [],
+  "services": [
+   "Shopify website",
+   "QR creative",
+   "Segmented forms",
+   "Email automation"
+  ],
+  "deliverables": [
+   "Shopify website",
+   "Exhibition giveaway",
+   "QR posters and standees",
+   "Design elements",
+   "Segmented entry forms",
+   "Emails",
+   "Automation flows"
+  ],
+  "results": [],
+  "qualitative": [
+   "The client reported good entries and leads. No count was supplied."
+  ],
+  "context": [
+   "No entry or lead count was supplied, so none is shown.",
+   "Workflow development included Resend and an OpenAI-powered agent."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [],
-  "notes": []
+  "related": [
+   "the-pi",
+   "dimechain",
+   "quzones"
+  ],
+  "outcome": "Client-reported good entries and leads; the engagement has continued into automation work"
  },
  {
   "slug": "navdurga",
   "name": "Navdurga Business Park",
-  "tag": "AI Visualisation",
-  "status": "Delivered",
-  "period": "August and September 2026",
-  "categories": [
-   "film",
-   "campaigns"
+  "tag": "AI visualisation",
+  "sector": "property",
+  "chapters": [
+   "media"
   ],
+  "lead": true,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "August to September 2026",
+  "partOf": "",
+  "title": "We imagined a site visit before the park was built.",
+  "overview": [
+   "Navdurga Business Park was a planned development, so the usual approach of filming the completed property wasn’t available. The client also wanted something more interesting than familiar business-park promotion.",
+   "We approached the location through a visitor’s experience. We imagined arriving at the airport and travelling towards the site, with the journey introducing nearby cities and connections along the way.",
+   "AI generation let us create those scenes before there was a finished location to film. It gave the proposed development a story people could follow."
+  ],
+  "challenge": "A planned development with no finished property to film, and a client who wanted something more interesting than familiar business-park promotion.",
+  "approach": "Approach the location through a visitor’s experience, from the airport to the site, and use AI generation to show the planned park before it exists.",
+  "story": [
+   {
+    "h": "We built an AI walkthrough of the proposed facilities.",
+    "p": [
+     "The facilities film used a fully AI-generated FPV drone-style walkthrough. It moved through the planned park to show cranes and internal road connectivity, alongside backhoe loaders, weighbridges, warehouses and loading trucks.",
+     "We handled the concept and scene planning, scripts, prompt writing, AI generation, voiceovers, sound and editing. Full page management also covered content planning and captions, followed by organic publishing.",
+     "We completed and posted the films. No ads ran on these videos."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Concept and scene planning",
    "Scripts",
@@ -696,34 +992,25 @@
    "Sound and editing",
    "Page management"
   ],
-  "challenge": "A planned development with no finished property to film, and a client who wanted something more interesting than familiar business-park promotion.",
-  "tangent": "Approach the location through a visitor’s experience, from the airport to the site, and use AI generation to show the planned park before it exists.",
-  "outcome": "Two AI films completed and published organically",
-  "featured": 6,
-  "related": [
-   "majestic-india",
-   "santhal-strikers",
-   "zoha"
+  "deliverables": [
+   "Concept",
+   "Scene planning",
+   "Scripts",
+   "Prompts and AI generation",
+   "Voiceover and sound",
+   "Editing",
+   "Page management and publishing"
   ],
-  "title": "We imagined a site visit before the park was built.",
-  "overview": [
-   "Navdurga Business Park was a planned development, so the usual approach of filming the completed property wasn’t available. The client also wanted something more interesting than familiar business-park promotion.",
-   "We approached the location through a visitor’s experience. We imagined arriving at the airport and travelling towards the site, with the journey introducing nearby cities and connections along the way.",
-   "AI generation let us create those scenes before there was a finished location to film. It gave the proposed development a story people could follow."
+  "results": [],
+  "qualitative": [
+   "Both films were completed and published organically. No ads ran on these videos.",
+   "The client loved the approach."
   ],
-  "chapters": [
-   {
-    "h": "We built an AI walkthrough of the proposed facilities.",
-    "p": [
-     "The facilities film used a fully AI-generated FPV drone-style walkthrough. It moved through the planned park to show cranes and internal road connectivity, alongside backhoe loaders, weighbridges, warehouses and loading trucks.",
-     "We handled the concept and scene planning, scripts, prompt writing, AI generation, voiceovers, sound and editing. Full page management also covered content planning and captions, followed by organic publishing.",
-     "We completed and posted the films. No ads ran on these videos."
-    ],
-    "note": "The visuals present proposed facilities rather than filmed footage of completed construction.",
-    "stats": []
-   }
+  "context": [
+   "The films are AI-generated visualisations of proposed infrastructure. They are not footage of completed construction."
   ],
-  "metrics": [],
+  "testimonial": null,
+  "credits": [],
   "videos": [
    {
     "id": "1O8yoclSPpoSUFJ63_Y8RsHPvDSQzXQKQ",
@@ -734,17 +1021,46 @@
     "title": "FPV facilities walkthrough"
    }
   ],
-  "notes": []
+  "related": [
+   "majestic-india",
+   "santhal-strikers",
+   "zoha"
+  ],
+  "outcome": "Two AI films completed and published organically"
  },
  {
   "slug": "saregama",
-  "name": "Saregama Music",
+  "name": "Saregama Music / Maavdi BTS",
   "tag": "Post-production",
-  "status": "Unpublished / under review",
-  "period": "Received October 2026 · Unpublished and under management review",
-  "categories": [
-   "film"
+  "sector": null,
+  "chapters": [
+   "media"
   ],
+  "lead": false,
+  "status": "Pending",
+  "statusShort": "Publication pending",
+  "statusText": "Post-production complete. Management approval and publication were pending in the November 2026 record.",
+  "dates": "October 2026",
+  "partOf": "",
+  "title": "We gave everyone on set a place in the BTS film.",
+  "overview": [
+   "The shooting team brought us a behind-the-scenes edit for “Maavdi,” identified in the brief with artist Gurdeep Mehendi, for Saregama Music’s platforms. Their main requirement was clear: everyone involved in the room had to appear.",
+   "We selected footage to include the lighting and sound crews, as well as the people whose contributions are easier to miss. The project came through a photographer we’d worked with during JT20. We handled end-to-end post-production using the supplied footage."
+  ],
+  "challenge": "The shooting team required that everyone involved in the room appeared in the behind-the-scenes film.",
+  "approach": "Let the people and the footage carry the edit, with restraint and no motion graphics.",
+  "story": [
+   {
+    "h": "We let the people and the footage carry the edit.",
+    "p": [
+     "We handled footage selection and editing, then worked on the colour grade. Sound and subtitles were part of the job too. The initial edit took approximately two days. Correction rounds and management review followed.",
+     "The footage called for restraint. Constant cuts or motion graphics would have drawn attention away from the people the video needed to include. We didn’t use motion graphics.",
+     "The shooting team gave outstanding feedback on the work."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Footage selection",
    "Editing",
@@ -752,46 +1068,59 @@
    "Sound",
    "Subtitles"
   ],
-  "challenge": "The shooting team required that everyone involved in the room appeared in the behind-the-scenes film.",
-  "tangent": "Let the people and the footage carry the edit, with restraint and no motion graphics.",
-  "outcome": "Positive feedback from the shooting team; approval and publication pending",
-  "featured": null,
+  "deliverables": [
+   "One BTS film with revision versions",
+   "Footage selection",
+   "Editing",
+   "Colour",
+   "Sound",
+   "Subtitles"
+  ],
+  "results": [],
+  "qualitative": [
+   "The shooting team gave outstanding feedback on the work."
+  ],
+  "context": [
+   "The initial edit took approximately two days. Revision rounds and management review followed."
+  ],
+  "testimonial": null,
+  "credits": [
+   "Footage supplied by the shooting team. The project came through a photographer from that team who had worked with us during JT20.",
+   "Artist named in the supplied brief: Gurdeep Mehendi. Song: Maavdi."
+  ],
+  "videos": [],
   "related": [
    "zoha",
    "dense",
    "navdurga"
   ],
-  "title": "We gave everyone on set a place in the BTS film.",
-  "overview": [
-   "The shooting team brought us a behind-the-scenes edit for “Maavdi,” identified in the brief with artist Gurdeep Mehendi, for Saregama Music’s platforms. Their main requirement was clear: everyone involved in the room had to appear.",
-   "We selected footage to include the lighting and sound crews, as well as the people whose contributions are easier to miss. The project came through a photographer we’d worked with during JT20. We handled end-to-end post-production using the supplied footage."
-  ],
-  "chapters": [
-   {
-    "h": "We let the people and the footage carry the edit.",
-    "p": [
-     "We handled footage selection and editing, then worked on the colour grade. Sound and subtitles were part of the job too. The initial edit took approximately two days. Correction rounds and management review followed.",
-     "The footage called for restraint. Constant cuts or motion graphics would have drawn attention away from the people the video needed to include. We didn’t use motion graphics.",
-     "The shooting team gave outstanding feedback on the work."
-    ],
-    "note": "Approval and publication were still pending when this portfolio was prepared, so the two-day figure describes the initial edit rather than the entire review process.",
-    "stats": []
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Post-production complete; approval and publication pending"
  },
  {
   "slug": "zoha",
   "name": "Zoha Jewellery",
-  "tag": "Festive Campaign",
-  "status": "Delivered",
-  "period": "Late September through Diwali 2026",
-  "categories": [
-   "film",
-   "campaigns"
+  "tag": "Festive campaign",
+  "sector": "jewellery",
+  "chapters": [
+   "media"
   ],
+  "lead": false,
+  "status": "Delivered",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "About a month from late September 2026, through Dhanteras and Diwali",
+  "partOf": "",
+  "title": "We kept the jewellery at the centre of the festive campaign.",
+  "overview": [
+   "Zoha Jewellery gave us a brief with a Dhanteras and Diwali deadline. Over approximately a month, we planned and produced content for gold and diamond pieces, with temple jewellery also part of the campaign.",
+   "Our photographers shot the pieces. We combined that original photography with AI-assisted visual development, design and editing, keeping the jewellery’s detail central to the work.",
+   "We handled campaign strategy, social media, shoots, video editing, design and Meta awareness ads. Offers included flat 10% off diamond jewellery and up to 25% off gold making charges. The campaign received positive feedback and views. It also brought enquiries, while sales figures remained pending."
+  ],
+  "challenge": "A Dhanteras and Diwali deadline, with gold, diamond and temple jewellery to present.",
+  "approach": "Combine original photography with AI-assisted visual development while keeping the jewellery’s detail central.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Campaign strategy",
    "Social media",
@@ -800,42 +1129,63 @@
    "Design",
    "Meta awareness ads"
   ],
-  "challenge": "A Dhanteras and Diwali deadline, with gold, diamond and temple jewellery to present.",
-  "tangent": "Combine original photography with AI-assisted visual development while keeping the jewellery’s detail central.",
-  "outcome": "Positive feedback and enquiries; sales figures pending",
-  "featured": null,
-  "related": [
-   "dense",
-   "saregama",
-   "navdurga"
+  "deliverables": [
+   "Campaign strategy",
+   "Social media",
+   "Photographer-led jewellery shoots",
+   "Editing",
+   "Design",
+   "AI-assisted creative",
+   "Meta awareness ads"
   ],
-  "title": "We kept the jewellery at the centre of the festive campaign.",
-  "overview": [
-   "Zoha Jewellery gave us a brief with a Dhanteras and Diwali deadline. Over approximately a month, we planned and produced content for gold and diamond pieces, with temple jewellery also part of the campaign.",
-   "Our photographers shot the pieces. We combined that original photography with AI-assisted visual development, design and editing, keeping the jewellery’s detail central to the work.",
-   "We handled campaign strategy, social media, shoots, video editing, design and Meta awareness ads. Offers included flat 10% off diamond jewellery and up to 25% off gold making charges. The campaign received positive feedback and views. It also brought enquiries, while sales figures remained pending."
+  "results": [],
+  "qualitative": [
+   "Positive feedback, views and enquiries were reported. Sales figures were pending."
   ],
-  "chapters": [],
-  "metrics": [],
+  "context": [
+   "Offers: flat 10% off diamond jewellery and up to 25% off gold making charges.",
+   "Website, print and enquiry handling were not in scope."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [
    {
     "id": "1bAqfGtzcOb1o2VfosDDsd1CPl0Wd-guR",
     "title": "Festive campaign film"
    }
   ],
-  "notes": []
+  "related": [
+   "dense",
+   "saregama",
+   "navdurga"
+  ],
+  "outcome": "Positive feedback and enquiries; sales figures pending"
  },
  {
   "slug": "dense",
   "name": "Dense",
-  "tag": "Food Brand",
-  "status": "Ongoing",
-  "period": "Ongoing · Current phase focuses on organic positioning",
-  "categories": [
-   "film",
-   "campaigns",
-   "hospitality"
+  "tag": "Cloud kitchen",
+  "sector": "consumer",
+  "chapters": [
+   "media"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "Ongoing in the November 2026 record. Ads had not started.",
+  "dates": "",
+  "partOf": "",
+  "title": "We built Dense’s content around the size of the sandwich.",
+  "overview": [
+   "Our work with Dense began with video editing. The owner liked the edits and asked us to take on the wider marketing. The product gave us a clear starting point: humongous sandwiches with generous fillings.",
+   "We developed the content around that appetite appeal, using the names and copy alongside design and product footage. One line captured the approach: “Watching won’t fill you up. We will.”",
+   "Dense is a cloud kitchen, so we brief local photographers and videographers remotely, then work with their material. Our team doesn’t shoot the food itself."
+  ],
+  "challenge": "A cloud kitchen we can’t shoot in person, and a product with a clear starting point: humongous sandwiches with generous fillings.",
+  "approach": "Build the content around the size of the sandwich: “Watching won’t fill you up. We will.”",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Strategy",
    "Branding",
@@ -843,42 +1193,68 @@
    "Creator coordination",
    "Remote production direction"
   ],
-  "challenge": "A remote kitchen and a product with an obvious starting point: humongous sandwiches with generous fillings.",
-  "tangent": "Build the content around the size of the sandwich: “Watching won’t fill you up. We will.”",
-  "outcome": "Began with video editing and grew into wider marketing at the owner’s request",
-  "featured": null,
-  "related": [
-   "zoha",
-   "kalinga",
-   "zoi"
+  "deliverables": [
+   "Strategy",
+   "Branding",
+   "Copy and design",
+   "Editing",
+   "AI-assisted creative",
+   "Remote production briefs",
+   "Coordination with local photographers and videographers",
+   "Creator-collaboration support"
   ],
-  "title": "We built Dense’s content around the size of the sandwich.",
-  "overview": [
-   "Our work with Dense began with video editing. The owner liked the edits and asked us to take on the wider marketing. The product gave us a clear starting point: humongous sandwiches with generous fillings.",
-   "We developed the content around that appetite appeal, using the names and copy alongside design and product footage. One line captured the approach: “Watching won’t fill you up. We will.”",
-   "Because the kitchen is remote, we brief local photographers and videographers, then work with their material. Our scope covers strategy, branding, social media and creator-collaboration coordination."
+  "results": [],
+  "qualitative": [
+   "The work began with video editing and expanded into marketing after the owner liked the edits."
   ],
-  "chapters": [],
-  "metrics": [],
+  "context": [
+   "In the November 2026 record, ads had not started, menus were pending and a website wasn’t in scope.",
+   "The positioning centres on large, filling sandwiches. It makes no health-food claims."
+  ],
+  "testimonial": null,
+  "credits": [
+   "Local photographers and videographers shot the food to our remote briefs. Our team didn’t shoot the food itself."
+  ],
   "videos": [
    {
     "id": "1ixHYwLdHRfK_QZlWKXqw_Wl0-nNvo67H",
     "title": "Dense film"
    }
   ],
-  "notes": []
+  "related": [
+   "zoha",
+   "kalinga",
+   "zoi"
+  ],
+  "outcome": "Began with video editing and grew into wider marketing at the owner’s request"
  },
  {
   "slug": "kalinga",
   "name": "Kalinga India",
   "tag": "Restaurant",
-  "status": "Ongoing",
-  "period": "Opened August 2025 · Part of the shared AVN Grand engagement",
-  "categories": [
-   "branding",
-   "hospitality",
-   "digital"
+  "sector": "hospitality",
+  "chapters": [
+   "results",
+   "identities",
+   "media"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Opened August 2025",
+  "partOf": "avn-grand",
+  "title": "We let Kalinga India’s food lead the communication.",
+  "overview": [
+   "Kalinga needed stronger dining visibility and more walk-in interest alongside the hotel group’s existing business. We focused on the food and the people behind it, including the chefs.",
+   "We created the logo and full menu, then developed the website. We also managed social content and Google presence. Separate Meta campaigns supported the work.",
+   "The Chicken IFA promotion brought a Dubai-viral food idea into a local campaign, giving people a specific dish to discover."
+  ],
+  "challenge": "Stronger dining visibility and more walk-in interest alongside the hotel group’s existing business.",
+  "approach": "Let the food and the chefs lead the communication, including a local campaign around a Dubai-viral dish, the Chicken IFA.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Logo",
    "Full menu",
@@ -887,37 +1263,58 @@
    "Google presence",
    "Meta campaigns"
   ],
-  "challenge": "Stronger dining visibility and more walk-in interest alongside the hotel group’s existing business.",
-  "tangent": "Let the food and the chefs lead the communication, including a local campaign around a Dubai-viral dish, the Chicken IFA.",
-  "outcome": "Opened August 2025 as part of the shared AVN Grand engagement",
-  "featured": null,
+  "deliverables": [
+   "Original logo",
+   "Full menu design",
+   "Website",
+   "Social content",
+   "Shoots and editing",
+   "Google presence",
+   "Separate Meta campaigns",
+   "Chicken IFA promotion"
+  ],
+  "results": [],
+  "qualitative": [
+   "Valentine’s Day activity received strong bookings. No numerical booking data was supplied.",
+   "Visibility and walk-in improvement were reported without confirmed totals."
+  ],
+  "context": [],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "avn-grand",
    "lobby-cafe",
    "zoi"
   ],
-  "title": "We let Kalinga India’s food lead the communication.",
-  "overview": [
-   "Kalinga needed stronger dining visibility and more walk-in interest alongside the hotel group’s existing business. We focused on the food and the people behind it, including the chefs.",
-   "We created the logo and full menu, then developed the website. We also managed social content and Google presence. Separate Meta campaigns supported the work.",
-   "The Chicken IFA promotion brought a Dubai-viral food idea into a local campaign, giving people a specific dish to discover."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Opened August 2025 as part of the shared AVN Grand engagement"
  },
  {
   "slug": "avn-grand",
   "name": "Hotel AVN Grand",
   "tag": "Hospitality",
-  "status": "Ongoing",
-  "period": "Shared engagement is ongoing",
-  "categories": [
-   "hospitality",
-   "digital",
-   "campaigns"
+  "sector": "hospitality",
+  "chapters": [
+   "results"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "",
+  "partOf": "",
+  "title": "We helped AVN Grand make its offerings easier to find.",
+  "overview": [
+   "Hotel AVN Grand already had an established local presence and business bookings. We worked on how its offerings appeared online, giving people more ways to discover the property as the hospitality market expanded.",
+   "The group engagement covered social media and shoots, editing, website work, Google profiles and advertising. We kept the hotel’s established audience in mind while creating space for its dining and café offerings.",
+   "Kalinga India and The Lobby Café formed part of the same engagement. Their communication needed to explain why someone would visit each place while keeping the relationship with the hotel clear.",
+   "Food, chef and owner storytelling helped communicate reasons to visit beyond a business hotel stay."
+  ],
+  "challenge": "An established local hotel needed its offerings, including dining and café, to be easier to find online.",
+  "approach": "Use food, chef and owner storytelling to give people reasons to visit beyond a business hotel stay.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Social media",
    "Shoots",
@@ -926,71 +1323,106 @@
    "Google profiles",
    "Advertising"
   ],
-  "challenge": "An established local hotel needed its offerings, including dining and café, to be easier to find online.",
-  "tangent": null,
-  "outcome": "Shared group engagement covering the hotel, Kalinga India and The Lobby Café",
-  "featured": null,
+  "deliverables": [
+   "Social communication",
+   "Shoots and editing",
+   "Website",
+   "Google presence",
+   "Separate Meta campaigns"
+  ],
+  "results": [],
+  "qualitative": [
+   "Visibility and walk-in improvement were reported without confirmed totals."
+  ],
+  "context": [],
+  "testimonial": null,
+  "credits": [
+   "The hotel’s original logo is not our work."
+  ],
+  "videos": [],
   "related": [
    "kalinga",
    "lobby-cafe",
    "capitol-hill"
   ],
-  "title": "We helped AVN Grand make its offerings easier to find.",
-  "overview": [
-   "Hotel AVN Grand already had an established local presence and business bookings. We worked on how its offerings appeared online, giving people more ways to discover the property as the hospitality market expanded.",
-   "The group engagement covered social media and shoots, editing, website work, Google profiles and advertising. We kept the hotel’s established audience in mind while creating space for its dining and café offerings.",
-   "Kalinga India and The Lobby Café formed part of the same engagement. Their communication needed to explain why someone would visit each place while keeping the relationship with the hotel clear."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Shared group engagement covering the hotel, Kalinga India and The Lobby Café"
  },
  {
   "slug": "lobby-cafe",
   "name": "The Lobby Café",
-  "tag": "Café Identity",
-  "status": "Ongoing",
-  "period": "",
-  "categories": [
-   "branding",
-   "hospitality"
+  "tag": "Café identity",
+  "sector": "hospitality",
+  "chapters": [
+   "results",
+   "identities",
+   "media"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "Opened in 2026",
+  "partOf": "avn-grand",
+  "title": "We gave The Lobby Café its own introduction within the hotel.",
+  "overview": [
+   "The Lobby Café opened in 2026 as part of the AVN Grand group, during our shared engagement. We created its original logo and menu so it could introduce itself with a distinct identity.",
+   "The identity and menu helped give the café a place of its own in the group’s communication, rather than leaving people to discover it as an unnamed part of the hotel."
+  ],
+  "challenge": "Give a café inside a hotel group a place of its own in the group’s communication.",
+  "approach": "Give the café its own logo and menu so it could introduce itself within the group.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Logo",
    "Menu",
    "Digital presence"
   ],
-  "challenge": "Give a café inside a hotel group a place of its own in the group’s communication.",
-  "tangent": null,
-  "outcome": "Original logo and menu created",
-  "featured": null,
+  "deliverables": [
+   "Original logo",
+   "Menu design",
+   "Website and social communication",
+   "Food-led promotion"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "kalinga",
    "avn-grand",
    "moksh"
   ],
-  "title": "We gave The Lobby Café its own introduction within the hotel.",
-  "overview": [
-   "The Lobby Café joined the AVN Grand group during our shared engagement. We created its original logo and menu so it could introduce itself with a distinct identity.",
-   "The identity and menu helped give the café a place of its own in the group’s communication, rather than leaving people to discover it as an unnamed part of the hotel."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Original logo and menu created"
  },
  {
   "slug": "bioecko",
   "name": "BioEcko",
   "tag": "Healthtech",
-  "status": "Ongoing",
-  "period": "Ongoing",
-  "categories": [
-   "branding",
-   "product",
-   "digital"
+  "sector": "technology",
+  "chapters": [
+   "identities",
+   "media"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "Application in development in the November 2026 record",
+  "dates": "",
+  "partOf": "",
+  "title": "We started BioEcko with the audience it needs to reach.",
+  "overview": [
+   "BioEcko needs to reach healthcare decision-makers, including hospitals and doctors. While the app is still in development, the brand needs a clear way to explain what it’s building to those people.",
+   "We created the logo and guidelines, then built the website. LinkedIn is the active communication focus, with articles and a Medium presence to support future discoverability. We also represented BioEcko at seminars and explained the platform to relevant audiences.",
+   "Our brand and website work remains ongoing, along with professional communication while the application develops."
+  ],
+  "challenge": "Reach healthcare decision-makers, including hospitals and doctors, while the app is still in development.",
+  "approach": "Lead with LinkedIn and longer articles for a niche professional audience while the application is still in development.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Logo and guidelines",
    "Website",
@@ -998,38 +1430,70 @@
    "Articles",
    "Seminars"
   ],
-  "challenge": "Reach healthcare decision-makers, including hospitals and doctors, while the app is still in development.",
-  "tangent": null,
-  "outcome": "Brand and website work ongoing alongside professional communication",
-  "featured": null,
+  "deliverables": [
+   "Logo and guidelines",
+   "Website",
+   "LinkedIn communication",
+   "Medium content",
+   "Limited Instagram setup",
+   "Seminar participation and platform explanation"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [
+   "The application was being built by a separate development team."
+  ],
+  "videos": [],
   "related": [
    "fluffypet",
    "ifitme",
    "sanatni"
   ],
-  "title": "We started BioEcko with the audience it needs to reach.",
-  "overview": [
-   "BioEcko needs to reach healthcare decision-makers, including hospitals and doctors. While the app is still in development, the brand needs a clear way to explain what it’s building to those people.",
-   "We created the logo and guidelines, then built the website. LinkedIn is the active communication focus, with articles and a Medium presence to support future discoverability. We also represented BioEcko at seminars and explained the platform to relevant audiences.",
-   "Our brand and website work remains ongoing, along with professional communication while the application develops."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Brand and website work ongoing alongside professional communication"
  },
  {
   "slug": "fluffypet",
   "name": "FluffyPet",
-  "tag": "Pet Services App",
-  "status": "Ongoing",
-  "period": "Ongoing · Provider onboarding is active, public launch pending",
-  "categories": [
-   "branding",
-   "product",
-   "digital",
-   "campaigns"
+  "tag": "Pet services app",
+  "sector": "technology",
+  "chapters": [
+   "identities",
+   "media"
   ],
+  "lead": false,
+  "status": "Ongoing",
+  "statusShort": "",
+  "statusText": "Provider onboarding active. Public launch pending in the November 2026 record.",
+  "dates": "Team involvement began November 2023",
+  "partOf": "",
+  "title": "Provider feedback changed what FluffyPet needed next.",
+  "overview": [
+   "FluffyPet set out to bring pet-related services and information into one place. We joined the project at its beginning in November 2023, working on the logo and guidelines, website, content and early onboarding.",
+   "We organised provider outreach across Jharkhand and Kolkata. We spoke with vets and pet shops, day boarders, walkers and NGOs.",
+   "Beta use showed that providers found the app difficult to navigate. Some asked us to create their accounts for them. That feedback gave us a reason to pause the wider launch work."
+  ],
+  "challenge": "Bring pet-related services and information into one place.",
+  "approach": "Take provider feedback back into the product: beta users found the app hard to navigate, so the wider launch was paused while the experience was revisited.",
+  "story": [
+   {
+    "h": "We took that feedback back into the product.",
+    "p": [
+     "We mapped user journeys and reviewed screens and feature changes. We also refreshed the brand guidelines and coordinated revisions with developers.",
+     "Our work covered social shoots, videos, website communication, onboarding emails, email automation, campaign material and packaging/product applications, including reflective collars. No paid ads have run yet."
+    ]
+   },
+   {
+    "h": "We helped adopters start using FluffyPet at the camp.",
+    "p": [
+     "At a pet-adoption camp with Street Dogs of Ranchi, sponsored by FluffyPet and MARS, we helped adopters create profiles and understand the app. Posters and standees carried the line “Found your +1? Make it official.”",
+     "Rather than relying on a QR code to do all the explaining, we were there to help people take the next step."
+    ]
+   }
+  ],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Logo and guidelines",
    "Website",
@@ -1038,227 +1502,318 @@
    "Email automation",
    "Packaging applications"
   ],
-  "challenge": "Bring pet-related services and information into one place.",
-  "tangent": "Take provider feedback back into the product: beta users found the app hard to navigate, so the wider launch was paused while the experience was revisited.",
-  "outcome": "Provider onboarding active; public launch pending",
-  "featured": null,
+  "deliverables": [
+   "Logo and guidelines, original and refreshed",
+   "Website",
+   "Content",
+   "Beta testing",
+   "Provider outreach and onboarding across Jharkhand and Kolkata",
+   "User-journey mapping and screen reviews",
+   "Social shoots and videos",
+   "Onboarding emails and email automations",
+   "Campaign collateral",
+   "Reflective collars and packaging applications",
+   "Adoption-camp posters, standees and on-site guidance"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [
+   "No paid ads had run in the November 2026 record.",
+   "November 2023 is when our team’s involvement began. It is not the product’s founding date."
+  ],
+  "testimonial": null,
+  "credits": [
+   "The adoption camp was held with Street Dogs of Ranchi and sponsored by FluffyPet and MARS.",
+   "Product changes were coordinated with the developers."
+  ],
+  "videos": [],
   "related": [
    "the-pi",
    "sanatni",
    "bioecko"
   ],
-  "title": "Provider feedback changed what FluffyPet needed next.",
-  "overview": [
-   "FluffyPet set out to bring pet-related services and information into one place. We joined the project at its beginning in November 2023, working on the logo and guidelines, website, content and early onboarding.",
-   "We organised provider outreach across Jharkhand and Kolkata. We spoke with vets and pet shops, day boarders, walkers and NGOs.",
-   "Beta use showed that providers found the app difficult to navigate. Some asked us to create their accounts for them. That feedback gave us a reason to pause the wider launch work."
-  ],
-  "chapters": [
-   {
-    "h": "We took that feedback back into the product.",
-    "p": [
-     "We mapped user journeys and reviewed screens and feature changes. We also refreshed the brand guidelines and coordinated revisions with developers.",
-     "Our work covered social shoots, videos, website communication, onboarding emails, email automation, campaign material and packaging/product applications, including reflective collars. No paid ads have run yet."
-    ],
-    "note": null,
-    "stats": []
-   },
-   {
-    "h": "We helped adopters start using FluffyPet at the camp.",
-    "p": [
-     "At a pet-adoption camp with Street Dogs of Ranchi, sponsored by FluffyPet and MARS, we helped adopters create profiles and understand the app. Posters and standees carried the line “Found your +1? Make it official.”",
-     "Rather than relying on a QR code to do all the explaining, we were there to help people take the next step."
-    ],
-    "note": null,
-    "stats": []
-   }
-  ],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Provider onboarding active; public launch pending"
  },
  {
   "slug": "quzones",
   "name": "QuZones",
   "tag": "Quantum & AI",
-  "status": "Status to confirm",
-  "period": "",
-  "categories": [
-   "digital",
-   "product"
+  "sector": "technology",
+  "chapters": [
+   "media"
   ],
-  "services": [
-   "Website",
-   "Social presence",
-   "Use-case communication",
-   "Presentation material"
-  ],
-  "challenge": "Quantum and AI communication can become technical before the audience understands why it matters to them.",
-  "tangent": "Begin with the business problems the technology could help explore: routing, scheduling, logistics and optimisation.",
-  "outcome": "Website, social presence and use-case communication created",
-  "featured": null,
-  "related": [
-   "dimechain",
-   "unfaked",
-   "ifitme"
-  ],
+  "lead": false,
+  "status": "Not recorded",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "",
+  "partOf": "",
   "title": "We explained QuZones through the business problem.",
   "overview": [
    "Quantum and AI communication can become technical before the audience understands why it matters to them. For QuZones, we began with the kinds of problems the technology could help explore.",
    "We created the website and social presence. Product and use-case communication covered routing and scheduling, alongside logistics and optimisation.",
    "Our job was to organise the ideas so a business audience had a useful starting point."
   ],
-  "chapters": [],
-  "metrics": [],
+  "challenge": "Quantum and AI communication can become technical before the audience understands why it matters to them.",
+  "approach": "Begin with the business problems the technology could help explore: routing, scheduling, logistics and optimisation.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
+  "services": [
+   "Website",
+   "Social presence",
+   "Use-case communication",
+   "Presentation material"
+  ],
+  "deliverables": [
+   "Website",
+   "Social presence",
+   "Product and use-case communication",
+   "Presentation and outreach material"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [
+   "The logo and the engineering are not our work."
+  ],
   "videos": [],
-  "notes": []
+  "related": [
+   "dimechain",
+   "unfaked",
+   "ifitme"
+  ],
+  "outcome": "Website, social presence and use-case communication created"
  },
  {
   "slug": "ifitme",
   "name": "i-Fit.Me",
-  "tag": "Healthcare & Wellness",
-  "status": "Status to confirm",
-  "period": "",
-  "categories": [
-   "digital",
-   "product"
+  "tag": "Healthcare & wellness",
+  "sector": "technology",
+  "chapters": [
+   "media"
   ],
+  "lead": false,
+  "status": "Not recorded",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "",
+  "partOf": "",
+  "title": "We helped people find their way into i-Fit.Me.",
+  "overview": [
+   "i-Fit.Me, a product associated with Dubai, brought healthcare and wellness into a broad product conversation. We created the website and social presence, supported by positioning, research and feature explanations.",
+   "Discussions explored appointments and doctor access, records and remote consultations through user needs. We wanted someone to understand where the product could fit into their life without having to learn the whole system in their first encounter."
+  ],
+  "challenge": "Make a broad healthcare and wellness proposition understandable to the different audiences it needed to reach.",
+  "approach": "Explain where the product could fit into someone’s life without asking them to learn the whole system at first contact.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
   "services": [
    "Website",
    "Social presence",
    "Positioning and research",
    "Feature explanations"
   ],
-  "challenge": "Make a broad healthcare and wellness proposition understandable to the different audiences it needed to reach.",
-  "tangent": "Explain where the product could fit into someone’s life without asking them to learn the whole system at first contact.",
-  "outcome": "Website and social presence created",
-  "featured": null,
+  "deliverables": [
+   "Website",
+   "Social presence",
+   "Research",
+   "Product communication",
+   "Feature explanation"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "bioecko",
    "unfaked",
    "quzones"
   ],
-  "title": "We helped people find their way into i-Fit.Me.",
-  "overview": [
-   "i-Fit.Me brought healthcare and wellness into a broad product conversation. We created the website and social presence, supported by positioning, research and feature explanations.",
-   "Discussions explored appointments and doctor access, records and remote consultations through user needs. We wanted someone to understand where the product could fit into their life without having to learn the whole system in their first encounter."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Website and social presence created"
  },
  {
   "slug": "unfaked",
   "name": "Unfaked",
-  "tag": "Deepfake Detection",
-  "status": "Status to confirm",
-  "period": "",
-  "categories": [
-   "digital",
-   "product"
+  "tag": "Deepfake detection",
+  "sector": "technology",
+  "chapters": [
+   "media"
   ],
-  "services": [
-   "Website",
-   "Social presence",
-   "Use-case communication"
-  ],
-  "challenge": "Explain the purpose of authenticity and deepfake detection before asking people to pay attention to the product.",
-  "tangent": null,
-  "outcome": "Website and social presence created",
-  "featured": null,
-  "related": [
-   "quzones",
-   "ifitme",
-   "dimechain"
-  ],
+  "lead": false,
+  "status": "Not recorded",
+  "statusShort": "",
+  "statusText": "",
+  "dates": "",
+  "partOf": "",
   "title": "We gave Unfaked a clearer way to explain its purpose.",
   "overview": [
    "Unfaked deals with authenticity and deepfake detection. The communication needed to explain that purpose before asking people to pay attention to the product.",
    "We created its website and social presence, supporting the introduction and use-case communication, giving people a starting point for understanding what the product was about and why they might want to learn more."
   ],
-  "chapters": [],
-  "metrics": [],
+  "challenge": "Explain the purpose of authenticity and deepfake detection before asking people to pay attention to the product.",
+  "approach": "Explain the purpose before asking people to pay attention to the product.",
+  "story": [],
+  "partsTitle": "",
+  "parts": [],
+  "services": [
+   "Website",
+   "Social presence",
+   "Use-case communication"
+  ],
+  "deliverables": [
+   "Website",
+   "Social presence",
+   "Introductory and use-case communication"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [
+   "The detection technology is not our work."
+  ],
   "videos": [],
-  "notes": []
+  "related": [
+   "quzones",
+   "ifitme",
+   "dimechain"
+  ],
+  "outcome": "Website and social presence created"
  },
  {
   "slug": "shafaf",
   "name": "Shafaf",
-  "tag": "Brand & Packaging",
+  "tag": "Brand & packaging",
+  "sector": "consumer",
+  "chapters": [
+   "identities",
+   "media"
+  ],
+  "lead": false,
   "status": "Ongoing",
-  "period": "Identity and packaging development ongoing ahead of launch",
-  "categories": [
-   "branding"
-  ],
-  "services": [
-   "Logo and guidelines",
-   "Packaging",
-   "Brand direction"
-  ],
-  "challenge": "A broom business with roots going back to 1960 was preparing a new brand for a different market, including an online future.",
-  "tangent": "Explore the name’s cleaning association and details from the product itself, with broom-inspired lettering.",
-  "outcome": "Identity and packaging developed; online launch ahead",
-  "featured": null,
-  "related": [
-   "moksh",
-   "lobby-cafe",
-   "kalinga"
-  ],
+  "statusShort": "",
+  "statusText": "Identity and packaging developed. Online launch and marketing were still ahead.",
+  "dates": "",
+  "partOf": "",
   "title": "We gave a familiar product a new brand introduction.",
   "overview": [
    "The client’s broom business has roots going back to 1960. Shafaf is a new brand preparing for a different market presence, including an online future.",
    "We developed the logo and guidelines, alongside packaging and brand direction. Two creative routes considered tier-one and tier-two city customers, with quick commerce forming the other route to market.",
    "The design explored the name’s cleaning association and details from the product itself. Broom-inspired lettering and range applications helped us work towards an identity people could recognise in a familiar category."
   ],
-  "chapters": [
+  "challenge": "A broom business with roots going back to 1960 was preparing a new brand for a different market, including an online future.",
+  "approach": "Explore the name’s cleaning association and details from the product itself, with broom-inspired lettering.",
+  "story": [
    {
     "h": "We worked through how Shafaf would appear on the pack.",
     "p": [
      "Packaging and brand-application work considered phool and kaanti brooms. Colour directions used blue and red, along with yellow and green from the identity explorations."
-    ],
-    "note": "Online launch and marketing remain ahead, with final production colours and printed rollout following approved artwork rather than every route we explored.",
-    "stats": []
+    ]
    }
   ],
-  "metrics": [],
+  "partsTitle": "",
+  "parts": [],
+  "services": [
+   "Logo and guidelines",
+   "Packaging",
+   "Brand direction"
+  ],
+  "deliverables": [
+   "Logo",
+   "Guidelines",
+   "Packaging for phool and kaanti brooms",
+   "Brand direction"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [
+   "Shafaf is a new brand. The underlying broom business was established in 1960.",
+   "Colour directions explored blue and red, along with yellow and green. Final production colours and the printed rollout follow approved artwork, not every route we explored."
+  ],
+  "testimonial": null,
+  "credits": [],
   "videos": [],
-  "notes": []
+  "related": [
+   "moksh",
+   "lobby-cafe",
+   "kalinga"
+  ],
+  "outcome": "Identity and packaging developed; online launch ahead"
  },
  {
   "slug": "moksh",
   "name": "Moksh, Dhanbad",
-  "tag": "Four Identities",
-  "status": "Delivered",
-  "period": "The Dhanbad property is upcoming",
-  "categories": [
-   "branding",
-   "hospitality"
+  "tag": "Four identities",
+  "sector": "property",
+  "chapters": [
+   "identities"
+  ],
+  "lead": false,
+  "status": "Pending",
+  "statusShort": "Property upcoming",
+  "statusText": "Identities developed. The property is upcoming, and websites and launch marketing remained future work.",
+  "dates": "",
+  "partOf": "",
+  "title": "We developed four identities for one Dhanbad property.",
+  "overview": [
+   "One upcoming property in Dhanbad needed four identities. We created original logos and guidelines for the parent property and for each of the three venues inside it."
+  ],
+  "challenge": "One upcoming Dhanbad property needed four distinct identities: the building, a pool-table café, a rooftop venue and a hair salon.",
+  "approach": "Give each venue its own identity under one parent property.",
+  "story": [],
+  "partsTitle": "The four identities",
+  "parts": [
+   {
+    "id": "moksh-parent",
+    "name": "Moksh",
+    "kind": "Parent property",
+    "text": "Moksh is the parent property in Dhanbad. We created its logo and brand guidelines as the foundation for the upcoming destination."
+   },
+   {
+    "id": "sora",
+    "name": "Sora",
+    "kind": "Pool-table café",
+    "text": "Sora is the property’s pool-table café. We created its logo and guidelines, keeping its purpose distinct from the rooftop venue."
+   },
+   {
+    "id": "solace",
+    "name": "Solace",
+    "kind": "Rooftop venue",
+    "text": "Solace is the rooftop venue. Its logo and guidelines establish its own identity within the property ahead of launch."
+   },
+   {
+    "id": "sparrow",
+    "name": "Sparrow",
+    "kind": "Hair salon",
+    "text": "Sparrow is the hair salon. We created its logo and guidelines, then carried the identity into its service menu."
+   }
   ],
   "services": [
    "Four logos",
    "Brand guidelines",
    "Service menu"
   ],
-  "challenge": "One upcoming Dhanbad property needed four distinct identities: the building, a pool-table café, a rooftop venue and a hair salon.",
-  "tangent": null,
-  "outcome": "Logos and guidelines developed, with Sparrow’s service menu; the property is upcoming",
-  "featured": null,
+  "deliverables": [
+   "Four original logos",
+   "Brand guidelines for each",
+   "Sparrow service menu"
+  ],
+  "results": [],
+  "qualitative": [],
+  "context": [],
+  "testimonial": null,
+  "credits": [],
+  "videos": [],
   "related": [
    "shafaf",
    "lobby-cafe",
    "black"
   ],
-  "title": "We developed four identities for one Dhanbad property.",
-  "overview": [
-   "Moksh is the parent building/property in Dhanbad. We created its logo and brand guidelines as the foundation for the upcoming destination.",
-   "Sora is the property’s pool-table café. We created its logo and guidelines, keeping its purpose distinct from the rooftop venue.",
-   "Solace is the rooftop venue. Its logo and guidelines establish its own identity within the property ahead of launch.",
-   "Sparrow is the hair salon. We created its logo and guidelines, then carried the identity into its service menu."
-  ],
-  "chapters": [],
-  "metrics": [],
-  "videos": [],
-  "notes": []
+  "outcome": "Four logos and guidelines developed, with Sparrow’s service menu"
  }
 ]

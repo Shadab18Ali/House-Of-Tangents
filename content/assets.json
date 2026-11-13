@@ -1,0 +1,35 @@
+{
+ "_readme": "Editable asset manifest. To add an asset, put the file under /assets, then set src (site path), w and h (pixels) and alt. Pages pick it up on the next `node scripts/build.mjs`. While src is empty the page uses a typographic layout, never a placeholder.",
+ "homepageBanner": {"src": "", "w": 0, "h": 0, "alt": "", "note": "Supplied by the client. First major image on the homepage. Not yet received."},
+ "wasseypurArtwork": {"src": "", "w": 0, "h": 0, "alt": "", "note": "Supplied by the client. Used on the homepage and Tangent Media. Not yet received. Until then the supplied film dialogue is set in type."},
+ "teamGroup": {"src": "", "w": 0, "h": 0, "alt": "", "note": "Optional group or behind-the-scenes photo for the About page. Not yet received."},
+ "teamPortraits": {
+  "farha-fatima": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "tanushree": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "ashish-sahu": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "rahul-kumar": {"src": "", "w": 0, "h": 0, "alt": ""}
+ },
+ "logos": {
+  "majestic-india": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "kalinga": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "lobby-cafe": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "aura": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "sanatni": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "the-pi": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "fluffypet": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "bioecko": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "dimechain": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "shafaf": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "moksh": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "sora": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "solace": {"src": "", "w": 0, "h": 0, "alt": ""},
+  "sparrow": {"src": "", "w": 0, "h": 0, "alt": ""}
+ },
+ "notYetSupplied": [
+  "Film posters or video files for: Santhal Strikers, Sundowner at ZOI, Zoha Jewellery, Dense and the Majestic India coronation (these play from Drive after a click, with no poster image)",
+  "Website screenshots for every website project",
+  "Campaign creatives and print or merchandise images for projects other than Majestic India and Navdurga",
+  "Approved logos and guidelines for every identity project",
+  "Social-preview image (the current one is typographic)"
+ ]
+}

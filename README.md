@@ -1,18 +1,15 @@
 # House of Tangents website
 
-Static site generated from structured content. Deploys on Vercel (preset "Other", no build command).
+Static site generated from structured content. No framework and no build step on the host.
 
 ```bash
-node scripts/build.mjs        # regenerate all pages from content/
-node --test tests/*.test.mjs  # tests (need Playwright available)
+node scripts/build.mjs          # regenerate every page from content/
+node --test tests/*.test.mjs    # 52 checks (needs Playwright available)
 ```
 
-Routes: `/`, `/work`, `/work/<slug>`, `/services`, `/about`, `/tangent-media`, `/contact`, `/credits`.
-Edit `content/projects.json` and `content/site.mjs`, then rebuild and commit the generated HTML.
-
-Media: see `docs/asset-manifest.md` and `scripts/make-media.md`.
-
-Contact form: set `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO` in Vercel. See `docs/` for the plan, asset manifest and open questions.
+Edit `content/`, rebuild, and commit the generated HTML. See `docs/handoff.md` for pages, missing assets and integrations, and `docs/asset-manifest.md` for the media already in use.
 
 ## Deploying
-Vercel only builds a commit if its author email matches a GitHub account. Author commits with the GitHub account email or the account's noreply address (`ID+username@users.noreply.github.com`); otherwise the deployment is marked "Blocked".
+Vercel deploys the `claude/kind-davinci-a1gvgz` branch to production, so a push to it goes live. Vercel only builds a commit whose author email matches a GitHub account (use the account email or its noreply address); otherwise the deployment is marked "Blocked".
+
+Contact form: set `RESEND_API_KEY`, `CONTACT_FROM` and `CONTACT_TO` in Vercel.
